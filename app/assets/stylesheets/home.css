@@ -1,0 +1,81 @@
+body{
+
+}
+
+.container{
+	margin:40px;
+	margin-top:0;
+}
+#title{
+	font-size: 30px;
+}
+#comments{
+	margin-top:20px;
+}
+#comment{
+	width:500px;
+	height: 50px;
+}
+
+#cmtbtn{
+	margin: 10px;
+	height:20px;
+	width: 100px;
+}
+#video1{
+	position:relative;
+}
+#areyousold{
+	position:absolute;
+	top:100px;
+	left:710px;
+	font-size: 60px;
+	width: 290px;
+	text-align:center
+}
+#confirm{
+	position:absolute;
+	top:200px;
+	left:710px;
+	font-size: 30px;
+	width: 290px;
+	text-align:center
+}
+
+#solddisplay{
+	position:absolute;
+	top:155px;
+	left:710px;
+	font-size: 60px;
+	width: 290px;
+	text-align:center;
+	/*color: green;*/
+}
+
+#notsolddisplay{
+	position:absolute;
+	top:145px;
+	left:710px;
+	font-size: 60px;
+	width: 290px;
+	text-align:center;
+	/*color: red;*/
+}
+
+#sold{
+	/*color: green;*/
+	width: 100px;
+	height: 40px;
+	font-size: 30px
+
+}
+#notsold{
+	/*color:red;*/
+	width: 100px;
+	height: 40px;
+	font-size: 30px;
+}
+
+.hidden {
+  display:none;
+}
