@@ -1,57 +1,72 @@
+  <%= stylesheet_link_tag "colorbox" %>
+  <%= stylesheet_link_tag "up_style" %>
+  
+<div class='container'>
+	<div id='video_area'>
+		<h1 id='video_head'>Video Title Here</h1><p id='vid_auth'>by UserXX</p>
+		<br/>
+		<video id='video' src="Erica Sobol and Ryan Spencer - Landfill Daughter.mp4"></video>
 
-<div class="videoarea">
-	<h1 id="title">WEWEEE </h1>
-	<p id="author">by User X</p> 
+		<div id='result_area'>
 
-	<video id = "video" controls>
-	  <source src="Erica Sobol and Ryan Spencer - Landfill Daughter.mp4" type="video/mp4">
-	</video>
+			<div class='change_cmts' id='n2y_cmt'>
+				<h2 class='cmt_hd' id='n2y_c_head'><b id='num_n2y_c'></b> changed to SOLD</h2>
+				<img class='bck_arw' id='bck_yes_arw' src='/assets/arrow.png'><p class='back' id='bck_yes'>BACK</p>
+				<div class='cmtbx' id='n2y_cmtbx'>
+				</div>
+			</div>
 
+			<div class="r_cnt" id='yes_container'>
+				<div class="res_circle" id='yes_c'></div>
+				<div class="res_circle" id='n2y_c'></div>
 
-	<div id="areyousold">
-		Are You Sold?<br>
-		<button type="button" class = "button2"  id="sold">YES</button>
-		<button type="button" class = "button2"  id="notsold">NO</button>
+				<div class="res" id="yes">
+					<p class='r_txt'><b id='num_sold'></b> were sold</p>
+					<p class= 'r_txt' id='y_c'><b id='num_n2y'></b> changed their mind  <img class='arw' id='y_a' src='/assets/arrow.png'></p> 
+				</div>
+			</div>
+
+			<div class='change_cmts' id='y2n_cmt'>
+				<h2 class='cmt_hd' id='y2n_c_head'><b id='num_y2n_c'></b> changed to NOT SOLD </h2> 
+				<img class='bck_arw' id='bck_no_arw' src='/assets/arrow.png'><p class='back' id='bck_no'>BACK</p>
+				<div class='cmtbx' id='y2n_cmtbx'>
+
+				</div>
+			</div>
+
+			<div class="r_cnt" id="no_container">
+				<div class="res_circle" id='no_c'></div>
+				<div class="res_circle" id='y2n_c'></div>
+
+				<div class="res" id="no">
+					<p class='r_txt'><b id='num_not_sold'></b> were not sold</p>
+					<p class='r_txt' id='n_c'><b id='num_y2n'></b> changed their mind  <img class='arw' id='n_a' src='/assets/arrow.png'></p> 
+				</div>
+			</div>
+		</div>
+
 	</div>
 
-	<div id="solddisplay" class ="hidden">
-		YOU ARE SOLD!<br>
-		<button type = "button" class = "button2"  id="changebtn">Change?</button>
+	<div id='comment_area'>
+		<div id='videoline_container'>
+			<div id='vidline_playback_container'>
+					<div id="video-controls">
+						<p id='current_time'>0:00</p><p id='duration'></p>
+					    <input type="image" id="play-pause" src='/assets/play.png'></button>
+					    <input type="range" id="seek-bar" value="0">
+					    <input type="image" id="mute" src='/assets/audio.png'></button>
+					    <input type="range" id="volume-bar" min="0" max="1" step="0.1" value="1">
+					    <input type="image" id="full-screen" src='/assets/full.png'></button>
+					</div>
+					<div id='comment_bubbles'></div>
+				</div>
+			</div>
+		</div>
+
+		<div id='pointer_container'><img id='pointer' src='/assets/pointer.png'></div>
+		<div id='comment_container'>
+			<h1 id='comments_head'>Video Comments @ <b id='start_time'>0:00</b> - <b id='end_time'>0:10</b></h1>
+			<div id='ind_comment_container'></div>
+		</div>
 	</div>
-
-	<div id = "notsolddisplay" class="hidden">
-		YOU ARE NOT SOLD!<br>
-		<button type = "button" class = "button2"  id="changebtn2">Change?</button>
-	</div>
-
-	<div id="confirmfromsold" class ="hidden">
-		Why do you want to change?<br>
-		<input type="text" id="changevote1" style="font-size:15px"><br>
-		<button type="button" class = "button2"  id="yeschange">CHANGE</button></br><button type="button" class = "button2" id="nochange">CANCEL</button>
-	</div>
-
-	<div id="confirmfromnotsold" class ="hidden">
-		Why do you want to change?<br>
-		<input type="text" id="changevote2" style="font-size:15px">
-		<button type="button" class = "button2"  id="yeschange2">CHANGE</button><br><button type="button" class = "button2" id="nochange2">CANCEL</button>
-	</div>
-
-<div id="comment_input">
-	<input type="text" id="comment" style="font-size:15px">
-	<input type = "submit" id="cmtbtn" class="button2" value = "Comment">
-
-</div>
-
-</div>
-
-<div id="videoline"></div>
-
-<div id = "hidecomments"><h6> hide comments</h6></div>
-<div id = "showcomments" class="hidden"><h6> show comments</h6></div>
-
-<div id="comments">
-
-	<h1 id="comment_header">Comments</h1>
-	<div id="comment_list">
-    </div>
 </div>
