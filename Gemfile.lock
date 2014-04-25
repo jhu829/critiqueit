@@ -63,15 +63,12 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
-
-    paperclip (3.5.4)
-
     orm_adapter (0.5.0)
-
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paperclip (3.5.4)
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
