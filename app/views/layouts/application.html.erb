@@ -5,6 +5,9 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag "navbar" %>
+  <%= stylesheet_link_tag "browse" %>
+  <%= stylesheet_link_tag "login" %>
+  
   <%= csrf_meta_tags %>
 </head>
 <div id='nav_bar'>
@@ -20,8 +23,9 @@
 			</a>
 
 			<% if user_signed_in? %>
-          		<a href='uploader.html' class='nav_ctrl' id='n_log'><%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete') %></a>
+          		<%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete', :class => "nav_ctrl", :id => "n_log") %>
           	<% else %>
+
          	<a href='login.html' class='nav_ctrl' id='n_log'>LOGIN</a>
 
 	         <% end %>
@@ -31,8 +35,12 @@
 <body>
 
 <%= yield %>
-<div id='footer'>
+
+
+</body>
+<footer>
+	<div id='footer'>
 			MIT 6.813 Course Project | Andre Mroz, Jennifer Hu, Kristin Au, Victoria Li
 </div>
-</body>
+</footer>
 </html>

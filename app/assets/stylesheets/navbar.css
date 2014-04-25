@@ -118,6 +118,7 @@
 	font-family: 'Open Sans Condensed'; 
 	font-weight: 300;
 	font-size: 18px;
-	text-align: center;
-	margin: 50px 0 20px 0;
+	position: fixed;
+	width: 100%;
+	bottom: 0;
 }

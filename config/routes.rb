@@ -1,4 +1,6 @@
 Critiqueit::Application.routes.draw do
+  resources :comments
+
   get "profile/new"
   get "profile/create"
   get "profile/index"
