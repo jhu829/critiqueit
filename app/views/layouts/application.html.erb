@@ -4,11 +4,35 @@
   <title>Critiqueit</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "navbar" %>
   <%= csrf_meta_tags %>
 </head>
+<div id='nav_bar'>
+			<a href='home.html' class='nav_ctrl' id='n_home'>
+				YOUR VIDEOS
+			</a>
+
+			<a href='browse.html' class='nav_ctrl' id='n_browse' style="opacity: .5;">
+				BROWSE
+			</a>
+			<a href='home.html' class='nav_ctrl' id='n_logo'>
+				CRITIQUE.IT
+			</a>
+
+			<% if user_signed_in? %>
+          		<a href='uploader.html' class='nav_ctrl' id='n_log'><%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete') %></a>
+          	<% else %>
+         	<a href='login.html' class='nav_ctrl' id='n_log'>LOGIN</a>
+
+	         <% end %>
+			
+</div>
+
 <body>
 
 <%= yield %>
-
+<div id='footer'>
+			MIT 6.813 Course Project | Andre Mroz, Jennifer Hu, Kristin Au, Victoria Li
+</div>
 </body>
 </html>
