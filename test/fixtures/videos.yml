@@ -2,8 +2,10 @@
 
 one:
   title: MyString
-  processing: false
+  sold: 1
+  notsold: 1
 
 two:
   title: MyString
-  processing: false
+  sold: 1
+  notsold: 1
