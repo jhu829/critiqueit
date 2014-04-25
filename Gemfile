@@ -33,7 +33,7 @@ group :doc do
 end
 
 
-gem "paperclip", "~> 4.1"
+gem "paperclip", "~> 3.5.0"
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

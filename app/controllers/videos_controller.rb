@@ -14,6 +14,7 @@ class VideosController < ApplicationController
 	        puts "saved"
 	      else
 	      	puts "notsaved"
+	      	puts @video.video_file_name
 	        format.html { render action: 'new' }
 	        format.json { render json: @video.errors, status: :unprocessable_entity }
 	      end
