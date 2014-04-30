@@ -70,7 +70,7 @@
 			<h1 id='comments_head'>Video Comments @ <b id='start_time'>0:00</b> - <b id='end_time'>0:10</b></h1>
 			<div id='ind_comment_container'>
 				<% @video.comments.each do |comment| %>
-				<%=comment.name%>
+				<%=comment.time_stamp%>
 				<%=comment.comment_text%>
 				<%end%>
 
@@ -142,7 +142,7 @@
 		<ul>
 			<%@video.comments.each do |comment|%>
 			<li>
-			<%= comment.name %>
+			<%= comment.time_stamp %>
 			<%= comment.comment_text%>
 			</li>
 			<%end%>

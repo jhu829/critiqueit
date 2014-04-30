@@ -1,8 +1,6 @@
 Critiqueit::Application.routes.draw do
 
-  get "profile/new"
-  get "profile/create"
-  get "profile/index"
+
   resources :profiles
 
   devise_for :users do

@@ -9,8 +9,7 @@ class ProfilesController < ApplicationController
   def index
 
     @videos = Video.where(user: current_user)
-    
-
+    @video = Video.new
   end
 
   # GET /profiles/new

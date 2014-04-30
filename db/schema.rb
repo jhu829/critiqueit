@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140425050422) do
+ActiveRecord::Schema.define(version: 20140430164607) do
 
   create_table "comments", force: true do |t|
-    t.string   "name"
     t.text     "comment_text"
     t.integer  "user_id"
     t.integer  "video_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "time_stamp"
   end
 
   create_table "profiles", force: true do |t|
@@ -53,13 +53,13 @@ ActiveRecord::Schema.define(version: 20140425050422) do
     t.string   "title"
     t.integer  "sold"
     t.integer  "notsold"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "video_file_name"
     t.string   "video_content_type"
     t.integer  "video_file_size"
     t.datetime "video_updated_at"
+    t.integer  "user_id"
   end
 
 end
