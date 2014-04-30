@@ -30,11 +30,13 @@ class VideosController < ApplicationController
 	end
 
 	def index
+		@videos = Video.where.not(user: current_user)
 
 	end
 
 	def show
-		@video = Video.where(user: current_user).find(params[:id])
+		@video = Video.find(params[:id])
+		@comment = Comment.new
 	end
 
 
