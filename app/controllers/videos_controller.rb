@@ -1,7 +1,14 @@
 class VideosController < ApplicationController
+	def index
+		@user = current_user.id
+		@videos = Video.all
+		p @user
+		p "hi"
+	end
 
 	def new
 		@video = Video.new
+
 	end
 
 	def create
