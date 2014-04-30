@@ -138,6 +138,17 @@
 
 	<h1 id="comment_header">Comments</h1>
 	<div id="comment_list">
+		<%if @video.comments.count!=0%>
+		<ul>
+			<%@video.comments.each do |comment|%>
+			<li>
+			<%= comment.name %>
+			<%= comment.comment_text%>
+			</li>
+			<%end%>
+		</ul>
+
+		<%end%>
     </div>
 </div>
 <%end%>
