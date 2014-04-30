@@ -7,8 +7,8 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @videos = Video.find(:all, current_user.id)
-    
+    # @videos = Video.find(:all, current_user.id)
+    @videos = Video.where(user_id: current_user.id)
   end
 
   # GET /profiles/new

@@ -1,5 +1,42 @@
-<%if @video.user_id == current_user.id%>
-<% render 'show_uploader'%>
-<%else%>
-<%render 'show_reviewer'%>
-<%end%>
+<div class="listing">
+	<div class="searchpanel">
+		<input class="search"  type="text"></input>
+		<button class="button2"> SEARCH</button>
+	</div>
+	<div class = "title">
+		FEATURED
+	</div>
+	<div class="videopanel">
+		<div class="videorow">
+			<% @videos.each do |video| %>
+				<div class= "videogroup">
+					<% link_to 'video',  videos_path %>
+
+					<a href="uploader.html"><img class="video" id="1" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="/assets/stock.png"></a>
+					<div class="overlay" id="videotext1">
+						<p style="text-align:center">
+							</br>
+							<table class="table">
+								<tr class="videotexttitle">
+									<td colspan="2" ><%= video.title %></td>
+								</tr>
+								
+								<tr >
+									<td class="videotext">SOLD</td>
+									<td class="videotext">NOT SOLD</td>
+								</tr>
+								<tr >
+									<td class="videotextnum"> <%= video.sold %> </td>
+									<td class="videotextnum"> <%= video.notsold %> </td>
+								</tr>
+								<tr >
+									<td class="videotextuser">by <%= User.where(:id => video.user_id).name %></td>
+								</tr>
+							</table>
+						</p>
+					</div>
+				</div>
+			<% end %>
+			
+		</div>
+	</div>
