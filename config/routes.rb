@@ -9,6 +9,7 @@ Critiqueit::Application.routes.draw do
   devise_for :users do
     get '/login' => 'devise/sessions#new'
     get '/users/login' => 'devise/sessions#new'
+    get '/users/home' => 'profiles#index'
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -19,7 +20,7 @@ Critiqueit::Application.routes.draw do
 
   resources :videos
   get '/browse' => 'videos#index'
-  get '/home' => 'videos#index'
+  get '/home' => 'profiles#index'
 
   get '/uploader' => 'videos#show'
   get '/reviewer' => 'videos#show'
