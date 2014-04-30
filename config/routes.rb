@@ -19,10 +19,10 @@ Critiqueit::Application.routes.draw do
 
   resources :videos
   get '/browse' => 'videos#index'
-  get '/home' => 'profiles#index'
+  get '/home' => 'videos#index'
 
   get '/uploader' => 'videos#show'
-  get '/reviewer' => 'videos#show_reviewer'
+  get '/reviewer' => 'videos#show'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
