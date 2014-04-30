@@ -1,5 +1,65 @@
-<%if @video.user_id == current_user.id%>
-<% render 'show_uploader'%>
-<%else%>
-<%render 'show_reviewer'%>
-<%end%>
+<br><br><br><br><br><br>
+
+<%= stylesheet_link_tag "reviewer" %>
+
+<div class="videoarea">
+	<h1 id="title">Video </h1>
+	<p id="author">by User X</p> 
+
+	<video id = "video" controls>
+	  <source src="Erica Sobol and Ryan Spencer - Landfill Daughter.mp4" type="video/mp4">
+	</video>
+
+
+	<div id="areyousold">
+		Are You Sold?<br>
+		<button type="button" class = "button2"  id="sold">YES</button>
+		<button type="button" class = "button2"  id="notsold">NO</button>
+	</div>
+
+	<div id="solddisplay" class ="hidden">
+		YOU ARE SOLD!<br>
+		<button type = "button" class = "button2"  id="changebtn">Change?</button>
+	</div>
+
+	<div id = "notsolddisplay" class="hidden">
+		YOU ARE NOT SOLD!<br>
+		<button type = "button" class = "button2"  id="changebtn2">Change?</button>
+	</div>
+
+	<div id="confirmfromsold" class ="hidden">
+		Why do you want to change?<br>
+		<input type="text" id="changevote1" style="font-size:15px"><br>
+		<button type="button" class = "button2"  id="yeschange">CHANGE</button></br><button type="button" class = "button2" id="nochange">CANCEL</button>
+	</div>
+
+	<div id="confirmfromnotsold" class ="hidden">
+		Why do you want to change?<br>
+		<input type="text" id="changevote2" style="font-size:15px">
+		<button type="button" class = "button2"  id="yeschange2">CHANGE</button><br><button type="button" class = "button2" id="nochange2">CANCEL</button>
+	</div>
+
+<div id="comment_input">
+	<%= form_for @comment, :url => video_comments_path(@video) do |f| %>
+      <% render :partial => "comments/form" %>
+      <%end%>
+
+	<!-- <input type="text" id="comment" style="font-size:15px">
+	<input type = "submit" id="cmtbtn" class="button2" value = "Comment"> -->
+
+</div>
+
+</div>
+
+<div id="videoline"></div>
+
+<div id = "hidecomments"><h6> hide comments</h6></div>
+<div id = "showcomments" class="hidden"><h6> show comments</h6></div>
+
+<div id="comments">
+
+	<h1 id="comment_header">Comments</h1>
+	<div id="comment_list">
+    </div>
+</div>
+
