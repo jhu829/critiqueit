@@ -21,9 +21,16 @@
 				YOUR VIDEOS
 			</a>
 
-			<a href='browse.html' class='nav_ctrl' id='n_browse' style="opacity: .5;">
-				BROWSE
-			</a>
+      <% if user_signed_in? %>
+        <a href='browse.html' class='nav_ctrl' id='n_browse' style="opacity: 1;">
+        BROWSE
+        </a>
+      <% else %>
+        <a href='home.html' class='nav_ctrl' id='n_browse' style="opacity: .5;">
+        BROWSE
+        </a>
+      <% end %>
+			
 			<a href='home.html' class='nav_ctrl' id='n_logo'>
 				CRITIQUE.IT
 			</a>
