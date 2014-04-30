@@ -1,5 +1,4 @@
 Critiqueit::Application.routes.draw do
-  resources :comments
 
   get "profile/new"
   get "profile/create"
@@ -17,7 +16,10 @@ Critiqueit::Application.routes.draw do
   get 'static_pages/home'
   root  'static_pages#home'
 
-  resources :videos
+  resources :videos do
+    resources :comments
+  end
+
   get '/browse' => 'videos#index'
   get '/home' => 'videos#index'
 
