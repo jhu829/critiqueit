@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Video.create(:title => 'My Pitch 1', :user_id => 1, :sold => 42, :notsold => 19)
+Video.create(:title => 'My Pitch 2', :user_id => 1, :sold => 105, :notsold => 189)
+Video.create(:title => 'My Pitch 3', :user_id => 1, :sold => 79, :notsold => 102)
+Video.create(:title => 'The Best App Ever', :user_id => 2, :sold => 333, :notsold => 13)
+Video.create(:title => 'Another Web App', :user_id => 2, :sold => 67, :notsold => 98)
