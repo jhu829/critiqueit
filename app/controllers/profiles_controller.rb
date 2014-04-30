@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, :load, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, :load, only: [:edit, :update, :destroy]
   before_filter :authenticate_user!
   def load
     @user = current_user
@@ -7,13 +7,16 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @videos = Video.find(:all, current_user.id)
+    @videos = Video.where(user: current_user)
     
   end
 
   # GET /profiles/new
   def new
     @profile = Profile.new
+  end
+
+  def show
   end
 
   # GET /profiles/1/edit

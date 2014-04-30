@@ -22,8 +22,12 @@ class VideosController < ApplicationController
 	    end
 	end
 
+	def index
+
+	end
+
 	def show
-		@comment = Comment.new
+		@video = Video.where(user: current_user).find(params[:id])
 	end
 
 
