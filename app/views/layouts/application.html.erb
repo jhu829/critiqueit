@@ -22,13 +22,15 @@
 			</a>
 
       <% if user_signed_in? %>
-        <a href='browse.html' class='nav_ctrl' id='n_browse' style="opacity: 1;">
-        BROWSE
+      <%=link_to "BROWSE" , videos_path,:class=>'nav_ctrl', :id=>'n_browse', :style=>"opacity: 1; z-order: 10;"%>
+       <!--  <a href='browse.html' class='nav_ctrl' id='n_browse' style="opacity: 1;"> -->
+<!--         BROWSE -->
         </a>
       <% else %>
-        <a href='home.html' class='nav_ctrl' id='n_browse' style="opacity: .5;">
+       <!--  <a href='home.html' class='nav_ctrl' id='n_browse' style="opacity: .5;">
         BROWSE
-        </a>
+        </a> -->
+        <%=link_to "YOUR VIDEOS" , profiles_path,:class=>'nav_ctrl', :id=>'n_browse', :style=>"opacity: 1; z-order: 10;"%>
       <% end %>
 			
 			<a href='home.html' class='nav_ctrl' id='n_logo'>

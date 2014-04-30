@@ -1,5 +1,6 @@
 Critiqueit::Application.routes.draw do
 
+  get 'profile/index'
 
   resources :profiles
 
@@ -16,6 +17,8 @@ Critiqueit::Application.routes.draw do
   root  'static_pages#home'
 
   resources :videos do
+      get :sold
+      get :notsold
     resources :comments
   end
 

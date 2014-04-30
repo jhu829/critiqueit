@@ -94,8 +94,11 @@
 
 	<div id="areyousold">
 		Are You Sold?<br>
-		<button type="button" class = "button2"  id="sold">YES</button>
-		<button type="button" class = "button2"  id="notsold">NO</button>
+		<%=link_to 'Yes', video_sold_path(@video.id), :class=> "btn pull-right"%>
+		<!-- <button type="button" class = "button2"  id="sold">YES</button> -->
+
+		<%=link_to 'No', video_notsold_path(@video.id), :class=> "btn pull-right"%>
+		<!-- <button type="button" class = "button2"  id="notsold">NO</button> -->
 	</div>
 
 	<div id="solddisplay" class ="hidden">

@@ -1,19 +1,20 @@
 class VideosController < ApplicationController
-	def index
-		@user = current_user.id
-		@videos = Video.all
-		p @user
-		p "hi"
-	end
+	# def index
+	# 	@user = current_user.id
+	# 	@videos = Video.all
+	# 	p @user
+	# 	p "hi"
+	# end
 
 	def new
 		@video = Video.new
-
 	end
 
 	def create
 		@video = current_user.videos.new(video_params)
 		@video.user_id == current_user.id
+		@video.sold=0
+		@video.notsold=0
 
 		respond_to do |format|
 	      if @video.save
@@ -29,6 +30,34 @@ class VideosController < ApplicationController
 	def index
 		@videos = Video.where.not(user: current_user)
 
+	end
+
+	def sold
+		@video = Video.find(params[:video_id])
+		newsold = @video.sold+1
+		@video.update(sold: newsold)
+		redirect_to video_path(@video.id)
+
+	end
+
+	def notsold
+		@video = Video.find(params[:video_id])
+		newnotsold = @video.notsold+1
+		@video.update(notsold: newnotsold)
+		redirect_to video_path(@video.id)
+
+	end
+
+	def update
+		respond_to do |format|
+      if @video.update(video_params)
+          format.html { redirect_to video_path, notice: 'Video was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { redirect_to video path, notice: 'Video was not successfully updated' }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
+        end
+      end 
 	end
 
 	def show
