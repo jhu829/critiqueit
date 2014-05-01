@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	$('#nav_menu').sidr({side:'right'});
+
 	$(".video").mouseover(function(){
 		var id = $(this).attr('id');
 		// alert("div#videotext"+id+".videotext");
