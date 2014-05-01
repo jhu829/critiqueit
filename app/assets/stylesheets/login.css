@@ -5,6 +5,18 @@
 	margin-top: 10%;
 }
 
-.button2{
-	font-size: 18px;
+#signbutton{
+	font-size: 16px;
+	background-color: grey;
+	border-color: black;
+	border-radius: 5px;
+	opacity: 0.3;
+}
+
+#signbutton:hover{
+	opacity: 1;
+}
+
+.textchange{
+	color:black;
 }

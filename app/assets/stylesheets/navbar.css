@@ -24,14 +24,14 @@ padding: 40px 30px 20px 30px;
 #img_logo{
 width: 28px;
 height: 26px;
-vertical-align: middle;
+vertical-align: middle
 }
 
 #img_menu{
-width: 27px;
-height: 23px;
-margin-left: -2px;
-margin-bottom: -5px;
+width: 15px;
+height: 12px;
+margin-left: 2px;
+margin-bottom: -.5px;
 }
 
 /** NAV ITEMS **/
