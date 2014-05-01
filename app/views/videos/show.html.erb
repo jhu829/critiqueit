@@ -91,25 +91,61 @@
 	  <source src="Erica Sobol and Ryan Spencer - Landfill Daughter.mp4" type="video/mp4">
 	</video>
 
+	<script>
+	$('#changebtn').click(function(){
+		console.log("CLICKEDDDDD")
 
-	<div id="areyousold">
-		Are You Sold?<br>
-		<%=link_to 'Yes', video_sold_path(@video.id), :class=> "btn pull-right"%>
-		<!-- <button type="button" class = "button2"  id="sold">YES</button> -->
+		$('#confirmfromsold').removeClass("hidden");
 
-		<%=link_to 'No', video_notsold_path(@video.id), :class=> "btn pull-right"%>
-		<!-- <button type="button" class = "button2"  id="notsold">NO</button> -->
-	</div>
+	});
 
-	<div id="solddisplay" class ="hidden">
-		YOU ARE SOLD!<br>
-		<button type = "button" class = "button2"  id="changebtn">Change?</button>
-	</div>
+	$('#changebtn2').click(function(){
 
-	<div id = "notsolddisplay" class="hidden">
-		YOU ARE NOT SOLD!<br>
-		<button type = "button" class = "button2"  id="changebtn2">Change?</button>
-	</div>
+		$('#confirmfromnotsold').removeClass("hidden");
+
+
+	});
+	</script>
+
+	<%if @change.nil?%>
+		<div id="areyousold">
+			Are You Sold?<br>
+			<%=link_to 'Yes', video_sold_path(@video.id), :class=> "btn pull-right"%>
+			<!-- <button type="button" class = "button2"  id="sold">YES</button> -->
+
+			<%=link_to 'No', video_notsold_path(@video.id), :class=> "btn pull-right"%>
+			<!-- <button type="button" class = "button2"  id="notsold">NO</button> -->
+		</div>
+
+	<%else%>
+		<%if @change.vote=="yes"%>
+			<div id="solddisplay">
+				YOU ARE SOLD!<br>
+				<%if !@change.ischanged%>
+<!-- 				<button type="button" class = "button2"  id="changebtn">CHANGE</button>
+				<div id="confirmfromsold" class ="hidden"> -->
+	
+				
+					<%=link_to 'Change', video_change_path(@video.id), :class=> "btn pull-right"%>
+
+				<!-- </div> -->
+				<%end%>
+			</div>
+		<%else%>
+			<div id = "notsolddisplay">
+				YOU ARE NOT SOLD!<br>
+				<%if !@change.ischanged%>
+				<!-- <button type="button" class = "button2"  id="changebtn2">CHANGE</button> -->
+				<!-- <div id="confirmfromnotsold" class ="hidden"> -->
+	
+					<%=link_to 'Change', video_change_path(@video.id), :class=> "btn pull-right"%>
+				<!-- </div> -->
+				
+				<%end%>
+			</div>
+		<%end%>
+	<%end%>
+
 
 	<div id="confirmfromsold" class ="hidden">
 		Why do you want to change?<br>

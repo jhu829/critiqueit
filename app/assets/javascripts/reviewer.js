@@ -72,6 +72,7 @@ $(document).ready(function() {
 
 
 	$('#changebtn').click(function(){
+		console.log("CLICKEDDDDD")
 
 		$('#confirmfromsold').removeClass("hidden");
 		$('#solddisplay').addClass('hidden');

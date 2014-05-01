@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430164607) do
+ActiveRecord::Schema.define(version: 20140430222852) do
+
+  create_table "changes", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.string   "reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "vote"
+    t.boolean  "ischanged"
+  end
 
   create_table "comments", force: true do |t|
     t.text     "comment_text"

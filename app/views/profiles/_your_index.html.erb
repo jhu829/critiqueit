@@ -1,0 +1,24 @@
+<div class="listing">
+	<div class="toppanel">
+		<div class="searchpanel">
+			<button class ="button" id="upload">UPLOAD NEW VIDEO</button>
+			<input class="search"  type="text"></input>
+			<button class="button2"> SEARCH</button>
+		</div>
+		
+		
+	</div>
+	<div class = "title">
+		YOUR VIDEOS
+	</div>
+	<div class="videopanel"><%= render 'yourvideos' %></div>
+
+</div>
+<div id="uploadcontent" style='display:none'>
+	hii pretend this lets you upload stuff
+	</br>
+	<div class="buttongroup">
+		<button class ="button2" onclick="uploaded();">UPLOAD</button>
+		<button class ="button2" onclick="$.colorbox.close()">CANCEL</button>
+	</div>
+</div>

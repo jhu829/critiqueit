@@ -19,6 +19,7 @@ Critiqueit::Application.routes.draw do
   resources :videos do
       get :sold
       get :notsold
+      get :change
     resources :comments
   end
 
