@@ -1,9 +1,9 @@
 <div class="listing">
 	<div class="toppanel">
 		<div class="searchpanel">
-			<button class ="button" id="upload">UPLOAD NEW VIDEO</button>
-			<input class="search"  type="text"></input>
-			<button class="button2"> SEARCH</button>
+			<button class ="textchange" id="upload">UPLOAD NEW VIDEO</button>
+			<input class="search textchange"  type="text"></input>
+			<button class="textchange"> SEARCH</button>
 		</div>
 		
 		
@@ -44,15 +44,15 @@
 	</div>
 
 </div>
-<div id="uploadcontent" style='display:none'>
+<div class='textchange' id="uploadcontent" style='display:none'>
 	Hi, you'll be given a video. But if you want, you can customize the title here!
 	      <%= form_for @video, :url => videos_path do |f| %>
       	  <% render :partial => "video_form" %>
       	  <%end%>
 
 	</br>
-	<div class="buttongroup">
-		<button class ="button2" onclick="uploaded();">UPLOAD</button>
-		<button class ="button2" onclick="$.colorbox.close()">CANCEL</button>
+	<div class="buttongroup textchange">
+		<button class ="textchange" onclick="uploaded();">UPLOAD</button>
+		<button class ="textchange" onclick="$.colorbox.close()">CANCEL</button>
 	</div>
 </div>

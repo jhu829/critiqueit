@@ -2,22 +2,25 @@
 
 <div class ="listing">
 	<div class ="loginbox">
-		<h2>Sign In</h2>
+		<p id='top-line'>BE THE BEST YOU</p>
+		<p id='second-line'>MAKE THE PERFECT PITCH</p>
 		<br/>
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-		  <div><%= f.label :email %><br />
+		  <div id='log_email'><%= f.label :email %><br />
 		  <%= f.email_field :email, :autofocus => true, :class=>'textchange' %></div>
 
-		  <div><%= f.label :password %><br />
+		  <div id='log_pass'><%= f.label :password %><br />
 		  <%= f.password_field :password, :class=>'textchange' %></div>
 
 		  <% if devise_mapping.rememberable? -%>
-		    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+		    <div id="remember_me"><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
 		  <% end -%>
-		  <br>
-		  <%= f.submit 'Sign In', :id => 'signbutton' %>
+		  <div id='signbutton'>
+		  	<%= f.submit 'Sign In'%>
+		  </div>
 		<% end %>
-		<br>
+		<div class='ex_links'>
 		<%= render "devise/shared/links" %>
+		</div>
 	</div>
 </div>
