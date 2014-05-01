@@ -7,55 +7,58 @@
   <%= stylesheet_link_tag "browse" %>
   <%= stylesheet_link_tag "login" %>
   <%= stylesheet_link_tag "navbar" %>
+  <%= stylesheet_link_tag "jquery.sidr.dark.css" %>
   <%= javascript_include_tag "colorbox-min" %>
+  <%= javascript_include_tag "jquery.sidr.min" %>
   <%= javascript_include_tag "browse" %>
   <%= javascript_include_tag "control_bar" %>
   <%= javascript_include_tag "reviewer" %>
   <%= javascript_include_tag "up_script" %>
- 
-
   <%= csrf_meta_tags %>
 </head>
-<div id='nav_bar'>
-			<a href='home.html' class='nav_ctrl' id='n_home'>
-				YOUR VIDEOS
-			</a>
-
-      <% if user_signed_in? %>
-      <%=link_to "BROWSE" , videos_path,:class=>'nav_ctrl', :id=>'n_browse', :style=>"opacity: 1; z-order: 10;"%>
-       <!--  <a href='browse.html' class='nav_ctrl' id='n_browse' style="opacity: 1;"> -->
-<!--         BROWSE -->
-        </a>
-      <% else %>
-       <!--  <a href='home.html' class='nav_ctrl' id='n_browse' style="opacity: .5;">
-        BROWSE
-        </a> -->
-        <%=link_to "YOUR VIDEOS" , profiles_path,:class=>'nav_ctrl', :id=>'n_browse', :style=>"opacity: 1; z-order: 10;"%>
-      <% end %>
-			
-			<a href='home.html' class='nav_ctrl' id='n_logo'>
-				CRITIQUE.IT
-			</a>
-
-			<% if user_signed_in? %>
-          		<%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete', :class => "nav_ctrl", :id => "n_log") %>
-          	<% else %>
-
-         	<a href='login.html' class='nav_ctrl' id='n_log'>LOGIN</a>
-
-	         <% end %>
-			
-</div>
 
 <body>
 
-<%= yield %>
+  <div id='sidr'>
+    <div id='menu_container'>
+      <%=link_to "BROWSE" , videos_path,:class=>'nav_ctrl', :id=>'n_browse'%>
+      <% if user_signed_in?%>
+        <%=link_to "YOUR VIDEOS" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
+        <%=link_to "UPLOAD" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
+      <% end %>
+      <br/>
+      <%=link_to "WHAT IS A PITCH" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
+      <%=link_to "ABOUT" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
 
+    </div>
+  </div>
+
+
+  <div id='navbar'>
+    <%= image_tag("logo.png", :id => "img_logo")%>
+    <div class='header_item' id='nav_title'>critiqueit</div>
+    <div class='header_item' id='nav_log'>
+      
+        <% if user_signed_in? %>
+              <%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete', :class => "nav_ctrl", :id => "n_log") %>
+          <% else %>
+              <a href='login.html' class='header_item' id='n_log'>LOGIN</a>
+        <% end %>
+      
+    </div>
+    <div class='header_item' id='nav_menu'>
+      MENU<%= image_tag("menu.png", :id => "img_menu") %>
+    </div>
+  </div>
+
+  <%= yield %>
 
 </body>
+
 <footer>
-	<div id='footer'>
-			MIT 6.813 Course Project | Andre Mroz, Jennifer Hu, Kristin Au, Victoria Li
-</div>
+<div id='footer'>
+mit 6.813 course project | andre mroz, jennifer hu, kristin au, victoria li
+  </div>
 </footer>
+
 </html>
