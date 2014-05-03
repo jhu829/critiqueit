@@ -35,6 +35,28 @@
 						<p class='comtxt bl'>Seems like no one has made any comments on your pitch yet!</p>
 					<% end %>
 				</div>
+				<div id='recvid_feedback'>
+					<canvas id="recvid_chart" width="55" height="55"></canvas>
+<!-- 					<%= javascript_tag do %>
+						drawChart("recvid_chart", 
+									<%= @recvid.sold %>, 
+									<%= @recvid.notsold %>, 
+									100, 
+									50);
+					<% end %> -->
+					 <%= javascript_tag do %>
+						drawChart("recvid_chart", 
+									0, 
+									0, 
+									0, 
+									0);
+					<% end %> 
+					<div class='circle_l' background="#609f45"></div><p class='main_rec_feedback bl'><b class='emph'><%= @recvid.sold %></b> SOLD</p><br/>
+					<div class='circle_l' background="#b23e2a"></div><p class='main_rec_feedback bl'><b class='emph'><%= @recvid.notsold %> </b> NOT SOLD</p><br/>
+					<div class='circle_s' background="#f18b40"></div><p class='change_rec_feedback bl'><b  class='emph'>12 </b>SOLD TO NOT SOLD</p><br/>
+					<div class='circle_s' background= '#d1d68b'></div><p class='change_rec_feedback bl'><b class='emph'>19 </b>NOT SOLD TO SOLD</p><br/>
+
+				</div>
 		</div>
 	<% end %>
 
