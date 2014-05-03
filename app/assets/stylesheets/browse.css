@@ -24,6 +24,21 @@ b {
 	color: #000;
 }
 
+.sold {
+	background: #609f45;
+}
+	
+.not_sold {
+	background: #b23e2a;
+}
+
+.sold_to_not {
+	background: #f18b40;
+}	
+.not_to_sold {
+	background: #d1d68b;
+}			
+
 /** TITLE PROPERTIES **/
 
 .page_title{
@@ -87,7 +102,7 @@ b {
 
 #recentpanel, #featurepanel{
 	height: 275px;
-	width: 950px;
+	width: 980px;
 	background-color: #fff;
 }
 
@@ -115,11 +130,16 @@ b {
 	overflow: auto;
 }
 
+#recvid_chart{
+	margin-left: -10px;
+}
+
 #recvid_feedback{
-	width: 150px;
+	width: 180px;
 	display: inline-block;
 	vertical-align: text-top;
 	padding-top: 10px;
+	padding-left: 10px;
 }
 
 #recvid_heading{
@@ -128,31 +148,38 @@ b {
 
 .circle_l {
 	display: inline-block;
-    -moz-border-radius: 25px;
-    -webkit-border-radius: 25px;
-    border-radius: 25px;
-    width:25px;
-    height:25px;  
-    margin-left: -25px; 
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    width:20px;
+    height:20px;  
+    margin-left: -20px; 
+    vertical-align: middle;
+    margin-right: 5px;
 }
 .circle_s {
 	display: inline-block;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    width:10px;
-    height:10px;   
-    margin-left: -10px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    border-radius: 12px;
+    width:12px;
+    height:12px;   
+    margin-left: -16px;
+    vertical-align: middle;
+    margin-right: 9px;
 }
 
 .main_rec_feedback {
 	display: inline-block;
-	font-size: 14px;
+	font-size: 16px;
+	vertical-align: middle;
+	line-height: 24px;
 }
-
 
 .change_rec_feedback {
 	display: inline-block;
+    vertical-align: middle;
+	font-size: 13px;
 }
 
 /** VIDEO LISTING PROPERTIES **/
@@ -161,27 +188,13 @@ b {
 	width: 300px;
 	position:relative;
 	float:left;
-	margin:2%;
-	margin-top:3%;
 }
-.video{
-	opacity: 0.15;
-	box-shadow: 1px 1px 1px #888888;
-}
-
-.videorow{
-	margin-left:auto;
-	margin-right:auto;
-	width:90%;
-}
-
-.video:hover{
-	opacity: 0.8;
-	cursor:pointer;
-}
-
 
 /** VIDEO OVERLAY **/
+
+.videopanel {
+	margin-top: 15px;
+}
 
 .overlay{
 	z-index:100;
