@@ -1,3 +1,15 @@
+#login_container {
+	background-color: black;
+	background-image: url('cit1.jpg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position:center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .loginbox{
 	height: 60%;
 	text-align: center;
@@ -8,58 +20,50 @@
 #top-line{
 font-size: 24px;
 font-weight: lighter;
+line-height: 38px;
+letter-spacing: 3px;
 }
 
 #second-line{
 font-size: 32px;
 font-weight: lighter;
+line-height: 38px;
+letter-spacing: 3px;
+
 }
 
 #signbutton{
-	background-color:#6F9EA4;
+	background-color:#668b8b;
 	border: none;
 	font-size: 16px;
-	position: absolute;
-	top: 76%;
 	right:45.7%;
 	width:100px;
 	height: 32px;
-	opacity: .9;
+	margin: 25px;
 }
 
-#log_email{
-position:absolute;
-font-size: 18px;
-font-weight: 200;
-top:64%;
-left:32.5%;
-height:24px;
-width: 180px;
+#signbutton:hover {
+	opacity: .8;
 }
 
-#log_pass{
-position:absolute;
-font-size: 18px;
-font-weight: 200;
-top: 64%;
-right:32.5%;
-height:24px;
-width: 180px;
+#signin_fields{
+	margin-top: 150px;
+}
+
+.textchange{
+	display: inline-block;
+	font-size: 18px;
+	font-weight: 200;
 }
 
 #remember_me{
-position:absolute;
-top:71%;
-right:44%;
-}
-
-#no_account{
-font-style: italic;
-font-size: 14px;
+	margin-top: 10px;
 }
 
 .ex_links{
-position: absolute;
-top:84%;
-right:41%;
+font-style: italic;
+font-size: 15px;
+font-weight: 300;
+letter-spacing: 1px;
+line-height: 21px;
 }

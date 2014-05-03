@@ -1,20 +1,47 @@
 <div class="listing">
+	<h1 class = "page_title">YOUR VIDEOS</h1>
+
 	<div class="toppanel">
 		<div class="searchpanel">
-			<button class ="textchange" id="upload">UPLOAD NEW VIDEO</button>
-			<input class="search textchange"  type="text"></input>
-			<button class="textchange"> SEARCH</button>
+			<input id="search_bar"  type="text" placeholder='search...'></input>
+			<button class="button" id='search_button'></button>
+		</div>	
+			<button class ="button" id="upload">UPLOAD VIDEO</button>
+	</div>
+
+	<h3 class='sub_title' id='label_recent wh'>MOST RECENT UPLOAD</h3>
+
+	<% @recvid = current_user.videos.order("created_at").last %>
+	<% if @recvid == nil %>
+		<br/>
+		<h3 class='oops wh'>Looks like you don't have any videos yet. Try uploading a pitch!<h3>
+	<% else %>
+		<div class='button' id='recentpanel'>
+				<%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'recent_video') %>
+				<div id='recvid_info'>
+					<h4 class='sub_title recvid_heading bl' id='recvid_title'><%= @recvid.title %></h4>
+					<p class='rec_info bl'>Duration: <b class='put_duration bl'></b><br/>
+					<p class='rec_info bl'>Views: <br/>
+					<p class='rec_info bl'>Comments: <%= @recvid.comments.count %></p>
+
+					<h5 class='heading bl' id='recvid_heading'>MOST RECENT COMMENT</h5>
+					<% @reccom = @recvid.comments.order("created_at").last %>
+					<%if @reccom != nil %>
+						<h5 id='rec_record'>
+							<%= @reccom.time_stamp%> by <%= User.find_by_id(@reccom.user_id) %>
+						</h5>
+						<p id='rec_text'><%= @reccom.conmment_text%></p>
+					<% else %>
+						<p class='comtxt bl'>Seems like no one has made any comments on your pitch yet!</p>
+					<% end %>
+				</div>
 		</div>
-		
-		
-	</div>
-	<div class = "title">
-		YOUR VIDEOS
-	</div>
+	<% end %>
+
 	<div class="videopanel">
 		<div class = "videorow">
 		<% @videos.each do |video| %>
-		
+			<% if video != Video.order("created_at").last %>
 			<div class= "videogroup">
 				<%= link_to 'video',  video %>
 
@@ -38,6 +65,7 @@
 					</p>
 				</div>
 			</div>
+			<% end %>
 		
 		<% end %>
 		</div>

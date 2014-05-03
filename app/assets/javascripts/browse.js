@@ -1,12 +1,11 @@
 $(document).ready(function(){
+
 	$('#nav_menu').sidr({side:'right'});
 
 	$(".video").mouseover(function(){
 		var id = $(this).attr('id');
 		// alert("div#videotext"+id+".videotext");
 		var targetDiv =$("#videotext"+id);
-		console.log(targetDiv);
-
 		$(targetDiv).fadeOut(100);
 	})
 	.mouseout(function(){

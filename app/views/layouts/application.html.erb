@@ -17,18 +17,17 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
-
+<body class="<%= controller.controller_name %>">
   <div id='sidr'>
     <div id='menu_container'>
-      <%=link_to "BROWSE" , videos_path,:class=>'nav_ctrl', :id=>'n_browse'%>
+      <%=link_to "BROWSE" , videos_path,:class=>'nav_ctrl button', :id=>'n_browse'%>
       <% if user_signed_in?%>
-        <%=link_to "YOUR VIDEOS" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
-        <%=link_to "UPLOAD" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
+        <%=link_to "YOUR VIDEOS" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
+        <%=link_to "UPLOAD" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
       <% end %>
       <br/>
-      <%=link_to "WHAT IS A PITCH" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
-      <%=link_to "ABOUT" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
+      <%=link_to "WHAT IS A PITCH" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
+      <%=link_to "ABOUT" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
 
     </div>
   </div>
@@ -36,20 +35,18 @@
 
   <div id='navbar'>
     <%= image_tag("logo.png", :id => "img_logo")%>
-    <div class='header_item' id='nav_title'>critiqueit</div>
-    <div class='header_item' id='nav_log'>
+    <div class='header_item button' id='nav_title'>critiqueit</div>
+    <div class='header_item button' id='nav_log'>
       
         <% if user_signed_in? %>
-              <%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete', :class => "nav_ctrl", :id => "n_log") %>
+              <%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete', :class => "header_item button", :id => "n_log") %>
           <% else %>
-              <a href='login.html' class='header_item' id='n_log'>LOGIN</a>
+              <a href='login.html' class='header_item button' id='n_log'>LOGIN</a>
         <% end %>
       
     </div>
-    <div class='header_item' id='nav_menu'>
-      <div>
+    <div class='header_item button' id='nav_menu'>
         MENU<%= image_tag("menu.png", :id => "img_menu") %>
-      </div>
     </div>
   </div>
 
@@ -58,8 +55,8 @@
 </body>
 
 <footer>
-<div id='footer'>
-mit 6.813 course project | andre mroz, jennifer hu, kristin au, victoria li
+  <div id='footer'>
+    mit 6.813 course project | andre mroz, jennifer hu, kristin au, victoria li
   </div>
 </footer>
 
