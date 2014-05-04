@@ -6,7 +6,7 @@
 			<input id="search_bar"  type="text" placeholder='search...'></input>
 			<button class="button" id='search_button'></button>
 		</div>	
-			<button class ="button" id="upload">UPLOAD VIDEO</button>
+			<button class ="button submit" id="upload">UPLOAD VIDEO</button>
 	</div>
 
 	<h3 class='sub_title' id='label_recent wh'>FEATURED PITCHES</h3>
@@ -18,9 +18,7 @@
 
 			<% @videos.each do |video| %>
 				<div class= "videogroup">
-					<%= link_to 'video',  video%>
-
-					<img class="video" id="1" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="/assets/stock.png"></a>
+				<%= link_to image_tag("stock.png", :class=>'video_stock button'), video %>
 					<div class="overlay" id="videotext1">
 						<p style="text-align:center">
 							</br>

@@ -15,6 +15,10 @@ body {
 	text-align: center;
 }
 
+.reverse {
+
+}
+
 /** BACKGROUND IMAGES **/
 .sessions {
 	background-color: #000;
@@ -33,7 +37,6 @@ body {
 	background: url('cit7.jpg');
 	background-repeat:no-repeat;
 	background-position-x: center;
-	background-position-y: -25px;
 	background-size: 1314px, 550px;
 	-webkit-background-size: 1314px, 550px;
     -moz-background-size: 1314px, 550px;
@@ -45,11 +48,11 @@ body {
 	background: url('cit6.jpg');
 	background-repeat:no-repeat;
 	background-position-x: center;
-	background-position-y: -50px;
-	background-size: 1060px, 555px;
-	-webkit-background-size: 1060px, 555px;
-    -moz-background-size: 1060px, 555px;
-    -o-background-size: 1060px, 555px;
+	background-position-y: -225px;
+	background-size: 1480px, 725px;
+	-webkit-background-size: 1480px, 725px;
+    -moz-background-size: 1480px, 725px;
+    -o-background-size: 1480px, 725px;
 }
 
 .button {
@@ -66,8 +69,8 @@ body {
 
 /** IMAGES **/
 #img_logo{
-width: 24px;
-height: 22px;
+width: 27px;
+height: 25px;
 vertical-align: middle
 }
 
@@ -75,7 +78,7 @@ vertical-align: middle
 	width: 13px;
 	height: 10px;
 	margin-left: 2px;
-	margin-bottom: -.5px;
+	margin-bottom: 1px;
 }
 
 /** NAV ITEMS **/
@@ -88,31 +91,32 @@ vertical-align: middle
 #nav_title{
 font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
 letter-spacing: 7px;
-font-size: 18px;
+font-size: 21px;
 left: 50%;
-margin-left: -83px;
+margin-left: -71px;
 }
 
 #nav_menu{
-font-size: 12px;
+font-size: 16px;
 vertical-align: middle;
 right: 30px;
 }
 
 #nav_log{
-font-size: 12px;
+font-size: 16px;
 vertical-align: middle;
-right: 180px;
+right: 220px;
 }
 
 /** MENU ITEMS **/
 #menu_container{
-padding: 20px;
+	padding: 20px;
 }
 
 .nav_ctrl{
 display: block;
 margin: 10px;
+font-size: 16px;
 }
 
 .nav_ctrl:hover {

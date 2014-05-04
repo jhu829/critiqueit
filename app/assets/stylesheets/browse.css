@@ -12,7 +12,7 @@
 
 p {
 	letter-spacing: 0;
-	font-size: 12px;
+	font-size: 16px;
 }
 
 b {
@@ -51,7 +51,7 @@ b {
 .sub_title{
 	font-weight: 300;
 	letter-spacing: 3px;
-	font-size: 21px;
+	font-size: 24px;
 	margin: 10px 0 5px 0;
 }
 
@@ -66,9 +66,9 @@ b {
 }
 
 #search_bar {
-	height: 18px;
+	height: 25px;
 	width: 350px;
-	font-size: 16px;
+	font-size: 18px;
 	color: #111;
 	vertical-align: text-top;
 	margin-bottom: 15px;
@@ -77,32 +77,35 @@ b {
 #search_button {
 	background-image: url('search.png');
 	background-position:center;
-	width: 20px;
-	height:20px;
+	width: 27px;
+	height:27px;
 	background-color: transparent;
-    -webkit-background-size: 20px, 20px;
-    -moz-background-size: 20px, 20px;
-    -o-background-size: 20px, 20px;
-    background-size: 20px, 20px;
+    -webkit-background-size: 27px, 27px;
+    -moz-background-size: 27px, 27px;
+    -o-background-size: 27px, 27px;
+    background-size: 27px, 27px;
 	border: none;
 	vertical-align: text-top;
 }
 
-#upload{
+.submit {
 	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
 	background-color: #668b8b;
 	color: #fff;
 	border: 1px solid #ccc;
-	font-size: 16px;
+	font-size: 18px;
+	text-transform: uppercase;
+	display: inline-block;
 	padding: 5px;
 	margin-left: 47.55px;
+	display: inline-block;
 }
 
 /** RECENT VIDEO PANEL **/
 
 #recentpanel, #featurepanel{
 	height: 275px;
-	width: 980px;
+	width: 1200px;
 	background-color: #fff;
 }
 
@@ -124,7 +127,7 @@ b {
 }
 
 #recvid_info{
-	width: 300px;
+	width:500px;
 	display: inline-block;
 	vertical-align: text-top;
 	overflow: auto;
@@ -135,7 +138,7 @@ b {
 }
 
 #recvid_feedback{
-	width: 180px;
+	width: 200px;
 	display: inline-block;
 	vertical-align: text-top;
 	padding-top: 10px;
@@ -184,25 +187,52 @@ b {
 
 /** VIDEO LISTING PROPERTIES **/
 .videogroup{
-	height:300px;
-	width: 300px;
+	height:175px;
+	width: 275px;
 	position:relative;
 	float:left;
+	margin-right: 30px;
+	margin-bottom: 30px;
+}
+
+.videorow{
+	width: 1250px;
 }
 
 /** VIDEO OVERLAY **/
+.video_stock {
+	background-image: url('stock.png');
+	width: 275px;
+	height: 175px;
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position:center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 .videopanel {
-	margin-top: 15px;
+	margin-top: 50px;
 }
 
 .overlay{
 	z-index:100;
+	background-color: #000;
+	opacity: .4;
     position:absolute;   
-    top:15%;
+    top:0;
 	width:100%;
+	height:100%;
 	pointer-events: none;
 }
+
+.overlay:hover {
+	background-color: transparent;
+
+}
+
 
 .table{
 	width:100%;
@@ -249,10 +279,18 @@ td {
 	margin-right: 5%;
 }
 
-
 /**  UPLOAD POPUP **/
-#uploadcontent{
-	/*display:none;*/
-	text-align: center;
-	margin-top: 10%;
+.field {
+	height: 18px;
+	width: 300px;
+	font-size: 16px;
+	color: #000;
+	margin: 15px;
 }
+
+#uploadcontent{
+	text-align: center;
+	margin: 20px;
+
+}
+
