@@ -57,6 +57,11 @@ b {
 
 .heading{
 	font-size: 16px;
+	padding-bottom: 10px;
+	margin-top: 2%;
+	color: white;
+	position:relative;
+
 }
 
 .author{
@@ -95,6 +100,16 @@ b {
 	vertical-align: text-top;
 }
 
+/*.videopanel{
+	border: 2px solid #F5F5F5;
+	background-color: #FAFAFA;
+	/*margin-top: 10px;*/
+	/*height: 300px;
+	opacity: 0.9;
+	box-shadow: 2px 2px 5px #2e2f2f;*/
+	/*margin-left:1%;*/
+	/*margin-right:1%;*/
+*/
 .submit {
 	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
 	background-color: #668b8b;
@@ -216,6 +231,13 @@ b {
 	width: 275px;
 	position:relative;
 	float:left;
+	margin:2%;
+	margin-top:3%;
+}
+.video{
+	opacity: 0.25;
+	/*box-shadow: 1px 1px 1px #888888;*/
+	box-shadow: 2px 2px 5px #2e2f2f;
 	margin-right: 30px;
 	margin-bottom: 30px;
 }
@@ -251,21 +273,28 @@ b {
 }
 
 .table{
-	width:100%;
+	width:80%;
+	color:#2e2f2f;
+	float:left;
+	text-align: center;
 }
 
 td {
+	color:#2e2f2f;
 	width:50%;
 	padding-top:5px;
 }
 .videotexttitle{
+    font-family: 'Arial';
     color:#506e6e;
     font-size:24px;
     width:100%;
     text-align: center;
+    color:#2e2f2f;
 }
 
 .videotext{
+	color:#2e2f2f;
 	z-index:100;
     position:relative;    
     /*position:absolute;  */
@@ -274,6 +303,7 @@ td {
 }
 .videotextuser{
 	z-index:100;
+	color:#2e2f2f;
     /*position:relative;    */
 	font-size: 12px;
 	margin-left: 100px;
@@ -282,6 +312,7 @@ td {
 
 .videotextnum{
 	z-index:100;
+	color:#2e2f2f;
     position:relative;    
     /*position:absolute;  */
 	font-size: 20px;
