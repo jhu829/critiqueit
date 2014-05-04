@@ -1,6 +1,6 @@
 <br><br><br><br><br><br>
 <%if @video.user_id==current_user.id%>
-<  <%= stylesheet_link_tag "colorbox" %>
+ <%= stylesheet_link_tag "colorbox" %>
   <%= stylesheet_link_tag "up_style" %>
   
 <div class='container'>
@@ -8,8 +8,8 @@
 
 	<div id='video_area'>
 		<br/>
-		<video id='video' src="Erica Sobol and Ryan Spencer - Landfill Daughter.mp4"></video>
-
+		hey <%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'yourvideo') %>
+		
 		<div id='result_area'>
 
 			<div class='change_cmts' id='n2y_cmt'>
@@ -88,25 +88,9 @@
 	<h1 id="title"><%=@video.title =%></h1>
 	<p id="author">by </p> 
 
-	<video id = "video" controls>
-	  <source src="Erica Sobol and Ryan Spencer - Landfill Daughter.mp4" type="video/mp4">
-	</video>
-
-	<script>
-	$('#changebtn').click(function(){
-		console.log("CLICKEDDDDD")
-
-		$('#confirmfromsold').removeClass("hidden");
-
-	});
-
-	$('#changebtn2').click(function(){
-
-		$('#confirmfromnotsold').removeClass("hidden");
+		<%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'yourvideo') %>
 
 
-	});
-	</script>
 
 	<%if @change.nil?%>
 		<div id="areyousold">
@@ -123,15 +107,22 @@
 			<div id="solddisplay">
 				YOU ARE SOLD!<br>
 				<%if !@change.ischanged%>
-<!-- 				<button type="button" class = "button2"  id="changebtn">CHANGE</button>
-				<div id="confirmfromsold" class ="hidden"> -->
-	
 				
-					<%=link_to 'Change', video_change_path(@video.id), :class=> "btn pull-right"%>
+				<button type="button" class = "button2"  id="changebtn">CHANGEEE???</button>
+					<div id="confirmfromsold">
+						Why do you want to change?
+						<input type="text" id="changevote1" style="font-size:15px"><br>
+						<%=link_to 'Change', video_change_path(@video.id),:reason=> "this is why", :class=> "btn pull-right"%>
 
-				<!-- </div> -->
+						
+					
+					</div>
 				<%end%>
+
 			</div>
+
+
+
 		<%else%>
 			<div id = "notsolddisplay">
 				YOU ARE NOT SOLD!<br>
@@ -147,8 +138,26 @@
 		<%end%>
 	<%end%>
 
+						<script>
 
-	<div id="confirmfromsold" class ="hidden">
+	$('#changebtn').click(function(){
+		console.log("CLICKEDDDDD")
+
+		$('#confirmfromsold').removeClass("hidden");
+
+	});
+
+	$('#changebtn2').click(function(){
+
+		$('#confirmfromnotsold').removeClass("hidden");
+
+
+	});
+
+	</script>
+
+
+	<!-- <div id="confirmfromsold" class ="hidden">
 		Why do you want to change?<br>
 		<input type="text" id="changevote1" style="font-size:15px"><br>
 		<button type="button" class = "button2"  id="yeschange">CHANGE</button></br><button type="button" class = "button2" id="nochange">CANCEL</button>
@@ -159,13 +168,60 @@
 		<input type="text" id="changevote2" style="font-size:15px">
 		<button type="button" class = "button2"  id="yeschange2">CHANGE</button><br><button type="button" class = "button2" id="nochange2">CANCEL</button>
 	</div>
-
+ -->
 <div id="comment_input">
 	<%= form_for @comment, :url => video_comments_path(@video) do |f| %>
       <% render :partial => "comments/form" %>
       <%end%>
 
 </div>
+
+<script>
+
+
+
+
+console.log("HELLO")
+var video=document.getElementById("yourvideo"); 
+
+	video.addEventListener('loadedmetadata', function() {
+      duration = video.duration;
+      console.log(duration);
+  });
+
+var minutes = Math.floor(video.currentTime/60);
+		var seconds = Math.floor(video.currentTime-minutes*60)
+		if (seconds<10){
+			seconds='0'+seconds
+		}
+
+$("#comment_comment_text").keydown(function(event){ 
+	console.log("KEYDOWN")
+	if(event.keyCode == 13){
+			$("#cmtbtn").click();
+		}
+		else if (!video.paused){
+			video.pause();
+		}
+		console.log("get here?")
+
+		var minutes = Math.floor(video.currentTime/60);
+		var seconds = Math.floor(video.currentTime-minutes*60)
+		if (seconds<10){
+			seconds='0'+seconds
+		}
+		if ($('#comment_comment_text').val().length==1){
+			console.log("get here?now")
+			$('#comment_comment_text').val('['+minutes+":"+seconds+'] '+$('#comment_comment_text').val());
+		}
+		// $('#comment_time_stamp').val('['+minutes+":"+seconds+'] ')
+		$('#comment_time_stamp').val(video.currentTime)
+		console.log($('#comment_time_stamp').val())
+});
+
+
+
+</script>
 
 </div>
 
@@ -182,8 +238,9 @@
 		<ul>
 			<%@video.comments.each do |comment|%>
 			<li>
-			<%= comment.time_stamp %>
+			<!-- <%=comment.time_stamp%> -->
 			<%= comment.comment_text%>
+
 			</li>
 			<%end%>
 		</ul>
