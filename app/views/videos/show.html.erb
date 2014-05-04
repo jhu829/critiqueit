@@ -108,11 +108,11 @@
 				YOU ARE SOLD!<br>
 				<%if !@change.ischanged%>
 				
-				<button type="button" class = "button2"  id="changebtn">CHANGEEE???</button>
-					<div id="confirmfromsold">
-						Why do you want to change?
+				<button type="button" class = "button2"  id="changebtn">CHANGE</button>
+					<div id="confirmfromsoldyes" class = "hidden" style='font-size:20px'>
+						Why do you want to change? (you can only change once!)
 						<input type="text" id="changevote1" style="font-size:15px"><br>
-						<%=link_to 'Change', video_change_path(@video.id),:reason=> "this is why", :class=> "btn pull-right"%>
+						<%=link_to 'Change', video_change_path(@video.id), :class=> "btn pull-right"%>
 
 						
 					
@@ -127,11 +127,15 @@
 			<div id = "notsolddisplay">
 				YOU ARE NOT SOLD!<br>
 				<%if !@change.ischanged%>
-				<!-- <button type="button" class = "button2"  id="changebtn2">CHANGE</button> -->
-				<!-- <div id="confirmfromnotsold" class ="hidden"> -->
-	
-					<%=link_to 'Change', video_change_path(@video.id), :class=> "btn pull-right"%>
-				<!-- </div> -->
+				<button type="button" class = "button2"  id="changebtn2">CHANGE</button>
+				<div id="confirmfromnotsoldno" class = "hidden" style='font-size:20px'>
+						Why do you want to change? (you can only change once!)
+						<input type="text" id="changevote1" style="font-size:15px"><br>
+						<%=link_to 'Change', video_change_path(@video.id), :class=> "btn pull-right"%>
+
+						
+					
+					</div>
 				
 				<%end%>
 			</div>
@@ -143,13 +147,13 @@
 	$('#changebtn').click(function(){
 		console.log("CLICKEDDDDD")
 
-		$('#confirmfromsold').removeClass("hidden");
+		$('#confirmfromsoldyes').removeClass("hidden");
 
 	});
 
 	$('#changebtn2').click(function(){
 
-		$('#confirmfromnotsold').removeClass("hidden");
+		$('#confirmfromnotsoldno').removeClass("hidden");
 
 
 	});
