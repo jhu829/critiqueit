@@ -1,10 +1,69 @@
+#login_container {
+	background-color: black;
+	background-image: url('cit1.jpg');
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position:center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .loginbox{
 	height: 60%;
 	text-align: center;
-	padding: 40px;
-	margin-top: 10%;
+	padding: 10px;
+	margin-top: 0%;
 }
 
-.button2{
+#top-line{
+font-size: 24px;
+font-weight: lighter;
+line-height: 38px;
+letter-spacing: 3px;
+}
+
+#second-line{
+font-size: 32px;
+font-weight: lighter;
+line-height: 38px;
+letter-spacing: 3px;
+
+}
+
+#signbutton{
+	background-color:#668b8b;
+	border: none;
+	font-size: 16px;
+	right:45.7%;
+	width:100px;
+	height: 32px;
+	margin: 25px;
+}
+
+#signbutton:hover {
+	opacity: .8;
+}
+
+#signin_fields{
+	margin-top: 150px;
+}
+
+.textchange{
+	display: inline-block;
 	font-size: 18px;
+	font-weight: 200;
+}
+
+#remember_me{
+	margin-top: 10px;
+}
+
+.ex_links{
+font-style: italic;
+font-size: 15px;
+font-weight: 300;
+letter-spacing: 1px;
+line-height: 21px;
 }

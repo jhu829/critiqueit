@@ -8,6 +8,7 @@
   <%= stylesheet_link_tag "login" %>
   <%= stylesheet_link_tag "navbar" %>
   <%= stylesheet_link_tag "jquery.sidr.dark.css" %>
+  <%= javascript_include_tag "Chart" %>
   <%= javascript_include_tag "colorbox-min" %>
   <%= javascript_include_tag "jquery.sidr.min" %>
   <%= javascript_include_tag "browse" %>
@@ -17,37 +18,57 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body>
-
+<body class="<%= controller.controller_name %>">
   <div id='sidr'>
     <div id='menu_container'>
-      <%=link_to "BROWSE" , videos_path,:class=>'nav_ctrl', :id=>'n_browse'%>
+      <%=link_to "BROWSE" , videos_path,:class=>'nav_ctrl button', :id=>'n_browse'%>
       <% if user_signed_in?%>
-        <%=link_to "YOUR VIDEOS" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
-        <%=link_to "UPLOAD" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
+        <%=link_to "YOUR VIDEOS" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
+        <%=link_to "UPLOAD" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
       <% end %>
       <br/>
-      <%=link_to "WHAT IS A PITCH" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
-      <%=link_to "ABOUT" , profiles_path,:class=>'nav_ctrl', :id=>'n_vid'%>
-
+      <%=link_to "WHAT IS A PITCH" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
+      <%=link_to "ABOUT" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
     </div>
+
+    <div id='rec_pitch'>
+      <% @recvid = current_user.videos.order("created_at").last %>
+      <% if @recvid == nil %>
+        <br/>
+        <h3 class='oops bl'>Looks like you don't have any videos yet. Try uploading a pitch!<h3>
+      <% else %>
+        <%= link_to(@recvid) do%>
+          <div class='button' id='recent_panel_mini'>
+            <p class='mini_title bl'>MOST RECENT PITCH</p>
+            <p class='mini_rec_info bl'>Title: <%= @recvid.title %></h4>
+            <p class='mini_rec_info bl'>Duration: 1:07<br/>
+            <p class='mini_rec_info bl'>Created on: <%= @recvid.created_at.to_formatted_s(:long) %><br/>
+            <p class='mini_rec_info bl'>Comments: <%= @recvid.comments.count %></p>
+
+            <p class='mini_feedback bl'>23<%= @recvid.sold %> SOLD</p>
+            <p class='mini_feedback bl'>12<%= @recvid.notsold %> NOT SOLD</p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
   </div>
 
 
   <div id='navbar'>
     <%= image_tag("logo.png", :id => "img_logo")%>
-    <div class='header_item' id='nav_title'>critiqueit</div>
-    <div class='header_item' id='nav_log'>
+    <div class='header_item button' id='nav_title'>critiqueit</div>
+    <div class='header_item button' id='nav_log'>
       
         <% if user_signed_in? %>
-              <%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete', :class => "nav_ctrl", :id => "n_log") %>
+              <%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete', :class => "header_item button", :id => "n_log") %>
           <% else %>
-              <a href='login.html' class='header_item' id='n_log'>LOGIN</a>
+              <a href='login.html' class='header_item button' id='n_log'>LOGIN</a>
         <% end %>
       
     </div>
-    <div class='header_item' id='nav_menu'>
-      MENU<%= image_tag("menu.png", :id => "img_menu") %>
+    <div class='header_item button' id='nav_menu'>
+        MENU<%= image_tag("menu.png", :id => "img_menu") %>
     </div>
   </div>
 
@@ -56,8 +77,8 @@
 </body>
 
 <footer>
-<div id='footer'>
-mit 6.813 course project | andre mroz, jennifer hu, kristin au, victoria li
+  <div id='footer'>
+    mit 6.813 course project | andre mroz, jennifer hu, kristin au, victoria li
   </div>
 </footer>
 

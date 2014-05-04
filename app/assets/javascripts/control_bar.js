@@ -1,5 +1,10 @@
 $(document).ready(function(){
 
+  var rec_vid = document.getElementById('recent_video');
+  rec_vid.addEventListener('loadedmetadata', function() {
+      $('.put_duration').html(getVideoTime(rec_vid.duration));
+  })
+
   function getVideoTime(duration) {
     var minutes = Math.floor(duration/60);
     var seconds = Math.floor(duration%60);
@@ -113,13 +118,19 @@ $(document).ready(function(){
     }
   }
 
-  video.addEventListener('loadedmetadata', function() {
-      duration = video.duration;
-      $("#duration").html('/ '+getVideoTime(duration));
-      addCommentBubbles();
-      clickableComments();
-      clickableBubbles();
-  });
+  // video.addEventListener('loadedmetadata', function() {
+  //     duration = video.duration;
+  //     console.log(duration);
+  //     // recent_duration = $('#recent_video').duration;
+  //     // $("#duration").html('/ '+getVideoTime(duration));
+  //     // console.log( recent_duration);
+  //     // console.log( $('#recent_video'));
+  //     // console.log( getVideoTime($('#recent_video').duration));
+  //     // $('.put_duration').html(getVideoTime($('#recent_video').duration));
+  //     addCommentBubbles();
+  //     clickableComments();
+  //     clickableBubbles();
+  // });
 
 
 

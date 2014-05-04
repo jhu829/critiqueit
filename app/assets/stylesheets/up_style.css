@@ -32,14 +32,14 @@ h2 {
 	background-color: #d8d8d8;
 }
 
-video {
+/*video {
 	display: inline-block;
 	padding: 30px;
 	margin-right: -20px;
 	margin-top: -10px;
 	width: 650px;
 	vertical-align: middle;
-}
+}*/
 
 #video_head, #vid_auth{
 	font-family: 'Open Sans Condensed';

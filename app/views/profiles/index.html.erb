@@ -1,25 +1,77 @@
 <div class="listing">
+	<h1 class = "page_title">YOUR VIDEOS</h1>
+
 	<div class="toppanel">
 		<div class="searchpanel">
-			<button class ="button" id="upload">UPLOAD NEW VIDEO</button>
-			<input class="search"  type="text"></input>
-			<button class="button2"> SEARCH</button>
-		</div>
-		
-		
+			<input id="search_bar"  type="text" placeholder='search...'></input>
+			<button class="button" id='search_button'></button>
+		</div>	
+			<button class ="button submit" id="upload">UPLOAD VIDEO</button>
 	</div>
-	<div class = "title">
-		YOUR VIDEOS
-	</div>
-	<div class="videopanel">
-		<div class = "videorow">
-		<% @videos.each do |video| %>
-		
-			<div class= "videogroup">
-				<%= link_to 'video',  video %>
 
-				<img class="video" id="1" style="height:auto; width:auto; max-width:300px; max-height:300px;" src="/assets/stock.png"></a>
-				<div class="overlay" id="videotext1">
+	<h3 class='sub_title' id='label_recent wh'>MOST RECENT UPLOAD</h3>
+
+	<% @recvid = current_user.videos.order("created_at").last %>
+	<% if @recvid == nil %>
+		<br/>
+		<h3 class='oops wh'>Looks like you don't have any videos yet. Try uploading a pitch!<h3>
+	<% else %>
+		<%= link_to(@recvid) do%>
+		<div class='button' id='recentpanel'>
+				<%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'recent_video') %>
+				<div id='recvid_info'>
+					<h4 class='sub_title recvid_heading bl' id='recvid_title'><%= @recvid.title %></h4>
+					<p class='rec_info bl'>Duration: <b class='put_duration bl'></b><br/>
+					<p class='rec_info bl'>Created on: <%= @recvid.created_at.to_formatted_s(:long) %><br/>
+					<p class='rec_info bl'>Comments: <%= @recvid.comments.count %></p>
+
+					<h5 class='heading bl' id='recvid_heading'>MOST RECENT COMMENT</h5>
+					<% @reccom = @recvid.comments.order("created_at").last %>
+					<%if @reccom != nil %>
+						<h5 class= 'bl' id='rec_record'>
+							<%= @reccom.time_stamp%> by <%= User.find_by_id(@reccom.user_id) %>
+						</h5>
+						<p class='bl' id='rec_text bl'><%= @reccom.comment_text %></p>
+					<% else %>
+						<p class='comtxt bl'>Seems like no one has made any comments on your pitch yet!</p>
+					<% end %>
+				</div>
+				<div id='recvid_feedback'>
+					<canvas id="recvid_chart" width="75" height="75"></canvas>
+<!-- 					<%= javascript_tag do %>
+						drawChart("recvid_chart", 
+									<%= @recvid.sold %>, 
+									<%= @recvid.notsold %>, 
+									100, 
+									50);
+					<% end %> -->
+					 <%= javascript_tag do %>
+						drawChart("recvid_chart", 
+									423, 
+									124, 
+									34, 
+									78);
+					<% end %> 
+					<br/>
+					<div class='circle_l sold'></div><p class='main_rec_feedback bl'><b class='emph'>23<%= @recvid.sold %></b> SOLD</p><br/>
+					<div class='circle_l not_sold'></div><p class='main_rec_feedback bl'><b class='emph'>12<%= @recvid.notsold %> </b> NOT SOLD</p>
+					<br/>
+					<div class='circle_s sold_to_not'></div><p class='change_rec_feedback bl'><b  class='emph'>12 </b>SOLD TO NOT SOLD</p><br/>
+					<div class='circle_s not_to_sold'></div><p class='change_rec_feedback bl'><b class='emph'>19 </b>NOT SOLD TO SOLD</p><br/>
+
+				</div>
+		</div>
+		<% end %>
+	<% end %>
+
+	<div class="videopanel">
+		<h3 class='sub_title bl'>ALL YOUR VIDEOS</h3>
+		<div class="videorow">
+		<% @videos.each do |video| %>
+			<% if video != Video.order("created_at").last %>
+			<div class= "videogroup">
+				<%= link_to image_tag("stock.png", :class=>'video_stock button'), video %>
+ 				<div class="overlay" id="videotext1">
 					<p style="text-align:center">
 						</br>
 						<table class="table">
@@ -45,21 +97,19 @@
 					</p>
 				</div>
 			</div>
-		
+			<% end %>		
 		<% end %>
 		</div>
 	</div>
 
 </div>
-<div id="uploadcontent" style='display:none'>
+<div class='textchange' id="uploadcontent" style='display:none'>
 	Hi, you'll be given a video. But if you want, you can customize the title here!
 	      <%= form_for @video, :url => videos_path do |f| %>
       	  <% render :partial => "video_form" %>
       	  <%end%>
 
-	</br>
-	<div class="buttongroup">
-		<button class ="button2" onclick="uploaded();">UPLOAD</button>
-		<button class ="button2" onclick="$.colorbox.close()">CANCEL</button>
+	<div class="buttongroup textchange">
+		<button class ="textchange submit button" onclick="$.colorbox.close()">CANCEL</button>
 	</div>
 </div>

@@ -58,7 +58,7 @@ class VideosController < ApplicationController
 	def change
 		@video = Video.find(params[:video_id])
 		@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
-		# @chagne.reason = params[:change][:reason] 
+		@change.reason = params[:data_reason]
 		@change.ischanged=true
 		if @change.vote == "yes"
 			puts "ITS A YESS"
@@ -67,6 +67,10 @@ class VideosController < ApplicationController
 			@change.vote="yes"
 		end
 		@change.save
+
+		puts "REASONNN"
+
+		puts @change.reason
 
 		redirect_to video_path(@video.id)
 

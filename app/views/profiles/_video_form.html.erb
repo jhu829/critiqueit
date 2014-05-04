@@ -2,10 +2,10 @@
 <%= form_for (@video) do |f| %>
 
 <div class = "input-group">
-  <%= f.text_field :title %>
+  <%= f.text_field :title, :class=>'bl field' %>
 </div>
 <div class = "actions">
-  <%= f.submit%>
+  <%= f.submit :class=>'submit button'%>
 </div>
 
 <% end %>
