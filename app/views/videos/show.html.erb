@@ -91,21 +91,6 @@
 		<%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'yourvideo') %>
 
 
-	<script>
-	$('#changebtn').click(function(){
-		console.log("CLICKEDDDDD")
-
-		$('#confirmfromsold').removeClass("hidden");
-
-	});
-
-	$('#changebtn2').click(function(){
-
-		$('#confirmfromnotsold').removeClass("hidden");
-
-
-	});
-	</script>
 
 	<%if @change.nil?%>
 		<div id="areyousold">
@@ -122,15 +107,22 @@
 			<div id="solddisplay">
 				YOU ARE SOLD!<br>
 				<%if !@change.ischanged%>
-<!-- 				<button type="button" class = "button2"  id="changebtn">CHANGE</button>
-				<div id="confirmfromsold" class ="hidden"> -->
-	
 				
-					<%=link_to 'Change', video_change_path(@video.id), :class=> "btn pull-right"%>
+				<button type="button" class = "button2"  id="changebtn">CHANGEEE???</button>
+					<div id="confirmfromsold">
+						Why do you want to change?
+						<input type="text" id="changevote1" style="font-size:15px"><br>
+						<%=link_to 'Change', video_change_path(@video.id),:reason=> "this is why", :class=> "btn pull-right"%>
 
-				<!-- </div> -->
+						
+					
+					</div>
 				<%end%>
+
 			</div>
+
+
+
 		<%else%>
 			<div id = "notsolddisplay">
 				YOU ARE NOT SOLD!<br>
@@ -146,8 +138,26 @@
 		<%end%>
 	<%end%>
 
+						<script>
 
-	<div id="confirmfromsold" class ="hidden">
+	$('#changebtn').click(function(){
+		console.log("CLICKEDDDDD")
+
+		$('#confirmfromsold').removeClass("hidden");
+
+	});
+
+	$('#changebtn2').click(function(){
+
+		$('#confirmfromnotsold').removeClass("hidden");
+
+
+	});
+
+	</script>
+
+
+	<!-- <div id="confirmfromsold" class ="hidden">
 		Why do you want to change?<br>
 		<input type="text" id="changevote1" style="font-size:15px"><br>
 		<button type="button" class = "button2"  id="yeschange">CHANGE</button></br><button type="button" class = "button2" id="nochange">CANCEL</button>
@@ -158,7 +168,7 @@
 		<input type="text" id="changevote2" style="font-size:15px">
 		<button type="button" class = "button2"  id="yeschange2">CHANGE</button><br><button type="button" class = "button2" id="nochange2">CANCEL</button>
 	</div>
-
+ -->
 <div id="comment_input">
 	<%= form_for @comment, :url => video_comments_path(@video) do |f| %>
       <% render :partial => "comments/form" %>
@@ -230,6 +240,7 @@ $("#comment_comment_text").keydown(function(event){
 			<li>
 			<!-- <%=comment.time_stamp%> -->
 			<%= comment.comment_text%>
+
 			</li>
 			<%end%>
 		</ul>

@@ -27,6 +27,8 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = @video.comments.new(comment_params)
+    @comment.user_id=current_user.id
+    @comment.video_id= @video.id
 
 
       if @comment.save
