@@ -20,7 +20,7 @@ body {
 }
 
 /** BACKGROUND IMAGES **/
-.sessions {
+.sessions, .registrations, .passwords, .confirmations {
 	background-color: #000;
 	background-image: url('cit1.jpg');
 	background-repeat:no-repeat;

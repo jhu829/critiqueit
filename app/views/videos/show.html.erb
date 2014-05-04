@@ -182,7 +182,7 @@ $("#comment_comment_text").keydown(function(event){
 <div id = "showcomments" class="hidden"><h6> show comments</h6></div>
 
 <div id="view_comments_panel">
-	<h1 class="sub_title bl">YOUR COMMENTS</h1>
+	<h1 class="sub_title bl">YOUR COMMENTS <%= @video.comments.count%></h1>
 	<div id="comment_list">
 		<%if @video.comments.count!=0%>
 		<ul>
