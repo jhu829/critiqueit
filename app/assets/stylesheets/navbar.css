@@ -2,7 +2,7 @@
 font-family: 'Helvetica Neue', Helvetica, sans-serif;
 margin: 0;
 padding: 0;
-/*color: #fff;*/
+color: #fff;
 font-weight: normal;
 letter-spacing: 2px;
 }
@@ -122,6 +122,31 @@ font-size: 16px;
 .nav_ctrl:hover {
 opacity: .5;
 }
+
+/** RECENT PITCH **/
+#rec_pitch{
+	margin: 30px;
+	padding: 5px;
+	background-color: #fff;
+}
+
+#recent_panel_mini {
+	margin: 5px;
+}
+
+#mini_title {
+	font-size: 16px;
+}
+
+#mini_rec_info {
+
+}
+
+#mini_feedback {
+
+}
+
+
 
 /** FOOTER **/
 #footer {

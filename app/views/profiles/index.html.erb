@@ -16,6 +16,7 @@
 		<br/>
 		<h3 class='oops wh'>Looks like you don't have any videos yet. Try uploading a pitch!<h3>
 	<% else %>
+		<%= link_to(@recvid) do%>
 		<div class='button' id='recentpanel'>
 				<%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'recent_video') %>
 				<div id='recvid_info'>
@@ -60,6 +61,7 @@
 
 				</div>
 		</div>
+		<% end %>
 	<% end %>
 
 	<div class="videopanel">
