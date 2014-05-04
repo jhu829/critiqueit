@@ -1,10 +1,9 @@
-<br><br><br><br><br><br>
 <%if @video.user_id==current_user.id%>
  <%= stylesheet_link_tag "colorbox" %>
   <%= stylesheet_link_tag "up_style" %>
   
 <div class='container'>
-	<h1 id='page_title'><%=@video.title%></h1><p id='vid_auth'>by Current USERRR</p>
+	<h1 class='page_title'><%=@video.title%></h1><p id='author'>by CurrentUser</p>
 
 	<div id='video_area'>
 		<br/>
@@ -83,109 +82,63 @@
 
 <%= stylesheet_link_tag "reviewer" %>
 
-<div class="videoarea">
-	<br><br><br><br><br>
-	<h1 id="title"><%=@video.title =%></h1>
-	<p id="author">by </p> 
+<div id='title_holder'>
+	<h1 class='page_title' id='title'><%= @video.title %></h1><p id='author'>by User</p>
+</div>
 
-		<%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'yourvideo') %>
-
-
-
-	<%if @change.nil?%>
-		<div id="areyousold">
-			Are You Sold?<br>
-			<%=link_to 'Yes', video_sold_path(@video.id), :class=> "btn pull-right"%>
-			<!-- <button type="button" class = "button2"  id="sold">YES</button> -->
-
-			<%=link_to 'No', video_notsold_path(@video.id), :class=> "btn pull-right"%>
-			<!-- <button type="button" class = "button2"  id="notsold">NO</button> -->
+<div id="videopanel">
+	<%= video_tag(["testvid.mp4"], :size => "640x360", :controls => true, :class=>'vid_display') %>
+	<div class='right_panel'>
+	<%=link_to "BROWSE OTHER VIDEOS" , videos_path,:class=>'button bl', :id=>'back'%>
+		<div class='vote_panel'>
+			<%if @change.nil?%>
+				<h1 class='bl' id='vote_text'>ARE YOU SOLD?</h1><br/>
+				<%=link_to 'Yes', video_sold_path(@video.id), :class=> "button submit_vote sold"%>
+				<%=link_to 'No', video_notsold_path(@video.id), :class=> "button submit_vote not_sold"%>
 		</div>
-
-	<%else%>
-		<%if @change.vote=="yes"%>
-			<div id="solddisplay">
-				YOU ARE SOLD!<br>
-				<%if !@change.ischanged%>
-				
-				<button type="button" class = "button2"  id="changebtn">CHANGE</button>
-					<div id="confirmfromsoldyes" class = "hidden" style='font-size:20px'>
-						Why do you want to change? (you can only change once!)
-						<input type="text" id="changevote1" style="font-size:15px"><br>
-						<%=link_to 'Change', video_change_path(@video.id), :class=> "btn pull-right"%>
-
-						
-					
-					</div>
+			<%else%>
+				<%if @change.vote=="yes"%>
+		<div class='bl' id="vote_text">
+			YOU ARE SOLD!
+				<%else%>
+			YOU ARE NOT SOLD!
+		</div>
 				<%end%>
-
-			</div>
-
-
-
-		<%else%>
-			<div id = "notsolddisplay">
-				YOU ARE NOT SOLD!<br>
-				<%if !@change.ischanged%>
-				<button type="button" class = "button2"  id="changebtn2">CHANGE</button>
-				<div id="confirmfromnotsoldno" class = "hidden" style='font-size:20px'>
-						Why do you want to change? (you can only change once!)
-						<input type="text" id="changevote1" style="font-size:15px"><br>
-						<%=link_to 'Change', video_change_path(@video.id), :class=> "btn pull-right"%>
-
-						
-					
-					</div>
-				
+		<br/>
+				<%if !@change.ischanged%>		
+			<button type="button" class="button2 button submit" id="changebtn">CHANGE</button>
+		<div id="confirm_panel" class = "hidden bl">
+			<p class='change_text bl'>Why do you want to change your vote? <br/>
+			<b id='small_text'>To make your opinion really matter, you can only change once!</b></p>
+			<textarea rows="4" cols="75" class='bl change_field' id="changevote1"></textarea><br>
+			<%=link_to 'Change', video_change_path(@video.id), :class=> "bl button submit btn pull-right"%>
+		</div>	
+				<% else %>
+				<br/>
+				<p id='small_text'>Looks like you've already changed your vote once for this pitch.</p>
 				<%end%>
-			</div>
-		<%end%>
-	<%end%>
+			<%end%>
+		</div>
+	</div>
+</div>
+</div>	
 
-						<script>
-
+<script>
 	$('#changebtn').click(function(){
 		console.log("CLICKEDDDDD")
-
-		$('#confirmfromsoldyes').removeClass("hidden");
-
+		$('#changebtn').addClass("hidden");
+		$('#confirm_panel').removeClass("hidden");
 	});
+</script>
 
-	$('#changebtn2').click(function(){
-
-		$('#confirmfromnotsoldno').removeClass("hidden");
-
-
-	});
-
-	</script>
-
-
-	<!-- <div id="confirmfromsold" class ="hidden">
-		Why do you want to change?<br>
-		<input type="text" id="changevote1" style="font-size:15px"><br>
-		<button type="button" class = "button2"  id="yeschange">CHANGE</button></br><button type="button" class = "button2" id="nochange">CANCEL</button>
-	</div>
-
-	<div id="confirmfromnotsold" class ="hidden">
-		Why do you want to change?<br>
-		<input type="text" id="changevote2" style="font-size:15px">
-		<button type="button" class = "button2"  id="yeschange2">CHANGE</button><br><button type="button" class = "button2" id="nochange2">CANCEL</button>
-	</div>
- -->
-<div id="comment_input">
+<div id="comment_panel">
+	<h1 id='comment_stamp'>0:00</h1>
 	<%= form_for @comment, :url => video_comments_path(@video) do |f| %>
-      <% render :partial => "comments/form" %>
-      <%end%>
-
+    	<% render :partial => "comments/form" %>
+     <%end%>
 </div>
 
 <script>
-
-
-
-
-console.log("HELLO")
 var video=document.getElementById("yourvideo"); 
 
 	video.addEventListener('loadedmetadata', function() {
@@ -222,21 +175,14 @@ $("#comment_comment_text").keydown(function(event){
 		$('#comment_time_stamp').val(video.currentTime)
 		console.log($('#comment_time_stamp').val())
 });
-
-
-
 </script>
 
-</div>
-
-<div id="videoline"></div>
 
 <div id = "hidecomments"><h6> hide comments</h6></div>
 <div id = "showcomments" class="hidden"><h6> show comments</h6></div>
 
-<div id="comments">
-
-	<h1 id="comment_header">Comments</h1>
+<div id="view_comments_panel">
+	<h1 class="sub_title bl">YOUR COMMENTS</h1>
 	<div id="comment_list">
 		<%if @video.comments.count!=0%>
 		<ul>

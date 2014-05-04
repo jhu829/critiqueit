@@ -99,7 +99,7 @@ $(document).ready(function() {
 	});
 
 	$('#changebtn2').click(function(){
-
+		console.log('fdsklaf');
 		$('#confirmfromnotsold').removeClass("hidden");
 		$('#notsolddisplay').addClass('hidden');
 		$('#changevote2').focus()

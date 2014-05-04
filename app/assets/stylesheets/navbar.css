@@ -37,10 +37,11 @@ body {
 	background: url('cit7.jpg');
 	background-repeat:no-repeat;
 	background-position-x: center;
-	background-size: 1314px, 550px;
-	-webkit-background-size: 1314px, 550px;
-    -moz-background-size: 1314px, 550px;
-    -o-background-size: 1314px, 550px;
+	background-position-y: -50px;
+	background-size: 1480px, 575px;
+	-webkit-background-size: 1480px, 575px;
+    -moz-background-size: 1480px, 575px;
+    -o-background-size: 1480px, 575px;
 }
 
 .videos {
@@ -48,7 +49,7 @@ body {
 	background: url('cit6.jpg');
 	background-repeat:no-repeat;
 	background-position-x: center;
-	background-position-y: -225px;
+	background-position-y: -150px;
 	background-size: 1480px, 725px;
 	-webkit-background-size: 1480px, 725px;
     -moz-background-size: 1480px, 725px;

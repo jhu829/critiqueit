@@ -18,7 +18,6 @@ $(document).ready(function(){
 	//Side menu pull out
 	$('#nav_menu').sidr({side:'right'});
 
-	
 
 	$(".video").mouseover(function(){
 		var id = $(this).attr('id');
