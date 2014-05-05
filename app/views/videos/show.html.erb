@@ -86,7 +86,7 @@
 </div>
 
 <div id="videopanel">
-	<%= video_tag(["testvid.mp4"], :size => "640x360", :id=>"yourvideo",:controls => true, :class=>'vid_display') %>
+	<%= video_tag(["testvid.mp4"], :size => "600x360", :id=>"yourvideo",:controls => true, :class=>'vid_display') %>
 	<div class='right_panel'>
 	<%=link_to "BROWSE OTHER VIDEOS" , videos_path,:class=>'button bl', :id=>'back'%>
 		<div class='vote_panel'>
@@ -105,16 +105,16 @@
 				<%end%>
 		<br/>
 				<%if !@change.ischanged%>		
-			<button type="button" class="button2 button submit" id="changebtn">CHANGE</button>
+			<button type="button" class="changebutton button submit" id="changebtn">CHANGE</button>
 		<div id="confirm_panel" class = "hidden bl">
 			<p class='change_text bl'>Why do you want to change your vote? <br/>
 			<b id='small_text'>To make your opinion really matter, you can only change once!</b></p>
-			<textarea rows="4" cols="75" class='bl change_field' id="changevote1"></textarea><br>
-			<%=link_to 'Change', video_change_path(@video.id), :class=> "bl button submit btn pull-right"%>
+			<textarea rows="4" cols="55" class='bl change_field' id="changevote1"></textarea><br>
+			<%=link_to 'Change', video_change_path(@video.id), :class=> "bl submit btn pull-right", :id=> "changebutton"%>
 		</div>	
 				<% else %>
 				<br/>
-				<p id='small_text'>Looks like you've already changed your vote once for this pitch.</p>
+				<p id='small_text' style="text-align:center; width:60%; font-size:20px;margin-left:15%; margin-top:5%;">Looks like you've already changed your vote once for this pitch.</p>
 				<%end%>
 			<%end%>
 		</div>
@@ -131,7 +131,7 @@
 </script>
 
 <div id="comment_panel">
-	<h1 id='comment_stamp'>0:00</h1>
+	<h1 id='comment_stamp' class="bl">0:00</h1>
 	<%= render :partial => "comments/form" %>
 </div>
 

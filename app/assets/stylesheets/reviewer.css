@@ -10,7 +10,9 @@ body{
 	display: inline-block;
 	vertical-align: text-top;	
 }
-
+#videopanel{
+	width:98%;
+}
 /** VOTING PANEL **/
 .vote_panel{
 	width: 550px;
@@ -68,19 +70,25 @@ body{
 	display: inline-block;
 	vertical-align: text-top;
 	font-size: 16px;
+	min-width:600px;
+	min-height:80px;
 	letter-spacing: 1px;
 }
 
 #comment_panel{
 	text-align: center;
-	width: 1200px;
-	margin-top:-5px;
+	width: 98%;
+	margin-top:80px;
 }
 
 #comment_submit{
 	display: inline-block;
 	vertical-align: text-top;
-	height: 70px;
+	/*height: 70px;*/
+}
+
+.commentsumission{
+	margin-top:10%;
 }
 
 /** VIEWING COMMENTS AREA**/
