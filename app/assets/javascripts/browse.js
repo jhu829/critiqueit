@@ -13,8 +13,13 @@
 		new Chart(rec_ctx).Pie(data);
 	}
 
-$(document).ready(function(){
+$(document).on('page:load', function(){
+	console.log("pageload");
+	$('#nav_menu').sidr({side:'right'});
+	console.log("done");
 
+});
+$(document).ready(function(){
 	//Side menu pull out
 	$('#nav_menu').sidr({side:'right'});
 
@@ -41,6 +46,9 @@ $(document).ready(function(){
 		}}
 	);
 });
+
+
+
 
 function uploaded(){
 	$.colorbox.close();
