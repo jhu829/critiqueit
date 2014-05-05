@@ -4,6 +4,7 @@
  <%= javascript_include_tag "up_script" %>
   
 <div class='container'>
+	<br/>
 	<h1 class='page_title'><%=@video.title%></h1><p id='author'>by CurrentUser</p>
 
 	<div id='video_area'>
@@ -65,7 +66,8 @@
 			<table id="comments_table">
 				<tr>
 					<td><h1 id='comments_head'>Comments (<%= @comments.count%>) </h1></td>
-					<td><h1 id='comments_viewall'>View All (<%= @comments.count %>)</h1></td>
+
+					<td><h1 ><%= link_to "View All", videos_update_comments_path, remote: true, :id => "comments_viewall"%></h1></td>
 
 				</tr>
 			</table>

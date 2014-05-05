@@ -1,7 +1,10 @@
 $(document).ready(function(){
   // COMMENT STUFFFF //
 
-  
+  // $('#comments_viewall').on('click', function(e){
+  //     $("#partial_container").html("<%= raw escape_javascript(render :partial => 'test') %>");
+  //     console.log("render!");
+  //   });
 
   var rec_vid = document.getElementById('recent_video');
   if (rec_vid != null) {

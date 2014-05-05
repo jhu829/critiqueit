@@ -1,7 +1,0 @@
-$(document).ready(function(){
-	console.log("Weeeee");
-	$('#comments_viewall').on('click', function(e){
-	    $("#partial_container").html("<%= escape_javascript(render :partial => 'test') %>");
-	    console.log("render!");
-	  });
-}

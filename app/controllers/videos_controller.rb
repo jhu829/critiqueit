@@ -90,6 +90,7 @@ class VideosController < ApplicationController
 	end
 
 	def show
+		puts "in show"
 		@video = Video.find(params[:id])
 		@comment = Comment.new
 		puts current_user.id
@@ -100,6 +101,15 @@ class VideosController < ApplicationController
 		@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
 	end
 
+	def update_comments
+		puts "hello"
+		# @video = Video.find(params[:id])
+
+		# puts "onupdate comments"
+		# respond_to do |format|
+		# 	format.js{render :action => 'update_comments'}
+		# end
+	end
 
 	private 
 
