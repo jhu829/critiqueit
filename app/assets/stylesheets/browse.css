@@ -121,6 +121,7 @@ b {
 	font-size: 18px;
 }
 
+
 .submit_vote {
 	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
 	color: #fff;
@@ -243,7 +244,10 @@ b {
 }
 
 .videorow{
-	width: 1250px;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+	margin-left:10%;
 }
 
 /** VIDEO OVERLAY **/
@@ -251,6 +255,7 @@ b {
 	background-image: url('stock.png');
 	width: 275px;
 	height: 175px;
+	opacity: 0.5;
 	background-repeat:no-repeat;
 	background-attachment:fixed;
 	background-position:center;
@@ -268,14 +273,18 @@ b {
 	z-index:100;
     position:absolute;   
     top:0;
-	width:95%;
+	width:100%;
+	height: 100%;
 	pointer-events: none;
+	background-color: #fff;
+	opacity: 0.75;
+	text-align: center;
 }
 
 .table{
 	width:80%;
+	margin-left: 10%;
 	color:#2e2f2f;
-	float:left;
 	text-align: center;
 }
 

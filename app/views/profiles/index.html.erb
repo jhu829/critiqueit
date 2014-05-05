@@ -66,7 +66,7 @@
 	<% end %>
 
 	<div class="videopanel">
-		<h3 class='sub_title bl'>ALL YOUR VIDEOS</h3>
+		<h3 class='sub_title wh'>ALL YOUR VIDEOS</h3>
 		<div class="videorow">
 		<% @videos.each do |video| %>
 			<% if video != Video.order("created_at").last %>
@@ -112,6 +112,6 @@
       	  <%end%>
 
 	<div class="buttongroup textchange">
-		<button class ="textchange submit button" onclick="$.colorbox.close()">CANCEL</button>
+		<button class ="textchange submit buttonvid" onclick="$.colorbox.close()">CANCEL</button>
 	</div>
 </div>

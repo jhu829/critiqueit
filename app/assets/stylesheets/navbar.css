@@ -1,5 +1,5 @@
 * {
-font-family: 'Helvetica Neue', Helvetica, sans-serif;
+font-family: 'Open Sans';
 margin: 0;
 padding: 0;
 color: #fff;
@@ -9,6 +9,7 @@ letter-spacing: 2px;
 
 body {
 	padding: 30px 30px 20px 30px;
+	height:100%;
 }
 
 .oops {
@@ -34,7 +35,7 @@ body {
 
 .profiles {
 	background-color: #fff;
-	background: url('cit7.jpg');
+	background: url('cit1.jpg');
 	background-repeat:no-repeat;
 	background-position-x: center;
 	background-position-y: -50px;
@@ -62,12 +63,29 @@ body {
 	-moz-transition:.1s;
 	-webkit-transition:.1s;
 }
+.buttonvid{
+	-o-transition:.1s;
+	-ms-transition:.1s;
+	-moz-transition:.1s;
+	-webkit-transition:.1s;
+	color:#fff;
+	border:none;
+	width: 100px;
+	height:30px;
+	margin-bottom: 5px;
+}
 
-.button:hover {
+.button:hover, .buttonvid:hover {
 	opacity: .7;
 	cursor: pointer;
 }
 
+#upload{
+	width:390px;
+	height: 30px;
+	border:none;
+	font-size: 16px;
+}
 /** IMAGES **/
 #img_logo{
 width: 27px;
@@ -154,5 +172,9 @@ opacity: .5;
 	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
 	font-size: 12px;
 	text-align: center;
+	width:100%;
+	height:80px;
+	bottom:0;
+	left:0;
 }
 
