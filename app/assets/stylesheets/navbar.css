@@ -165,8 +165,32 @@ opacity: .5;
 
 }
 
+/** FORM LAYOUT **/
+.formlayout{
+	text-align: center;
+	padding-top: 20%;
+}
 
+.medium_field{
+	width: 350px;
+	height: 20px;
+	margin: 10px;
+}
+.reset_button{
+	width:350px;
+	color:#fff;
+	text-decoration: none;
+	border: none;
+	font-size: 16px;
+	padding:10px;
+	background-color: #668b8b;
+	margin-bottom: 20px;
+}
 
+.reset_button:hover{
+	cursor:pointer;
+	opacity: 0.7;
+}
 /** FOOTER **/
 #footer {
 	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";

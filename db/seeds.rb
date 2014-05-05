@@ -12,4 +12,5 @@ Video.create(:title => 'My Pitch 2', :user_id => 1, :sold => 105, :notsold => 18
 Video.create(:title => 'My Pitch 3', :user_id => 1, :sold => 79, :notsold => 102)
 Video.create(:title => 'The Best App Ever', :user_id => 2, :sold => 333, :notsold => 13)
 Video.create(:title => 'Another Web App', :user_id => 2, :sold => 67, :notsold => 98)
-Comment.create(:comment_text=>"you look great", :video_id =>4, :user_id=>1)
+Comment.create(:comment_text=>"you look great", :video_id =>7, :user_id=>1, :time_stamp => 4)
+Comment.create(:comment_text=>"I hated this part", :video_id =>7, :user_id=>3)

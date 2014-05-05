@@ -63,7 +63,8 @@
         <% if user_signed_in? %>
               <%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete', :class => "header_item button", :id => "n_log") %>
           <% else %>
-              <a href='login.html' class='header_item button' id='n_log'>LOGIN</a>
+              <%= link_to("LOGIN", new_user_session_path, :method=>'get', :class => 'header_item buttom', :id=> 'n_log') %>
+              <!-- <a href='login.html' class='header_item button' id='n_log'>LOGIN</a> -->
         <% end %>
       
     </div>

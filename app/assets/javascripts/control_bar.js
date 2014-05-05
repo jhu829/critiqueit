@@ -217,9 +217,9 @@ video.addEventListener("timeupdate", function() {
   var jump_value = single_jump*current_jump;
 
   var stamp = Math.floor(current_jump)*10;
-  console.log("video lsitening");
 
   if (Math.floor(video.currentTime)%10 == 0) {
+    console.log("jumpval" , jump_value);
     $('#ind_comment_container').html('');
     $('#_'+current_jump).animate({'width' : '25px', 
                                   'height': '22px'}, 200);

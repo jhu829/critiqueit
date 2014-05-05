@@ -348,10 +348,19 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #comments_head{
-	color: #ffffff;
+	color: black;
 	font-weight: 300;
-	margin-bottom: 10px;
+	font-size: 24px;
 
+}
+#comments_table{
+	width:inherit;
+}
+
+#comments_viewall{
+	color:black;
+	font-size: 20px;
+	margin-left:80%;
 }
 
 #pointer_container, #comment_container {
@@ -360,25 +369,39 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #pointer{
-	width: 40px;
-	height: 40px;
-	margin-bottom: -1px;
+	width: 25px;
+	height: 60px;
+	margin-top:10px;
+	margin-bottom: -10px;
 }
 
 #comment_container {
-	background-color:#d8d8d8; 
+	background-color:none; 
 	padding: 20px;
 }
 
 .individual_comment {
 	margin-bottom: 10px;
+	font-size: 14px;
+	border-bottom: 1px #D5D3D3 solid;
+	padding: 10px;
+
 }
 
 .individual_comment:hover {
 	opacity: .7;
 	cursor: hand
 }
-
+.ind_comment_container{
+	border-bottom: 2px solid black;
+	height: 200px;
+	color: black;
+}
+.comment_timestamp{
+	font-size:26px;
+	color: black;
+	font-weight: 700;
+}
 .cmt_table {
 	width: 100%;
 	border-collapse:collapse;

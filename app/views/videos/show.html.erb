@@ -62,14 +62,25 @@
 
 		<div id='pointer_container'><img id='pointer' src='/assets/pointer.png'></div>
 		<div id='comment_container'>
-			<h1 id='comments_head'>Video Comments @ <b id='start_time'>0:00</b> - <b id='end_time'>0:10</b></h1>
-			<div id='ind_comment_container'>
-				<% @comments.each do |comment| %>
-				<%=comment.time_stamp%>
-				<%=comment.comment_text%>
-				<%end%>
+			<table id="comments_table">
+				<tr>
+					<td><h1 id='comments_head'>Comments (<%= @comments.count%>) </h1></td>
+					<td><h1 id='comments_viewall'>View All</h1></td>
 
-			</div>
+				</tr>
+			</table>
+			
+			<% @comments.each do |comment| %>
+				<div class='individual_comment'>
+					<table>
+						<tr>
+							<td class="comment_timestamp"><%= comment.time_stamp%></td>
+							<td class="comment_text"><%= comment.comment_text%></td>
+						</tr>
+					</table>
+
+				</div>
+			<% end %>
 		</div>
 	</div>
 </div>
