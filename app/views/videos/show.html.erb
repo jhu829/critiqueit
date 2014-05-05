@@ -174,23 +174,41 @@
 	</div>
  -->
 <div id="comment_input">
-	<%= form_for @comment, :url => video_comments_path(@video) do |f| %>
-      <% render :partial => "comments/form" %>
-      <%end%>
-
+     <%= render :partial => "comments/form" %>
 </div>
 
 <script>
 
 
 
+// $(function(){
+//     $("#ccommentform").submit(function(){
+//         var dataSet = $(this).serialize();
+//         $.ajax({
+//             type: "POST",
+//             url: $(this).attr("action"),
+//             data: dataSet,
+//             complete: function(){
+//                 alert("Sent!");
+//             },
+//             error: function(){
+//                 alert("Something went wrong!");
+//             }
+//         });
+//         return false;
+//     });
+// })
 
-console.log("HELLO")
+
+</script>
+
+<script>
+
+
 var video=document.getElementById("yourvideo"); 
 
 	video.addEventListener('loadedmetadata', function() {
       duration = video.duration;
-      console.log(duration);
   });
 
 var minutes = Math.floor(video.currentTime/60);
@@ -199,15 +217,28 @@ var minutes = Math.floor(video.currentTime/60);
 			seconds='0'+seconds
 		}
 
+	function togglePlay() {
+	    if (video.paused == true) {
+	    // Play the video
+	    video.play();
+	  } else {
+	    // Pause the video
+	    video.pause();
+	  }
+	}
+
+
+	yourvideo.addEventListener("click", function() {
+    	togglePlay();
+  	});
+
 $("#comment_comment_text").keydown(function(event){ 
-	console.log("KEYDOWN")
-	if(event.keyCode == 13){
-			$("#cmtbtn").click();
+		if(event.keyCode == 13){
+			video.play();
 		}
 		else if (!video.paused){
 			video.pause();
 		}
-		console.log("get here?")
 
 		var minutes = Math.floor(video.currentTime/60);
 		var seconds = Math.floor(video.currentTime-minutes*60)
@@ -215,13 +246,16 @@ $("#comment_comment_text").keydown(function(event){
 			seconds='0'+seconds
 		}
 		if ($('#comment_comment_text').val().length==1){
-			console.log("get here?now")
 			$('#comment_comment_text').val('['+minutes+":"+seconds+'] '+$('#comment_comment_text').val());
 		}
 		// $('#comment_time_stamp').val('['+minutes+":"+seconds+'] ')
 		$('#comment_time_stamp').val(video.currentTime)
-		console.log($('#comment_time_stamp').val())
+
 });
+$("#commentsubmit").click(function(){
+	video.play()
+});
+
 
 
 
@@ -251,5 +285,21 @@ $("#comment_comment_text").keydown(function(event){
 
 		<%end%>
     </div>
+
+
+    <script>
+
+	$('#hidecomments').click(function(){
+		$('#hidecomments').addClass('hidden');
+		$('#comment_list').addClass('hidden');
+		$('#showcomments').removeClass('hidden');
+	});
+
+	$('#showcomments').click(function(){
+		$('#comment_list').removeClass('hidden');
+		$('#hidecomments').removeClass('hidden');
+		$('#showcomments').addClass('hidden');
+	});
+	</script>
 </div>
 <%end%>

@@ -1,6 +1,4 @@
-<%= form_for([@video,@comment]) do |f| %>
-  
-
+<%= form_for([@video,@comment],remote: true, :url => video_comments_path(@video), id: "commentform") do |f| %>
   <div class="field">
     <%=f.hidden_field :time_stamp%>
   </div>
@@ -8,7 +6,9 @@
     <%= f.text_field :comment_text %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" id="commentsubmit">
+    <%= f.submit%>
   </div>
 <% end %>
+
+
