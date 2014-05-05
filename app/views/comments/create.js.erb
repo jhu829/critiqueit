@@ -1,4 +1,4 @@
-var yay_str = $('#comment_comment_text').val();
+var yay_str = $('#comment_area').val();
 // yay_str = "asdfasdfasdfasdf";
 console.log(yay_str);
 
@@ -6,4 +6,4 @@ var s = "<li>"+yay_str+"</li>";
 var div = document.createElement("div");
 div.innerHTML = s;
 $("#comment_list").children()[0].appendChild(div);
-$("#comment_comment_text").val("");
+$("#comment_area").val("");
