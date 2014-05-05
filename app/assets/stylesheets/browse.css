@@ -24,11 +24,11 @@ b {
 	color: #000;
 }
 
-.sold {
+.sold, #sold {
 	background: #609f45;
 }
 	
-.not_sold {
+.not_sold, #not_sold {
 	background: #b23e2a;
 }
 
@@ -45,7 +45,7 @@ b {
 	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
 	text-align: center;
 	letter-spacing: 6px;
-	font-size: 36px;
+	font-size: 42px;
 }
 
 .sub_title{
@@ -59,8 +59,15 @@ b {
 	font-size: 16px;
 }
 
+.author{
+	font-size: 15px;
+	opacity: .8;
+}
+
 /** TOP PANEL SEARCH AND UPLOAD **/
-.toppanel {
+.toppanel{
+	padding-top: 30px;
+	width:100%;
 	text-align: center;
 	margin-top: -25px;
 }
@@ -93,18 +100,36 @@ b {
 	background-color: #668b8b;
 	color: #fff;
 	border: 1px solid #ccc;
-	font-size: 18px;
 	text-transform: uppercase;
 	display: inline-block;
 	padding: 5px;
-	margin-left: 47.55px;
+	font-size: 18px;
+}
+
+.submit_vote {
+	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
+	color: #fff;
+	border: 1px solid #ccc;
+	text-transform: uppercase;
 	display: inline-block;
+	padding-top: 10px;
+	font-size: 24px;
+	margin-right: 25px;
+	height:40px;
+	width: 100px;
+	vertical-align: middle;
 }
 
 /** RECENT VIDEO PANEL **/
 
-#recentpanel, #featurepanel{
+#recentpanel{
 	height: 275px;
+	width: 1200px;
+	background-color: #fff;
+}
+
+#featurepanel{
+	height: 335px;
 	width: 1200px;
 	background-color: #fff;
 }
@@ -214,25 +239,16 @@ b {
 }
 
 .videopanel {
-	margin-top: 50px;
+	margin-top: 60px;
 }
 
 .overlay{
 	z-index:100;
-	background-color: #000;
-	opacity: .4;
     position:absolute;   
     top:0;
-	width:100%;
-	height:100%;
+	width:95%;
 	pointer-events: none;
 }
-
-.overlay:hover {
-	background-color: transparent;
-
-}
-
 
 .table{
 	width:100%;
@@ -270,13 +286,6 @@ td {
     /*position:absolute;  */
 	font-size: 20px;
 	text-align: center;
-}
-.toppanel{
-	padding-top: 30px;
-	width:100%;
-}
-#upload{
-	margin-right: 5%;
 }
 
 /**  UPLOAD POPUP **/

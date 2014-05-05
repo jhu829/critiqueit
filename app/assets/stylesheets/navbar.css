@@ -2,7 +2,7 @@
 font-family: 'Helvetica Neue', Helvetica, sans-serif;
 margin: 0;
 padding: 0;
-/*color: #fff;*/
+color: #fff;
 font-weight: normal;
 letter-spacing: 2px;
 }
@@ -20,7 +20,7 @@ body {
 }
 
 /** BACKGROUND IMAGES **/
-.sessions {
+.sessions, .registrations, .passwords, .confirmations {
 	background-color: #000;
 	background-image: url('cit1.jpg');
 	background-repeat:no-repeat;
@@ -37,10 +37,11 @@ body {
 	background: url('cit7.jpg');
 	background-repeat:no-repeat;
 	background-position-x: center;
-	background-size: 1314px, 550px;
-	-webkit-background-size: 1314px, 550px;
-    -moz-background-size: 1314px, 550px;
-    -o-background-size: 1314px, 550px;
+	background-position-y: -50px;
+	background-size: 1480px, 575px;
+	-webkit-background-size: 1480px, 575px;
+    -moz-background-size: 1480px, 575px;
+    -o-background-size: 1480px, 575px;
 }
 
 .videos {
@@ -48,7 +49,7 @@ body {
 	background: url('cit6.jpg');
 	background-repeat:no-repeat;
 	background-position-x: center;
-	background-position-y: -225px;
+	background-position-y: -150px;
 	background-size: 1480px, 725px;
 	-webkit-background-size: 1480px, 725px;
     -moz-background-size: 1480px, 725px;
@@ -122,6 +123,31 @@ font-size: 16px;
 .nav_ctrl:hover {
 opacity: .5;
 }
+
+/** RECENT PITCH **/
+#rec_pitch{
+	margin: 30px;
+	padding: 5px;
+	background-color: #fff;
+}
+
+#recent_panel_mini {
+	margin: 5px;
+}
+
+#mini_title {
+	font-size: 16px;
+}
+
+#mini_rec_info {
+
+}
+
+#mini_feedback {
+
+}
+
+
 
 /** FOOTER **/
 #footer {

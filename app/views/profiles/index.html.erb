@@ -16,6 +16,7 @@
 		<br/>
 		<h3 class='oops wh'>Looks like you don't have any videos yet. Try uploading a pitch!<h3>
 	<% else %>
+		<%= link_to(@recvid) do%>
 		<div class='button' id='recentpanel'>
 				<%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'recent_video') %>
 				<div id='recvid_info'>
@@ -25,6 +26,7 @@
 					<p class='rec_info bl'>Comments: <%= @recvid.comments.count %></p>
 
 					<h5 class='heading bl' id='recvid_heading'>MOST RECENT COMMENT</h5>
+					<% if user_signed_in? %>
 					<% @reccom = @recvid.comments.order("created_at").last %>
 					<%if @reccom != nil %>
 						<h5 class= 'bl' id='rec_record'>
@@ -60,6 +62,7 @@
 
 				</div>
 		</div>
+		<% end %>
 	<% end %>
 
 	<div class="videopanel">
@@ -92,6 +95,7 @@
 		<% end %>
 		</div>
 	</div>
+<% end %>
 
 </div>
 <div class='textchange' id="uploadcontent" style='display:none'>

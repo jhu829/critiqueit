@@ -29,8 +29,31 @@
       <br/>
       <%=link_to "WHAT IS A PITCH" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
       <%=link_to "ABOUT" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
-
     </div>
+
+    <% if user_signed_in? %>
+    <div class='button' id='rec_pitch'>
+      <% @recvid = current_user.videos.order("created_at").last %>
+      <% if @recvid == nil %>
+        <br/>
+        <h3 class='oops bl'>Looks like you don't have any videos yet. Try uploading a pitch!<h3>
+      <% else %>
+        <%= link_to(@recvid) do%>
+          <div class='button' id='recent_panel_mini'>
+            <p class='mini_title bl'>MOST RECENT PITCH</p>
+            <p class='mini_rec_info bl'>Title: <%= @recvid.title %></h4>
+            <p class='mini_rec_info bl'>Duration: 1:07<br/>
+            <p class='mini_rec_info bl'>Created on: <%= @recvid.created_at.to_formatted_s(:long) %><br/>
+            <p class='mini_rec_info bl'>Comments: <%= @recvid.comments.count %></p>
+
+            <p class='mini_feedback bl'>23<%= @recvid.sold %> SOLD</p>
+            <p class='mini_feedback bl'>12<%= @recvid.notsold %> NOT SOLD</p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+    <%end%>
+
   </div>
 
 

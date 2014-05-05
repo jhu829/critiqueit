@@ -3,8 +3,3 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 
-$(document).ready ->
-  $("#commentform").on("ajax:success", (e, data, status, xhr) ->
-    $("#commentform").append xhr.responseText
-  ).on "ajax:error", (e, xhr, status, error) ->
-    $("#commentform").append "<p>ERROR</p>"
