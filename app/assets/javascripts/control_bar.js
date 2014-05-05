@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
   var rec_vid = document.getElementById('recent_video');
   if (rec_vid != null) {
   rec_vid.addEventListener('loadedmetadata', function() {
@@ -20,8 +19,7 @@ $(document).ready(function(){
     return print_time;
   }
 
-  var video = document.getElementById("video");
-
+  var video = document.getElementById("myvideo");
   var playButton = document.getElementById("play-pause");
   var fullScreenButton = document.getElementById("full-screen");
   var muteButton = document.getElementById("mute");
@@ -35,36 +33,38 @@ $(document).ready(function(){
       if (video.paused == true) {
       // Play the video
       video.play();
-      playButton.src = 'images/pause.png';
+      playButton.src = '/assets/pause.png';
     } else {
       // Pause the video
       video.pause();
-      playButton.src = 'images/play.png';
+      playButton.src = '/assets/play.png';
     }
   }
 
   function addCommentBubbles() {
 
     var duration = video.duration;
+    console.log("duration", duration);
     var totalJumps = Math.floor(duration/10)+1;
 
 
     for( var j=0;j<totalJumps;j++){
+      var totalComments = 10;
 
-      var totalComments = fake_comments.length;
+      // var totalComments = fake_comments.length;
       var comment_count = 0;
 
       for (var c=0; c<totalComments; c++) {
-        if (fake_comments[c].getTimeStamp() > j*10 ) {
-          if (fake_comments[c].getTimeStamp() < (j+1)*10 ) {
-            comment_count += 1;
-          }
-        }
+        // if (fake_comments[c].getTimeStamp() > j*10 ) {
+        //   if (fake_comments[c].getTimeStamp() < (j+1)*10 ) {
+        //     comment_count += 1;
+        //   }
+        // }
       }
       var parent = document.getElementById("comment_bubbles");
       var bubble = document.createElement('img');
       bubble.className = 'comment_img';
-      bubble.src = 'images/comment.png';
+      bubble.src = '/assets/comment.png';
       bubble.id = '_'+j; 
       bubble.style.marginLeft = 800/totalJumps-15+'px';
       bubble.style.opacity = comment_count/totalComments*3+0.2;
@@ -83,7 +83,7 @@ $(document).ready(function(){
         var time = video.duration * (seekBar.value / 100);
          video.currentTime = time;
          video.play();
-        playButton.src = 'images/pause.png';
+        playButton.src = '/assets/pause.png';
 
       });
     }
@@ -103,7 +103,7 @@ $(document).ready(function(){
         var time = video.duration * (seekBar.value / 100);
          video.currentTime = time;
          video.play();
-        playButton.src = 'images/pause.png';
+        playButton.src = '/assets/pause.png';
 
         var duration = video.duration;
         var totalJumps = Math.floor(duration/10)+1;
@@ -120,19 +120,19 @@ $(document).ready(function(){
     }
   }
 
-  // video.addEventListener('loadedmetadata', function() {
-  //     duration = video.duration;
-  //     console.log(duration);
-  //     // recent_duration = $('#recent_video').duration;
-  //     // $("#duration").html('/ '+getVideoTime(duration));
-  //     // console.log( recent_duration);
-  //     // console.log( $('#recent_video'));
-  //     // console.log( getVideoTime($('#recent_video').duration));
-  //     // $('.put_duration').html(getVideoTime($('#recent_video').duration));
-  //     addCommentBubbles();
-  //     clickableComments();
-  //     clickableBubbles();
-  // });
+  video.addEventListener('loadedmetadata', function() {
+      duration = video.duration;
+      console.log(duration);
+      // recent_duration = $('#recent_video').duration;
+      // $("#duration").html('/ '+getVideoTime(duration));
+      // console.log( recent_duration);
+      // console.log( $('#recent_video'));
+      // console.log( getVideoTime($('#recent_video').duration));
+      // $('.put_duration').html(getVideoTime($('#recent_video').duration));
+      addCommentBubbles();
+      clickableComments();
+      clickableBubbles();
+  });
 
 
 
@@ -154,6 +154,7 @@ fullScreenButton.addEventListener("click", function() {
 
  seekBar.addEventListener("change", function() {
  // Calculate the new time
+  console.log("Change");
      var time = video.duration * (seekBar.value / 100);
 
      // Update the video time
@@ -201,7 +202,7 @@ seekBar.addEventListener("mousedown", function() {
 
 seekBar.addEventListener("mouseup", function() {
   video.play();
-  playButton.src = 'images/pause.png';
+  playButton.src = '/assets/pause.png';
 });
 
 video.addEventListener("timeupdate", function() {
@@ -216,7 +217,7 @@ video.addEventListener("timeupdate", function() {
   var jump_value = single_jump*current_jump;
 
   var stamp = Math.floor(current_jump)*10;
-
+  console.log("video lsitening");
 
   if (Math.floor(video.currentTime)%10 == 0) {
     $('#ind_comment_container').html('');
@@ -228,11 +229,11 @@ video.addEventListener("timeupdate", function() {
     $('#end_time').html(getVideoTime(stamp+10));
 
     $('#pointer').css({"marginLeft": jump_value+'px'});
-    for (var n=0; n< fake_comments.length; n++) {
-      if (fake_comments[n].getTimeStamp() > stamp && fake_comments[n].getTimeStamp() < stamp+10) {
-        fake_comments[n].render_stamp();
-      } 
-    }
+    // for (var n=0; n< fake_comments.length; n++) {
+    //   if (fake_comments[n].getTimeStamp() > stamp && fake_comments[n].getTimeStamp() < stamp+10) {
+    //     fake_comments[n].render_stamp();
+    //   } 
+    // }
     clickableComments();
 
 
@@ -250,12 +251,12 @@ muteButton.addEventListener("click", function() {
     video.muted = true;
     volumeBar.value = 0;
     video.volume = 0;
-    muteButton.src = 'images/mute.png';
+    muteButton.src = '/assets/mute.png';
   } else {
     video.muted = false;
     volumeBar.value = 1.0;
     video.volume = 1.0;
-    muteButton.src = 'images/audio.png'
+    muteButton.src = '/assets/audio.png'
   }
 });
 

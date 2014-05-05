@@ -91,9 +91,10 @@ class VideosController < ApplicationController
 
 	def show
 		@video = Video.find(params[:id])
-		puts "HEYY"
-		puts @video.id
 		@comment = Comment.new
+		@comments = Comment.where(:user_id => current_user.id, :video_id=> @video.id)
+		puts "comments now"
+		puts @comments
 		@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
 	end
 

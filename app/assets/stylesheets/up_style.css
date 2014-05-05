@@ -70,6 +70,39 @@ a, #play-pause, .individual_comment {
 	vertical-align: middle;
 }*/
 
+/** Uploader results chart **/
+#myvideo{
+	margin-top: -30px;
+}
+
+.uploader_result{
+	margin-left: 20px;
+	width:600px;
+	margin-top:-450px;
+}
+
+.uploader_chart{
+	/*border:2px black solid;*/
+	margin:5px;
+	margin-top: -30%;
+	min-width: 420px;
+}
+.uploader_canvas{
+	float:left;
+
+}
+.uploader_result_circle{
+	/*border:2px black solid;*/
+	margin-left:45%;
+	width: 300px;
+}
+#video_area{
+	background-color: #fff;
+	color:black;
+	padding:10px;
+	padding-left: 20px;
+	margin-top: 0px;
+}
 
 #video_head{
 	font-size: 48px;
@@ -179,6 +212,26 @@ input[type="range"]::-webkit-slider-thumb {
 
 /** RESULTS **/
 
+.main_rec_feedback{
+	font-size:26px;
+	font-weight:600;
+	margin-bottom: 10px;
+}
+.change_rec_feedback{
+	font-size:20px;
+	font-weight:500;
+	margin-bottom: 10px;
+
+}
+.change_rec_feedback:hover{
+	opacity: 0.65;
+	cursor: pointer;
+}
+
+.upload_arrow{
+	width: 20px;
+	margin-left: 5px;
+}
 #result_area {
 	display: inline-block;
 	width: 450px;
