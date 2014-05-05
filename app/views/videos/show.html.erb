@@ -200,15 +200,19 @@ $("#comment_area").keydown(function(event){
 
 <div id="view_comments_panel">
 	<h1 class="sub_title bl">YOUR COMMENTS <%= @video.comments.count%></h1>
-	<div id="comment_list">
+	<div id="comment_list" class='individual_comment'>
 		<%if @video.comments.count!=0%>
 		<ul>
 			<%@video.comments.each do |comment|%>
-			<li>
-			<!-- <%=comment.time_stamp%> -->
-			<%= comment.comment_text%>
+			<div class='individual_comment'>
+				<table>
+					<tr>
+						<!-- <td class="comment_timestamp"><%= comment.time_stamp%></td> -->
+						<td class="comment_text"><%= comment.comment_text%></td>
+					</tr>
+				</table>
 
-			</li>
+			</div>
 			<%end%>
 		</ul>
 
