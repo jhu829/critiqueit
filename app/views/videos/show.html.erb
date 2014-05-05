@@ -7,7 +7,7 @@
 
 	<div id='video_area'>
 		<br/>
-		hey <%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'yourvideo') %>
+		hey <%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'myvideo') %>
 		
 		<div id='result_area'>
 
@@ -87,7 +87,7 @@
 </div>
 
 <div id="videopanel">
-	<%= video_tag(["testvid.mp4"], :size => "640x360", :controls => true, :class=>'vid_display') %>
+	<%= video_tag(["testvid.mp4"], :size => "640x360", :id=>"yourvideo",:controls => true, :class=>'vid_display') %>
 	<div class='right_panel'>
 	<%=link_to "BROWSE OTHER VIDEOS" , videos_path,:class=>'button bl', :id=>'back'%>
 		<div class='vote_panel'>
@@ -131,19 +131,9 @@
 	});
 </script>
 
-
-<div id="comment_input">
-     <%= render :partial => "comments/form" %>
-</div>
-
-
-
-
 <div id="comment_panel">
 	<h1 id='comment_stamp'>0:00</h1>
-	<%= form_for @comment, :url => video_comments_path(@video) do |f| %>
-    	<% render :partial => "comments/form" %>
-     <%end%>
+	<%= render :partial => "comments/form" %>
 </div>
 
 <script>
@@ -152,6 +142,7 @@ var video=document.getElementById("yourvideo");
 
 	video.addEventListener('loadedmetadata', function() {
       duration = video.duration;
+      console.log(duration);
   });
 
 var minutes = Math.floor(video.currentTime/60);
@@ -159,6 +150,7 @@ var minutes = Math.floor(video.currentTime/60);
 		if (seconds<10){
 			seconds='0'+seconds
 		}
+
 
 	function togglePlay() {
 	    if (video.paused == true) {
@@ -171,11 +163,12 @@ var minutes = Math.floor(video.currentTime/60);
 	}
 
 
-	yourvideo.addEventListener("click", function() {
+	video.addEventListener("click", function() {
     	togglePlay();
   	});
 
-$("#comment_comment_text").keydown(function(event){ 
+$("#comment_area").keydown(function(event){ 
+	console.log("HELLOO")
 		if(event.keyCode == 13){
 			video.play();
 		}
@@ -188,16 +181,17 @@ $("#comment_comment_text").keydown(function(event){
 		if (seconds<10){
 			seconds='0'+seconds
 		}
-		if ($('#comment_comment_text').val().length==1){
-			$('#comment_comment_text').val('['+minutes+":"+seconds+'] '+$('#comment_comment_text').val());
+
+		if ($('#comment_area').val().length==1){
+			$('#comment_area').val('['+minutes+":"+seconds+'] '+$('#comment_area').val());
 		}
 		// $('#comment_time_stamp').val('['+minutes+":"+seconds+'] ')
 		$('#comment_time_stamp').val(video.currentTime)
 
-});
-$("#comment_submit").click(function(){
-	video.play()
-});
+	});
+	$("#comment_submit").click(function(){
+		video.play()
+	});
 
 </script>
 
