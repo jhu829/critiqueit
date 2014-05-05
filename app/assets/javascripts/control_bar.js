@@ -1,4 +1,8 @@
 $(document).ready(function(){
+  // COMMENT STUFFFF //
+
+  
+
   var rec_vid = document.getElementById('recent_video');
   if (rec_vid != null) {
   rec_vid.addEventListener('loadedmetadata', function() {
@@ -266,3 +270,5 @@ volumeBar.addEventListener("change", function() {
     video.volume = volumeBar.value;
   });
 });
+
+

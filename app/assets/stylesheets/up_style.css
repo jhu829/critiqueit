@@ -8,6 +8,7 @@ body {
 	color: #777;
 }
 
+
 /** TITLE AREA**/
 #title_holder{
 	margin-top: 20px;
@@ -360,9 +361,13 @@ input[type="range"]::-webkit-slider-thumb {
 #comments_viewall{
 	color:black;
 	font-size: 20px;
-	margin-left:80%;
+	margin-left:70%;
 }
 
+#comments_viewall:hover{
+	cursor: pointer;
+	color: #668b8b;
+}
 #pointer_container, #comment_container {
 	width: 800px;
 	margin: 0 auto 0 auto;

@@ -70,6 +70,7 @@
 // 	}	
 // }
 
+
 $('#yestono').hover(function() {
 	console.log("hover");
 			$('#y_a').animate({'paddingLeft': '10px'}, 150)

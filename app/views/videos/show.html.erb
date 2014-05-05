@@ -65,22 +65,13 @@
 			<table id="comments_table">
 				<tr>
 					<td><h1 id='comments_head'>Comments (<%= @comments.count%>) </h1></td>
-					<td><h1 id='comments_viewall'>View All</h1></td>
+					<td><h1 id='comments_viewall'>View All (<%= @comments.count %>)</h1></td>
 
 				</tr>
 			</table>
-			
-			<% @comments.each do |comment| %>
-				<div class='individual_comment'>
-					<table>
-						<tr>
-							<td class="comment_timestamp"><%= comment.time_stamp%></td>
-							<td class="comment_text"><%= comment.comment_text%></td>
-						</tr>
-					</table>
-
-				</div>
-			<% end %>
+			<div id="partial_container">
+				<%= render :partial => "comment_container" %>
+			</div>
 		</div>
 	</div>
 </div>
