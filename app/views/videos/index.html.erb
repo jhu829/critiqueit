@@ -12,10 +12,13 @@
 	<h3 class='sub_title' id='label_recent wh'>FEATURED PITCHES</h3>
 	<div id='featurepanel'>
 	</div>
-
+	<br/>
+	
+	
 	<div class="videopanel">
+		<h3 class='sub_title bl' id='label_recent'>ALL PITCHES</h3>
 		<div class="videorow">
-
+	
 			<% @videos.each do |video| %>
 				<div class= "videogroup">
 				<%= link_to image_tag("stock.png", :class=>'video_stock button'), video %>

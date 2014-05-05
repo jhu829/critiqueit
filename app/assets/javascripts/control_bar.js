@@ -56,7 +56,7 @@ $(document).ready(function(){
 
 
     for( var j=0;j<totalJumps;j++){
-      var totalComments = 10;
+      var totalComments = 100;
 
       // var totalComments = fake_comments.length;
       var comment_count = 0;

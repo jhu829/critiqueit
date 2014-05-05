@@ -233,6 +233,8 @@ b {
 	position:relative;
 	float:left;
 	margin:2%;
+	box-shadow: 1px 1px 2px gray;
+
 	margin-top:3%;
 }
 .video{
@@ -267,6 +269,7 @@ b {
 
 .videopanel {
 	margin-top: 60px;
+	padding-left: 5px;
 }
 
 .overlay{
