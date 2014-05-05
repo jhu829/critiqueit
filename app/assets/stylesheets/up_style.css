@@ -2,6 +2,47 @@ body {
 	overflow: auto;
 }
 
+#back{
+	margin-left: 320px;
+	vertical-align: top;
+	color: #777;
+}
+
+/** TITLE AREA**/
+#title_holder{
+	margin-top: 20px;
+	text-align: center;
+}
+
+#title, #author{
+	display: inline-block;
+}
+
+#title {
+	text-transform: uppercase;
+}
+
+#author{
+	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
+	margin-left: 15px;
+	letter-spacing: 2px;
+}
+
+/** VIDEO HOLDER **/
+
+#videopanel {
+	background: #fff;
+	margin-top: 25px;
+	height: 360px;
+	width: 1200px;
+	padding: 15px;
+}
+
+.vid_display{
+	display: inline-block;
+	vertical-align: text-top;
+}
+
 a, #play-pause, .individual_comment {
 	text-decoration: none;
 	-o-transition:.1s;
@@ -17,20 +58,8 @@ a, #play-pause, .individual_comment {
 	 -webkit-transition:.2s;
 }
 
-h2 {
-	font-weight: 300;
-}
-
-.container {
-	padding-top: 60px;
-}
-
 
 /** VIDEO AREA **/
-
-#video_area {
-	background-color: #d8d8d8;
-}
 
 /*video {
 	display: inline-block;
@@ -41,12 +70,6 @@ h2 {
 	vertical-align: middle;
 }*/
 
-#video_head, #vid_auth{
-	font-family: 'Open Sans Condensed';
-	font-weight: 300;
-	color: white;
-	display: inline-block;
-}
 
 #video_head{
 	font-size: 48px;

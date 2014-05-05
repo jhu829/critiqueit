@@ -26,16 +26,20 @@ class CommentsController < ApplicationController
   # POST /comments
   # POST /comments.json
   def create
+    puts 'creating new comment'
     @comment = @video.comments.new(comment_params)
     @comment.user_id=current_user.id
     @comment.video_id= @video.id
 
-
+    respond_to do |format|
       if @comment.save
-        redirect_to video_path(@comment.video_id)
+        puts 'saved comment'
+        format.html {redirect_to video_path(@comment.video_id)}
+        format.js {render}
       else
-        render :action => 'new'
+        format.html{render :action => 'new'}
       end
+    end
 
   end
 

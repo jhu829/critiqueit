@@ -1,9 +1,11 @@
 $(document).ready(function(){
 
   var rec_vid = document.getElementById('recent_video');
+  if (rec_vid != null) {
   rec_vid.addEventListener('loadedmetadata', function() {
       $('.put_duration').html(getVideoTime(rec_vid.duration));
   })
+}
 
   function getVideoTime(duration) {
     var minutes = Math.floor(duration/60);
@@ -134,10 +136,11 @@ $(document).ready(function(){
 
 
 
-
+if (playButton) {
 playButton.addEventListener("click", function() {
   togglePlay();
 });
+}
 
 fullScreenButton.addEventListener("click", function() {
   if (video.requestFullscreen) {

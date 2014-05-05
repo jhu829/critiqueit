@@ -63,13 +63,13 @@ ActiveRecord::Schema.define(version: 20140430222852) do
     t.string   "title"
     t.integer  "sold"
     t.integer  "notsold"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "video_file_name"
     t.string   "video_content_type"
     t.integer  "video_file_size"
     t.datetime "video_updated_at"
+    t.integer  "user_id"
   end
 
 end

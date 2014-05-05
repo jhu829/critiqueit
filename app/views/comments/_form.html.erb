@@ -1,14 +1,13 @@
-<%= form_for([@video,@comment]) do |f| %>
-  
 
-  <div class="field">
+<%= form_for([@video,@comment],remote: true, :url => video_comments_path(@video), id: "commentform") do |f| %>
+
+
+  <div style='display:inline-block;vertical-align:text-top'>
     <%=f.hidden_field :time_stamp%>
-  </div>
-  <div class="field">
-    <%= f.text_field :comment_text %>
-  </div>
+    <%= f.text_area :comment_text, :class=>'bl', :id=>'comment_area', :rows=> 4, :cols=> 110%>
+    <%= f.submit :class=>'submit button', :value=>'COMMENT', :id=>'comment_submit'%>
 
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
+
+

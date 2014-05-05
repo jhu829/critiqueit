@@ -1,117 +1,94 @@
 body{
-
-}
-#nav_bar{
-	z-index: 5;
-}
-
-#title{
-	position:absolute;
-	left:26px;
-	top:58px;
-	font-weight: 300;
-	color:white;
-	font-size: 48px;
-	font-family: 'Open Sans Condensed';
-}
-
-#author{
-	position: absolute;
-	font-size: 18px;
-	left: 126px;
-	top:87px;
-	font-weight: 300;
-	color:white;
-	font-family: 'Open Sans Condensed';
-}
-#video{
-	padding-top:10%;
-	padding-bottom: 2%;
-	padding-left: 2%;
-
-	display: inline-block;
-	width: 55%;
-	vertical-align: middle;
-
-
-}
-.videoarea{
-	font-family: 'Open Sans Condensed';
-	background-color: #d8d8d8;
-	/*color: #ffffff;*/
-	font-weight: 100;
-	margin-top:0;
-	margin-bottom:0;
-	color: white;
-}
-
-
-#video1{
-	position:relative;
-}
-#areyousold{
-	position:absolute;
-	top:170px;
-	left:775px;
-	font-size: 60px;
-	width: 290px;
-	text-align:center
-}
-#confirmfromsold{
-	position:absolute;
-	top:240px;
-	left:775px;
-	font-size: 30px;
-	width: 290px;
-	text-align:center
-}
-
-#confirmfromnotsold{
-	position:absolute;
-	top:248px;
-	left:775px;
-	font-size: 30px;
-	width: 290px;
-	text-align:center;
-	z-index: 10;
-}
-
-#solddisplay{
-	position:absolute;
-	top:205px;
-	left:775px;
-	font-size: 60px;
-	width: 290px;
-	text-align:center;
-	/*color: green;*/
-}
-
-#notsolddisplay{
-	position:absolute;
-	top:165px;
-	left:770px;
-	font-size: 60px;
-	width: 290px;
-	text-align:center;
-	/*color: red;*/
-}
-
-#sold{
-	/*color: green;*/
-	width: 100px;
-	height: 40px;
-	font-size: 30px
-
-}
-#notsold{
-	/*color:red;*/
-	width: 100px;
-	height: 40px;
-	font-size: 30px;
 }
 
 .hidden {
   display:none;
+}
+
+.right_panel{
+	width: 550px;
+	display: inline-block;
+	vertical-align: text-top;	
+}
+
+/** VOTING PANEL **/
+.vote_panel{
+	width: 550px;
+	display: inline-block;
+	vertical-align: text-top;
+	text-align: center;
+	margin-top: 75px
+}
+
+#vote_text{
+	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
+	letter-spacing: 5px;
+	font-size: 42px;
+}
+
+.change_text{
+	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
+	letter-spacing: 2px;
+	font-size: 24px;
+	line-height: 20px;
+	margin-bottom: 15px
+}
+
+#confirm_panel{
+	margin-top: 25px;
+}
+
+#small_text{
+	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
+	letter-spacing: 1px;
+	font-size: 16px;
+	color: #555;
+}
+
+.change_field{
+	font-size: 16px;
+	margin-bottom: -10px;
+	letter-spacing: 0;
+}
+
+/** COMMENTING AREA **/
+#comment_stamp{
+	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
+	display: inline-block;
+	font-size: 48px;
+	vertical-align: middle;
+}
+
+#new_comment{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+#comment_area{
+	display: inline-block;
+	vertical-align: text-top;
+	font-size: 16px;
+	letter-spacing: 1px;
+}
+
+#comment_panel{
+	text-align: center;
+	width: 1200px;
+	margin-top:-5px;
+}
+
+#comment_submit{
+	display: inline-block;
+	vertical-align: text-top;
+	height: 70px;
+}
+
+/** VIEWING COMMENTS AREA**/
+
+#view_comments_panel{
+	width: 780px;
+	margin-right: auto;
+	margin-left: auto;
 }
 
 /*COMMENTS AREA*/
@@ -207,45 +184,6 @@ body{
 	color: #ffffff;
 	font-size: 24px;
 	width: 20%;
-}
-
-#videoline{
-	background-color: #404041;
-	width: 100%;
-	height: 30px;
-}
-
-
-
-/*BUTTONS*/
-#changevote1{
-	margin-top:10px;
-}
-#changevote2{
-	margin-top: 10px;
-	}
-}
-.button2{
-	font-family: 'Open Sans Condensed';
-	border:none;
-	background-color: #668b8b;
-	margin: auto;
-	color:white;
-	font-size:15px;
-	display:inline;
-	width:150px;
-	height: 30px;
-	margin-top: 10px;
-
-}
-
-.button2:hover{
-	background-color:#B4CDCD;
-	cursor:pointer;
-}
-
-#comment_comment_text{
-	font-color:black;
 }
 
 

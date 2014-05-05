@@ -31,7 +31,8 @@
       <%=link_to "ABOUT" , profiles_path,:class=>'nav_ctrl button', :id=>'n_vid'%>
     </div>
 
-    <div id='rec_pitch'>
+    <% if user_signed_in? %>
+    <div class='button' id='rec_pitch'>
       <% @recvid = current_user.videos.order("created_at").last %>
       <% if @recvid == nil %>
         <br/>
@@ -51,6 +52,7 @@
         <% end %>
       <% end %>
     </div>
+    <%end%>
 
   </div>
 

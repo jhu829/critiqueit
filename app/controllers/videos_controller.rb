@@ -95,7 +95,6 @@ class VideosController < ApplicationController
 		puts @video.id
 		@comment = Comment.new
 		@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
-
 	end
 
 

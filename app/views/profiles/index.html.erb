@@ -26,6 +26,7 @@
 					<p class='rec_info bl'>Comments: <%= @recvid.comments.count %></p>
 
 					<h5 class='heading bl' id='recvid_heading'>MOST RECENT COMMENT</h5>
+					<% if user_signed_in? %>
 					<% @reccom = @recvid.comments.order("created_at").last %>
 					<%if @reccom != nil %>
 						<h5 class= 'bl' id='rec_record'>
@@ -101,6 +102,7 @@
 		<% end %>
 		</div>
 	</div>
+<% end %>
 
 </div>
 <div class='textchange' id="uploadcontent" style='display:none'>
