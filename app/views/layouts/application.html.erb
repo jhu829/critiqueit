@@ -59,7 +59,7 @@
 
   <div id='navbar'>
     <%= image_tag("logo.png", :id => "img_logo")%>
-    <a href="home" class='header_item button' id='nav_title'>critiqueit</a>
+    <%= link_to('critiqueit', root_path, :class=> "header_item button", :id=>"nav_title")%>
     <div class='header_item button' id='nav_log'>
       
         <% if user_signed_in? %>

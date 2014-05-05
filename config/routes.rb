@@ -22,7 +22,6 @@ Critiqueit::Application.routes.draw do
       get :change
     resources :comments
   end
-
   get '/browse' => 'videos#index'
   get '/home' => 'profiles#index'
 

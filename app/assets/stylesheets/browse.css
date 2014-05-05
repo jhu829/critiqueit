@@ -255,7 +255,7 @@ b {
 	background-image: url('stock.png');
 	width: 275px;
 	height: 175px;
-	opacity: 0.5;
+	opacity: 1;
 	background-repeat:no-repeat;
 	background-attachment:fixed;
 	background-position:center;
@@ -277,7 +277,7 @@ b {
 	height: 100%;
 	pointer-events: none;
 	background-color: #fff;
-	opacity: 0.75;
+	opacity: 0.80;
 	text-align: center;
 }
 
