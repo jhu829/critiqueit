@@ -51,7 +51,6 @@ $(document).ready(function(){
   function addCommentBubbles() {
 
     var duration = video.duration;
-    console.log("duration", duration);
     var totalJumps = Math.floor(duration/10)+1;
 
 
@@ -75,7 +74,9 @@ $(document).ready(function(){
       bubble.id = '_'+j; 
       bubble.style.marginLeft = 800/totalJumps-15+'px';
       bubble.style.opacity = comment_count/totalComments*3+0.2;
-      parent.appendChild(bubble);
+      if(document.getElementById(bubble.id) == null){
+        parent.appendChild(bubble);
+      }
     }
   }
 
@@ -126,20 +127,28 @@ $(document).ready(function(){
       });
     }
   }
-
-  video.addEventListener('loadedmetadata', function() {
+  video.addEventListener('loadeddata', function() {
+      console.log("loaded meta data");
       duration = video.duration;
-      console.log(duration);
-      // recent_duration = $('#recent_video').duration;
-      // $("#duration").html('/ '+getVideoTime(duration));
-      // console.log( recent_duration);
-      // console.log( $('#recent_video'));
-      // console.log( getVideoTime($('#recent_video').duration));
-      // $('.put_duration').html(getVideoTime($('#recent_video').duration));
+      $("#duration").html('/ '+getVideoTime(duration));
       addCommentBubbles();
       clickableComments();
       clickableBubbles();
   });
+
+  // video.addEventListener('loadedmetadata', function() {
+  //     duration = video.duration;
+  //     console.log(duration);
+  //     // recent_duration = $('#recent_video').duration;
+  //     // $("#duration").html('/ '+getVideoTime(duration));
+  //     // console.log( recent_duration);
+  //     // console.log( $('#recent_video'));
+  //     // console.log( getVideoTime($('#recent_video').duration));
+  //     // $('.put_duration').html(getVideoTime($('#recent_video').duration));
+  //     // addCommentBubbles();
+  //     clickableComments();
+  //     clickableBubbles();
+  // });
 
 
 

@@ -159,7 +159,8 @@ a, #play-pause, .individual_comment {
 #video-controls {
 	padding-top: 2px;
 	text-align: center;
-	margin-left: 90px;
+	width:100%;
+	margin-left: 30px;
 }
 
 #seek-bar {
@@ -230,6 +231,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 .change_rec_feedback:hover{
 	opacity: 0.65;
+	color:#668b8b;
 	cursor: pointer;
 }
 
