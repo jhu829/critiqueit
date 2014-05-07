@@ -20,7 +20,7 @@
 		<div class='button' id='recentpanel'>
 				<%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'recent_video') %>
 				<div id='recvid_info'>
-					<h4 class='sub_title recvid_heading bl' id='recvid_title'><%= @recvid.title %></h4>
+					<h4 class='sub_title recvid_heading bl' id='recvid_title' style="font-size:34px;"><%= @recvid.title %></h4>
 					<p class='rec_info bl'>Duration: <b class='put_duration bl'></b><br/>
 					<p class='rec_info bl'>Created on: <%= @recvid.created_at.to_formatted_s(:long) %><br/>
 					<p class='rec_info bl'>Comments: <%= @recvid.comments.count %></p>

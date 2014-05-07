@@ -440,14 +440,3 @@ input[type="range"]::-webkit-slider-thumb {
 	text-align: left;
 	padding: 5px;
 }
-
-/** FOOTER **/
-#footer {
-	font-family: 'Open Sans Condensed'; 
-	font-weight: 300;
-	font-size: 18px;
-	text-align: center;
-	margin: 50px 0 20px 0;
-}
-
-	

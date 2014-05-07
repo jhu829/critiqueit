@@ -90,25 +90,29 @@ class VideosController < ApplicationController
 	end
 
 	def show
-		puts "in show"
 		@video = Video.find(params[:id])
 		@comment = Comment.new
-		puts current_user.id
-		puts @video.id
-		@comments = Comment.where(:video_id=> @video.id)
-		puts "comments now"
-		puts @comments
+		@comments = Comment.where(:video_id=> @video.id).order("time_stamp ASC")
 		@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
 	end
 
 	def update_comments
 		puts "hello"
-		# @video = Video.find(params[:id])
+		# puts video
+		puts "vid"
+		@video = Video.find(params[:id])
+		@comments = Comment.where(:video_id=> @video.id).order("time_stamp ASC")
+		@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
+
 
 		# puts "onupdate comments"
-		# respond_to do |format|
-		# 	format.js{render :action => 'update_comments'}
-		# end
+		respond_to do |format|
+			format.js
+		end
+	end
+
+	def get_comments
+		
 	end
 
 	private 

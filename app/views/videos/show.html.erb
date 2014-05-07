@@ -138,7 +138,6 @@
 <script>
 
 var video=document.getElementById("yourvideo"); 
-
 	video.addEventListener('loadedmetadata', function() {
       duration = video.duration;
       console.log(duration);
@@ -165,6 +164,13 @@ var minutes = Math.floor(video.currentTime/60);
 	video.addEventListener("click", function() {
     	togglePlay();
   	});
+// $("#yourvideo").on("timeupdate", function(event){
+// 	onTrackedVideoFrame(this.currentTime);
+// });
+
+// function onTrackedVideoFrame(currentTime){
+//     $("#comment_stamp").text(currentTime);
+// }
 
 $("#comment_area").keydown(function(event){ 
 	console.log("HELLOO")
@@ -192,6 +198,8 @@ $("#comment_area").keydown(function(event){
 		video.play()
 	});
 
+	
+
 </script>
 
 
@@ -199,16 +207,15 @@ $("#comment_area").keydown(function(event){
 <div id = "showcomments" class="hidden"><h6> show comments</h6></div>
 
 <div id="view_comments_panel">
-	<h1 class="sub_title bl">YOUR COMMENTS <%= @video.comments.count%></h1>
-	<div id="comment_list" class='individual_comment'>
-		<%if @video.comments.count!=0%>
+	<h1 class="sub_title bl">YOUR COMMENTS (<%= @comments.count%>)</h1>
+	<div id="comment_list" >
+		<%if @comments.count!=0%>
 		<ul>
-			<%@video.comments.each do |comment|%>
-			<div class='individual_comment'>
+			<%@comments.each do |comment|%>
+			<div class='individual_comment' id="<%= comment.time_stamp%>">
 				<table>
 					<tr>
-						<!-- <td class="comment_timestamp"><%= comment.time_stamp%></td> -->
-						<td class="comment_text"><%= comment.comment_text%></td>
+						<td class="comment_text" ><%= comment.comment_text%></td>
 					</tr>
 				</table>
 
@@ -221,7 +228,19 @@ $("#comment_area").keydown(function(event){
 
 
     <script>
+    $('.individual_comment').click(function(){
+		console.log("hello");
+		console.log(this.id);
+		console.log(document.getElementById('yourvideo'));
+		video.currentTime = 5;
 
+		// video.currentTime = this.id;
+		video.play();
+		video.addEventListener("canplay",function() { 
+			consoel.log("in canplay");
+			video.currentTime = 5;
+		});
+	});
 	$('#hidecomments').click(function(){
 		$('#hidecomments').addClass('hidden');
 		$('#comment_list').addClass('hidden');

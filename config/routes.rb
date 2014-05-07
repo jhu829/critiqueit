@@ -16,7 +16,8 @@ Critiqueit::Application.routes.draw do
   get 'static_pages/home'
   root  'profiles#index'
 
-
+  get 'videos/update_comments'
+  
   resources :videos do
       get :sold
       get :notsold
@@ -24,7 +25,6 @@ Critiqueit::Application.routes.draw do
 
     resources :comments
   end
-  get 'videos/update_comments'
 
   get '/browse' => 'videos#index'
   get '/home' => 'profiles#index'

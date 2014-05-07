@@ -1,11 +1,28 @@
-<% @comments.each do |comment| %>
-	<div class='individual_comment'>
+<%@comments.each do |comment|%>
+	<div class='individual_comment' id="<%= comment.time_stamp%>">
 		<table>
 			<tr>
-				<td class="comment_timestamp"><%= comment.time_stamp%></td>
-				<td class="comment_text"><%= comment.comment_text%></td>
+				<td class="comment_text" ><%= comment.comment_text%></td>
 			</tr>
 		</table>
 
 	</div>
-<% end %>
+<%end%>
+
+<script>
+	var video=document.getElementById("myvideo"); 
+	console.log(video);
+    $('.individual_comment').click(function(){
+		console.log("hello");
+		console.log(this.id);
+		video.pause();
+		video.currentTime = 5;
+
+		// video.currentTime = this.id;
+		video.play();
+		video.addEventListener("canplay",function() { 
+			consoel.log("in canplay");
+			video.currentTime = 5;
+		});
+	});
+</script>
