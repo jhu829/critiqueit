@@ -1,0 +1,1 @@
+function changeclick(){console.log("hi"),$("#yes_container").animate({opacity:"0"},300).css({visibility:"hidden"}),$("#n2y_cmt").css({opacity:"0",visibility:"visible"}).animate({opacity:"1.0"},300).delay(300)}$("#yestono").hover(function(){console.log("hover"),$("#y_a").animate({paddingLeft:"10px"},150)},function(){$("#y_a").animate({paddingLeft:"0px"},150)});

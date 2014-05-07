@@ -178,7 +178,6 @@ input[type="range"] {
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	z-index: 2;
-	z
 }
 
 #seek-bar::-webkit-slider-thumb{
