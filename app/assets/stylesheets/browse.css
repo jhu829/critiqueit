@@ -87,7 +87,7 @@ b {
 }
 
 #search_button {
-	background-image: url('search.png');
+	background-image: image-url('search.png');
 	background-position:center;
 	width: 27px;
 	height:27px;
@@ -245,7 +245,7 @@ b {
 
 /** VIDEO OVERLAY **/
 .video_stock {
-	background-image: url('stock.png');
+	background-image: image-url('stock.png');
 	width: 275px;
 	height: 175px;
 	opacity: 1;

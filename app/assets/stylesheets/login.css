@@ -1,6 +1,6 @@
 #login_container {
 	background-color: black;
-	background-image: url('cit1.jpg');
+	background-image: image-url('cit1.jpg');
 	background-repeat:no-repeat;
 	background-attachment:fixed;
 	background-position:center;
