@@ -1,0 +1,42 @@
+<div class ="changed_comment_box bl" id="changed_comment_box_yes" >
+
+	<% if @change && @yestono.count > 0%>
+		<%@yestono.each do |comment|%>
+			<div class='individual_comment'>
+				<table>
+					<tr>
+						<td class="comment_text" ><%= comment.reason%></td>
+					</tr>
+				</table>
+
+			</div>
+		<%end%>
+	<% else %>
+		<div class='individual_comment' >
+			<table>
+				<tr>
+					<td class="comment_text" >Looks like no one wrote a reason why they changed their vote!</td>
+				</tr>
+			</table>
+
+		</div>
+	<%end%>
+</div>
+
+<script>
+	$(document).ready(function(){
+		var comment_container = $('#changed_comment_box');
+		$( "#yestono" ).click(function() {
+			var comment_container = document.getElementById('changed_comment_box_yes');
+			$('#changed_comment_box_no').css({opacity: 1.0, visibility: "hidden"}).animate({display: "none"});
+			$('#changed_comment_box_yes').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+		});
+		$( "#notoyes" ).click(function() {
+			var comment_container = document.getElementById('changed_comment_box_no');
+			comment_container.style.visibility = 'visible';
+			$('#changed_comment_box_yes').css({opacity: 1.0, visibility: "hidden"}).animate({display: "none"});
+			$('#changed_comment_box_no').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+
+		});
+	})
+</script>

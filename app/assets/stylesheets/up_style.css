@@ -106,6 +106,8 @@ a, #play-pause, .individual_comment {
 	padding:10px;
 	/*padding-left: 20px;*/
 	margin-top: 0px;
+	width:1100px;
+	height:390px;
 }
 
 #video_head{
@@ -129,7 +131,7 @@ a, #play-pause, .individual_comment {
 #videoline_container {
 	background-color: #BDBCBC;
 	margin-top: -8px;
-	width: 100%;
+	width: auto;
 	height: 55px;
 }
 
@@ -245,6 +247,24 @@ input[type="range"]::-webkit-slider-thumb {
 	width: 450px;
 	color: white;
 	vertical-align: middle;
+	padding-top:80px;
+}
+
+.changed_comment_box{
+	max-height: 180px;
+	min-height: 180px;
+	margin-bottom: 50px;
+	overflow-y: auto;
+}
+.comment_text_changed{
+	border-bottom: 1px #D5D3D3 solid;
+	padding:20px;
+}
+#changed_comment_box_yes, #changed_comment_box_no{
+	visibility: hidden;
+	overflow-y:auto;
+	display: none;
+	max-height:40px;
 }
 
 .r_txt {

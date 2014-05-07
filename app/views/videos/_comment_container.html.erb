@@ -11,18 +11,14 @@
 
 <script>
 	var video=document.getElementById("myvideo"); 
-	console.log(video);
     $('.individual_comment').click(function(){
 		console.log("hello");
 		console.log(this.id);
-		video.pause();
-		video.currentTime = 5;
-
-		// video.currentTime = this.id;
+		// video.pause();
+		video.currentTime = this.id;
 		video.play();
-		video.addEventListener("canplay",function() { 
-			consoel.log("in canplay");
-			video.currentTime = 5;
-		});
+		// video.currentTime = this.id;
+		// video.play();
+		
 	});
 </script>

@@ -26,7 +26,7 @@ body {
 /** BACKGROUND IMAGES **/
 .sessions, .registrations, .passwords, .confirmations {
 	background-color: #000;
-	background-image: image-url('cit1.jpg');
+	background-image: url('cit1.jpg');
 	background-repeat:no-repeat;
 	background-attachment:fixed;
 	background-position:center;
@@ -38,7 +38,7 @@ body {
 
 .profiles {
 	background-color: #fff;
-	background: image-url('cit1.jpg');
+	background: url('cit1.jpg');
 	background-repeat:no-repeat;
 	background-position-x: center;
 	background-position-y: -50px;
@@ -50,7 +50,7 @@ body {
 
 .videos {
 	background-color: #fff;
-	background: image-url('cit6.jpg');
+	background: url('cit6.jpg');
 	background-repeat:no-repeat;
 	background-position-x: center;
 	background-position-y: -150px;

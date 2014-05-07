@@ -26,8 +26,6 @@ Critiqueit::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-  config.serve_static_assets = true
-  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
-  config.assets.compile = true
+  
   Paperclip.options[:command_path] = "/usr/local/bin/"
 end

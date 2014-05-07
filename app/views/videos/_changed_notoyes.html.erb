@@ -1,0 +1,39 @@
+<div class ="changed_comment_box bl" id="changed_comment_box_no">
+	<div class='changed_comment_box'>
+	<% if @change && @notoyes.count > 0%>
+		<%@notoyes.each do |comment|%>
+				<table>
+					<tr >
+						<td class="comment_text_changed" ><%= comment.reason%></td>
+					</tr>
+				</table>
+			
+		<% end %>
+	</div>
+	<% else %>
+		<div class='changed_comment_box'>
+			<table>
+				<tr>
+					<td class="comment_text" >Looks like no one wrote a reason why they changed their vote!</td>
+				</tr>
+			</table>
+
+		</div>
+	<%end%>
+</div>
+
+<script>
+	$(document).ready(function(){
+		var comment_container = $('#changed_comment_box');
+		$( "#yestono" ).click(function() {
+			var comment_container = document.getElementById('changed_comment_box_yes');
+			$('#changed_comment_box_yes').css({opacity: 0.0, visibility: "visible", display:"inline"}).animate({opacity: 1.0});
+		});
+		$( "#notoyes" ).click(function() {
+			var comment_container = document.getElementById('changed_comment_box_no');
+			comment_container.style.visibility = 'visible';
+			$('#changed_comment_box_no').css({opacity: 0.0, visibility: "visible", display:"inline"}).animate({opacity: 1.0});
+
+		});
+	})
+</script>
