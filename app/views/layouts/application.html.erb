@@ -18,7 +18,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<body class="<%= controller.controller_name %>">
+<body class="<%= controller.controller_name %>" data-no-turbolink>
   <div id='sidr'>
     <div id='menu_container'>
       <%=link_to "BROWSE" , videos_path,:class=>'nav_ctrl button', :id=>'n_browse'%>
@@ -53,9 +53,7 @@
       <% end %>
     </div>
     <%end%>
-
   </div>
-
 
   <div id='navbar'>
     <%= image_tag("logo.png", :id => "img_logo")%>
@@ -65,11 +63,12 @@
         <% if user_signed_in? %>
               <%= link_to("LOGOUT", destroy_user_session_path, :method=> 'delete', :class => "header_item button", :id => "n_log") %>
           <% else %>
-              <a href='login.html' class='header_item button' id='n_log'>LOGIN</a>
+              <%= link_to("LOGIN", new_user_session_path, :method=>'get', :class => 'header_item buttom', :id=> 'n_log') %>
+              <!-- <a href='login.html' class='header_item button' id='n_log'>LOGIN</a> -->
         <% end %>
       
     </div>
-    <div class='header_item button' id='nav_menu'>
+    <div class='header_item button' id='nav_menu' >
         MENU<%= image_tag("menu.png", :id => "img_menu") %>
     </div>
   </div>

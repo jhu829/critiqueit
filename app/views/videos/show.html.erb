@@ -1,52 +1,42 @@
 <%if @video.user_id==current_user.id%>
  <%= stylesheet_link_tag "colorbox" %>
-  <%= stylesheet_link_tag "up_style" %>
+ <%= stylesheet_link_tag "up_style" %>
+ <%= javascript_include_tag "up_script" %>
   
 <div class='container'>
+	<br/>
 	<h1 class='page_title'><%=@video.title%></h1><p id='author'>by CurrentUser</p>
 
 	<div id='video_area'>
 		<br/>
-		hey <%= video_tag(["testvid.mp4"], :size => "445x250", :controls => true, :id =>'myvideo') %>
+		<%= video_tag(["testvid.mp4"], :size => "600x400", :controls => true, :id =>'myvideo') %>
 		
-		<div id='result_area'>
-
-			<div class='change_cmts' id='n2y_cmt'>
-				<h2 class='cmt_hd' id='n2y_c_head'><b id='num_n2y_c'></b> changed to SOLD</h2>
-				<img class='bck_arw' id='bck_yes_arw' src='/assets/arrow.png'><p class='back' id='bck_yes'>BACK</p>
-				<div class='cmtbx' id='n2y_cmtbx'>
+		<div class ="uploader_result" id='result_area'>
+			<div class = "uploader_chart" id='recvid_feedback'>
+				<canvas  class = "uploader_canvas" id="recvid_chart" width="75" height="75"></canvas>
+					<%= javascript_tag do %>
+					drawChart("recvid_chart", 
+								<%= @video.sold %>, 
+								<%= @video.notsold %>, 
+								<%= @video.yestono %>, 
+								<%= @video.notoyes %>);
+				<% end %>
+				
+				<br/>
+				<div class ="uploader_result_circle">
+					<div class='circle_l sold'></div><p class='main_rec_feedback bl'><b class='emph'><%= @video.sold %></b> SOLD</p><br/>
+					<div class='circle_l not_sold'></div><p class='main_rec_feedback bl'><b class='emph'><%= @video.notsold %> </b> NOT SOLD</p>
+					<br/>
+					<div class='circle_s sold_to_not'></div>
+					<p class='change_rec_feedback bl' id="yestono" ><b class='emph'><%= @video.yestono %> </b>SOLD TO NOT SOLD</p><img class ='upload_arrow' id="y2n" src="/assets/arrow-right.png"><br/>
+					<div class='circle_s not_to_sold' ></div>
+					<p class='change_rec_feedback bl' id="notoyes"><b class='emph'><%= @video.notoyes %> </b>NOT SOLD TO SOLD</p><img class ='upload_arrow' id="n2y" src="/assets/arrow-right.png"><br/>
 				</div>
+					<%= render :partial => "changed_yestono" %>
+					<%= render :partial => "changed_notoyes" %>
 			</div>
-
-			<div class="r_cnt" id='yes_container'>
-				<div class="res_circle" id='yes_c'></div>
-				<div class="res_circle" id='n2y_c'></div>
-
-				<div class="res" id="yes">
-					<p class='r_txt'><b id='num_sold'></b> <%=@video.sold%>were sold</p>
-					<p class= 'r_txt' id='y_c'><b id='num_n2y'></b> changed their mind  <img class='arw' id='y_a' src='/assets/arrow.png'></p> 
-				</div>
-			</div>
-
-			<div class='change_cmts' id='y2n_cmt'>
-				<h2 class='cmt_hd' id='y2n_c_head'><b id='num_y2n_c'></b>changed to NOT SOLD </h2> 
-				<img class='bck_arw' id='bck_no_arw' src='/assets/arrow.png'><p class='back' id='bck_no'>BACK</p>
-				<div class='cmtbx' id='y2n_cmtbx'>
-
-				</div>
-			</div>
-
-			<div class="r_cnt" id="no_container">
-				<div class="res_circle" id='no_c'></div>
-				<div class="res_circle" id='y2n_c'></div>
-
-				<div class="res" id="no">
-					<p class='r_txt'><b id='num_not_sold'></b> <%=@video.notsold%>were not sold</p>
-					<p class='r_txt' id='n_c'><b id='num_y2n'></b> changed their mind  <img class='arw' id='n_a' src='/assets/arrow.png'></p> 
-				</div>
-			</div>
+			
 		</div>
-
 	</div>
 
 	<div id='comment_area'>
@@ -67,13 +57,16 @@
 
 		<div id='pointer_container'><img id='pointer' src='/assets/pointer.png'></div>
 		<div id='comment_container'>
-			<h1 id='comments_head'>Video Comments @ <b id='start_time'>0:00</b> - <b id='end_time'>0:10</b></h1>
-			<div id='ind_comment_container'>
-				<% @video.comments.each do |comment| %>
-				<%=comment.time_stamp%>
-				<%=comment.comment_text%>
-				<%end%>
+			<table id="comments_table">
+				<tr>
+					<td><h1 id='comments_head'>Comments (<%= @comments.count%>) </h1></td>
 
+					<td><h1 ><%= link_to "View All", videos_update_comments_path, remote: true, :id => "comments_viewall"%></h1></td>
+
+				</tr>
+			</table>
+			<div id="partial_container">
+				<%= render :partial => "comment_container" %>
 			</div>
 		</div>
 	</div>
@@ -87,7 +80,7 @@
 </div>
 
 <div id="videopanel">
-	<%= video_tag(["testvid.mp4"], :size => "640x360", :id=>"yourvideo",:controls => true, :class=>'vid_display') %>
+	<%= video_tag(["testvid.mp4"], :size => "600x360", :id=>"yourvideo",:controls => true, :class=>'vid_display') %>
 	<div class='right_panel'>
 	<%=link_to "BROWSE OTHER VIDEOS" , videos_path,:class=>'button bl', :id=>'back'%>
 		<div class='vote_panel'>
@@ -106,16 +99,16 @@
 				<%end%>
 		<br/>
 				<%if !@change.ischanged%>		
-			<button type="button" class="button2 button submit" id="changebtn">CHANGE</button>
+			<button type="button" class="changebutton button submit" id="changebtn">CHANGE</button>
 		<div id="confirm_panel" class = "hidden bl">
 			<p class='change_text bl'>Why do you want to change your vote? <br/>
 			<b id='small_text'>To make your opinion really matter, you can only change once!</b></p>
-			<textarea rows="4" cols="75" class='bl change_field' id="changevote1"></textarea><br>
-			<%=link_to 'Change', video_change_path(@video.id), :class=> "bl button submit btn pull-right"%>
+			<textarea rows="4" cols="55" class='bl change_field' id="changevote1"></textarea><br>
+			<%=link_to 'Change', video_change_path(@video.id), :class=> "bl submit btn pull-right", :id=> "changebutton"%>
 		</div>	
 				<% else %>
 				<br/>
-				<p id='small_text'>Looks like you've already changed your vote once for this pitch.</p>
+				<p id='small_text' style="text-align:center; width:60%; font-size:20px;margin-left:15%; margin-top:5%;">Looks like you've already changed your vote once for this pitch.</p>
 				<%end%>
 			<%end%>
 		</div>
@@ -132,14 +125,13 @@
 </script>
 
 <div id="comment_panel">
-	<h1 id='comment_stamp'>0:00</h1>
+	<h1 id='comment_stamp' class="bl">0:00</h1>
 	<%= render :partial => "comments/form" %>
 </div>
 
 <script>
 
 var video=document.getElementById("yourvideo"); 
-
 	video.addEventListener('loadedmetadata', function() {
       duration = video.duration;
       console.log(duration);
@@ -166,6 +158,13 @@ var minutes = Math.floor(video.currentTime/60);
 	video.addEventListener("click", function() {
     	togglePlay();
   	});
+// $("#yourvideo").on("timeupdate", function(event){
+// 	onTrackedVideoFrame(this.currentTime);
+// });
+
+// function onTrackedVideoFrame(currentTime){
+//     $("#comment_stamp").text(currentTime);
+// }
 
 $("#comment_area").keydown(function(event){ 
 	console.log("HELLOO")
@@ -193,6 +192,8 @@ $("#comment_area").keydown(function(event){
 		video.play()
 	});
 
+	
+
 </script>
 
 
@@ -200,16 +201,19 @@ $("#comment_area").keydown(function(event){
 <div id = "showcomments" class="hidden"><h6> show comments</h6></div>
 
 <div id="view_comments_panel">
-	<h1 class="sub_title bl">YOUR COMMENTS <%= @video.comments.count%></h1>
-	<div id="comment_list">
-		<%if @video.comments.count!=0%>
+	<h1 class="sub_title bl">YOUR COMMENTS (<%= @comments.count%>)</h1>
+	<div id="comment_list" >
+		<%if @comments.count!=0%>
 		<ul>
-			<%@video.comments.each do |comment|%>
-			<li>
-			<!-- <%=comment.time_stamp%> -->
-			<%= comment.comment_text%>
+			<%@comments.each do |comment|%>
+			<div class='individual_comment' id="<%= comment.time_stamp%>">
+				<table>
+					<tr>
+						<td class="comment_text" ><%= comment.comment_text%></td>
+					</tr>
+				</table>
 
-			</li>
+			</div>
 			<%end%>
 		</ul>
 
@@ -218,7 +222,19 @@ $("#comment_area").keydown(function(event){
 
 
     <script>
+    $('.individual_comment').click(function(){
+		console.log("hello");
+		console.log(this.id);
+		console.log(document.getElementById('yourvideo'));
+		video.currentTime = 5;
 
+		// video.currentTime = this.id;
+		video.play();
+		video.addEventListener("canplay",function() { 
+			consoel.log("in canplay");
+			video.currentTime = 5;
+		});
+	});
 	$('#hidecomments').click(function(){
 		$('#hidecomments').addClass('hidden');
 		$('#comment_list').addClass('hidden');

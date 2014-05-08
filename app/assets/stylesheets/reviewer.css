@@ -10,7 +10,9 @@ body{
 	display: inline-block;
 	vertical-align: text-top;	
 }
-
+#videopanel{
+	width:98%;
+}
 /** VOTING PANEL **/
 .vote_panel{
 	width: 550px;
@@ -68,19 +70,25 @@ body{
 	display: inline-block;
 	vertical-align: text-top;
 	font-size: 16px;
+	min-width:600px;
+	min-height:80px;
 	letter-spacing: 1px;
 }
 
 #comment_panel{
 	text-align: center;
-	width: 1200px;
-	margin-top:-5px;
+	width: 98%;
+	margin-top:80px;
 }
 
 #comment_submit{
 	display: inline-block;
 	vertical-align: text-top;
-	height: 70px;
+	/*height: 70px;*/
+}
+
+.commentsumission{
+	margin-top:10%;
 }
 
 /** VIEWING COMMENTS AREA**/
@@ -118,6 +126,18 @@ body{
 
 #individual_comment{
 	margin-bottom: 10px;
+}
+
+.invidual_comment_reviewer{
+	color:black;
+	text-decoration: none;
+	-o-transition:.1s;
+	-ms-transition:.1s;
+	-moz-transition:.1s;
+	 -webkit-transition:.1s;
+	font-size: 14px;
+	border-bottom: 1px #D5D3D3 solid;
+	padding: 10px;
 }
 
 #comment_input{
@@ -170,8 +190,9 @@ body{
 #comment_list{
 	/*line-height: 160%;*/
 	/*color: #ffffff;*/
-	background-color: #d8d8d8;
+	background-color: #fff;
 	/*padding: 20px;*/
+	color:black;
 }
 
 #comment_header{

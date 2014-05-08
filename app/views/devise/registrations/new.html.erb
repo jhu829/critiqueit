@@ -1,24 +1,23 @@
 <%= stylesheet_link_tag "login" %>
 
-<div class ="listing">
-	<div class ="loginbox">
+<div class ="formlayout">
+	<!-- <div class ="loginbox"> -->
 		<h2>Sign Up</h2><br>
 
 		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
 		  <%= devise_error_messages! %>
 
 		  <div><%= f.label :email %><br />
-		  <%= f.email_field :email, :autofocus => true %></div>
+		  <%= f.email_field :email, :autofocus => true, :class => 'medium_field' %></div>
 
 		  <div><%= f.label :password %><br />
-		  <%= f.password_field :password %></div>
+		  <%= f.password_field :password, :class => 'medium_field' %></div>
 
 		  <div><%= f.label :password_confirmation %><br />
-		  <%= f.password_field :password_confirmation %></div><br>
+		  <%= f.password_field :password_confirmation, :class => 'medium_field' %></div><br>
 
-		  <%= f.submit "Sign Up", :class=> 'button2'%>
+		  <%= f.submit "Sign Up", :class=> 'medium_buton'%>
 		<% end %>
 		<br>
 		<%= render "devise/shared/links" %>
-	</div>
 </div>

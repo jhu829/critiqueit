@@ -19,6 +19,9 @@ body {
 .reverse {
 
 }
+.teal{
+	background-color: #668b8b;
+}
 
 /** BACKGROUND IMAGES **/
 .sessions, .registrations, .passwords, .confirmations {
@@ -63,6 +66,27 @@ body {
 	-moz-transition:.1s;
 	-webkit-transition:.1s;
 }
+.changebutton{
+	font-size: 16px;
+	color:#fff;
+	background-color: #668b8b;
+	border:none;
+	width: 100px;
+	height:30px;
+	margin-bottom: 5px;
+	width:150px;
+	height:30px;
+	vertical-align: central;
+
+}
+#changebutton{
+	background-color: #668b8b;
+	margin-top: 2%;
+	color:#fff;
+	padding: 5px 50px 5px 50px;
+	font-size: 20px;
+}
+
 .buttonvid{
 	-o-transition:.1s;
 	-ms-transition:.1s;
@@ -165,8 +189,32 @@ opacity: .5;
 
 }
 
+/** FORM LAYOUT **/
+.formlayout{
+	text-align: center;
+	padding-top: 15%;
+}
 
+.medium_field{
+	width: 300px;
+	height: 20px;
+	margin: 10px;
+}
+.medium_buton{
+	width:300px;
+	color:#fff;
+	text-decoration: none;
+	border: none;
+	font-size: 16px;
+	padding:10px;
+	background-color: #668b8b;
+	margin-bottom: 20px;
+}
 
+.medium_buton:hover{
+	cursor:pointer;
+	opacity: 0.7;
+}
 /** FOOTER **/
 #footer {
 	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
@@ -176,5 +224,7 @@ opacity: .5;
 	height:80px;
 	bottom:0;
 	left:0;
+	float:left;
+	color:black;
 }
 

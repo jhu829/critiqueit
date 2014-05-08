@@ -1,0 +1,27 @@
+<% if @change%>
+	<%@notoyes.each do |comment|%>
+		<div class='individual_comment'>
+			<table>
+				<tr>
+					<td class="comment_text" ><%= comment.reason%></td>
+				</tr>
+			</table>
+
+		</div>
+	<%end%>
+<%end%>
+
+<script>
+	$(document).ready(function(){
+		var comment_container = $('#changed_comment_box');
+		$( "#yestono" ).click(function() {
+			var comment_container = document.getElementById('changed_comment_box_yes');
+			// comment_container.style.visibility = 'visible';
+			$('#changed_comment_box_yes').css({opacity: 0.0, visibility: "visible"}).animate({opacity: 1.0});
+		});
+		$( "#notoyes" ).click(function() {
+			var comment_container = document.getElementById('changed_comment_box_no');
+			comment_container.style.visibility = 'visible';
+		});
+	})
+</script>

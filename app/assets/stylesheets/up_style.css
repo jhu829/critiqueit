@@ -8,6 +8,7 @@ body {
 	color: #777;
 }
 
+
 /** TITLE AREA**/
 #title_holder{
 	margin-top: 20px;
@@ -26,6 +27,9 @@ body {
 	font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin";
 	margin-left: 15px;
 	letter-spacing: 2px;
+	width:90%;
+	margin-bottom:2%;
+	text-align:right;
 }
 
 /** VIDEO HOLDER **/
@@ -70,6 +74,41 @@ a, #play-pause, .individual_comment {
 	vertical-align: middle;
 }*/
 
+/** Uploader results chart **/
+#myvideo{
+	margin-top: -30px;
+}
+
+.uploader_result{
+	margin-left: 20px;
+	width:600px;
+	margin-top:-450px;
+}
+
+.uploader_chart{
+	/*border:2px black solid;*/
+	margin:5px;
+	margin-top: -30%;
+	min-width: 420px;
+}
+.uploader_canvas{
+	float:left;
+
+}
+.uploader_result_circle{
+	/*border:2px black solid;*/
+	margin-left:45%;
+	width: 300px;
+}
+#video_area{
+	background-color: #fff;
+	color:black;
+	padding:10px;
+	/*padding-left: 20px;*/
+	margin-top: 0px;
+	width:1100px;
+	height:390px;
+}
 
 #video_head{
 	font-size: 48px;
@@ -90,16 +129,17 @@ a, #play-pause, .individual_comment {
 
 /** VIDEO CONTROLS BAR **/
 #videoline_container {
-	background-color: #5A5A5A;
-	margin-top: -10px;
-	width: 100%;
+	background-color: #BDBCBC;
+	margin-top: -8px;
+	width: auto;
 	height: 55px;
 }
 
 #comment_bubbles {
 	padding-top: 2px;
 	text-align: center;
-	margin-left: -75px;
+	margin-top: -2px;
+	margin-left: -175px;
 }
 
 .comment_img {
@@ -121,9 +161,12 @@ a, #play-pause, .individual_comment {
 #video-controls {
 	padding-top: 2px;
 	text-align: center;
-	margin-left: 90px;
+	width:100%;
 }
 
+#vidline_playback_container{
+	width:1125px;
+}
 #seek-bar {
     width: 800px;	
 }
@@ -137,7 +180,6 @@ input[type="range"] {
 	-webkit-border-radius: 10px;
 	border-radius: 10px;
 	z-index: 2;
-	z
 }
 
 #seek-bar::-webkit-slider-thumb{
@@ -155,7 +197,7 @@ input[type="range"]::-webkit-slider-thumb {
     margin-top: -1px;
     -moz-border-radius: 10px;
 	-webkit-border-radius: 10px;
-	border-radius: 10px
+	border-radius: 10px;
 	z-index: 4;
 }
 
@@ -179,11 +221,50 @@ input[type="range"]::-webkit-slider-thumb {
 
 /** RESULTS **/
 
+.main_rec_feedback{
+	font-size:26px;
+	font-weight:600;
+	margin-bottom: 10px;
+}
+.change_rec_feedback{
+	font-size:20px;
+	font-weight:500;
+	margin-bottom: 10px;
+
+}
+.change_rec_feedback:hover{
+	opacity: 0.65;
+	color:#668b8b;
+	cursor: pointer;
+}
+
+.upload_arrow{
+	width: 20px;
+	margin-left: 5px;
+}
 #result_area {
 	display: inline-block;
 	width: 450px;
 	color: white;
 	vertical-align: middle;
+	padding-top:80px;
+}
+
+.changed_comment_box{
+	max-height: 180px;
+	min-height: 180px;
+	margin-bottom: 50px;
+	overflow-y: auto;
+}
+.comment_text_changed{
+	border-bottom: 1px #D5D3D3 solid;
+	padding:20px;
+}
+#changed_comment_box_yes, #changed_comment_box_no{
+	visibility: hidden;
+	overflow-y:auto;
+	display: none;
+	max-height:40px;
 }
 
 .r_txt {
@@ -295,37 +376,64 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 #comments_head{
-	color: #ffffff;
+	color: black;
 	font-weight: 300;
-	margin-bottom: 10px;
+	font-size: 24px;
 
 }
+#comments_table{
+	width:inherit;
+}
 
+#comments_viewall{
+	color:black;
+	font-size: 20px;
+	margin-left:70%;
+}
+
+#comments_viewall:hover{
+	cursor: pointer;
+	color: #668b8b;
+}
 #pointer_container, #comment_container {
 	width: 800px;
 	margin: 0 auto 0 auto;
 }
 
 #pointer{
-	width: 40px;
-	height: 40px;
-	margin-bottom: -1px;
+	width: 25px;
+	height: 60px;
+	margin-top:-20px;
+	margin-bottom: -10px;
 }
 
 #comment_container {
-	background-color:#d8d8d8; 
+	background-color:none; 
 	padding: 20px;
 }
 
 .individual_comment {
 	margin-bottom: 10px;
+	font-size: 14px;
+	border-bottom: 1px #D5D3D3 solid;
+	padding: 10px;
+
 }
 
 .individual_comment:hover {
 	opacity: .7;
 	cursor: hand
 }
-
+.ind_comment_container{
+	border-bottom: 2px solid black;
+	height: 200px;
+	color: black;
+}
+.comment_timestamp{
+	font-size:26px;
+	color: black;
+	font-weight: 700;
+}
 .cmt_table {
 	width: 100%;
 	border-collapse:collapse;
@@ -351,14 +459,3 @@ input[type="range"]::-webkit-slider-thumb {
 	text-align: left;
 	padding: 5px;
 }
-
-/** FOOTER **/
-#footer {
-	font-family: 'Open Sans Condensed'; 
-	font-weight: 300;
-	font-size: 18px;
-	text-align: center;
-	margin: 50px 0 20px 0;
-}
-
-	

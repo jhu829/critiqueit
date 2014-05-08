@@ -62,8 +62,12 @@ class VideosController < ApplicationController
 		@change.ischanged=true
 		if @change.vote == "yes"
 			puts "ITS A YESS"
+			@change.yestono = true
+			@video.yestono +=1
 			@change.vote = "no"
 		else
+			@video.notoyes +=1
+			@change.notoyes = true
 			@change.vote="yes"
 		end
 		@change.save
@@ -91,12 +95,36 @@ class VideosController < ApplicationController
 
 	def show
 		@video = Video.find(params[:id])
-		puts "HEYY"
-		puts @video.id
 		@comment = Comment.new
-		@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
+		@comments = Comment.where(:video_id=> @video.id).order("time_stamp ASC")
+		@change = Change.where(:video_id=> @video.id)
+		# puts @change.reason
+		if @change
+			@yestono =  Change.where(:video_id=> @video.id, :yestono => true)
+			puts "Rawr"
+			puts @yestono
+			@notoyes = Change.where(:video_id=> @video.id, :notoyes => true)
+		end
 	end
 
+	def update_comments
+		puts "hello"
+		# puts video
+		puts "vid"
+		@video = Video.find(params[:id])
+		@comments = Comment.where(:video_id=> @video.id).order("time_stamp ASC")
+		@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
+
+
+		# puts "onupdate comments"
+		respond_to do |format|
+			format.js
+		end
+	end
+
+	def get_comments
+		
+	end
 
 	private 
 
