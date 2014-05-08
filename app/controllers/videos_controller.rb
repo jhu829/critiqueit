@@ -32,6 +32,8 @@ class VideosController < ApplicationController
 
 	end
 
+	
+
 	def sold
 		@video = Video.find(params[:video_id])
 		newsold = @video.sold+1

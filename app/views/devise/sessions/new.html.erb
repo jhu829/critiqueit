@@ -1,10 +1,39 @@
 <%= stylesheet_link_tag "login" %>
 <%= javascript_include_tag  "browse" %>
+<%= stylesheet_link_tag "owl.carousel" %>
+<%= stylesheet_link_tag  "owl.theme" %>
+<%= javascript_include_tag  "owl.carousel" %>
+<%= javascript_include_tag  "owl_start" %>
+
 <div class ="listing">
 	<div class ="loginbox">
-		<p id='top-line'>BE THE BEST YOU</p>
-		<p id='second-line'>MAKE THE PERFECT PITCH</p>
-		<br/>
+		<div id="owl" class="owl-carousel">
+			<div>
+				<br>
+				<br>
+				<br>
+				<p class='top-line'>BE THE BEST YOU</p>
+				<p class='second-line'>MAKE THE PERFECT PITCH</p>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
+			<div>
+				<p class='second-line'>GET FEEDBACK</p>
+				<p class="middle_left">1. UPLOAD A VIDEO</p>
+				<p class="middle_right">2. SEE YOUR FEEDBACK</p>
+			</div>
+			<div>
+				<p class="second-line">SEE OTHERS</p>
+				<p class="middle_left">1. WATCH A VIDEO</p>
+				<p class="middle_right">2. VOTE AND COMMENT</p>
+			</div>
+		</div>
 		<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
 		<div id='signin_fields'>	
