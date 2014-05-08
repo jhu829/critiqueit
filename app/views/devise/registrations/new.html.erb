@@ -8,13 +8,13 @@
 		  <%= devise_error_messages! %>
 
 		  <div><%= f.label :email %><br />
-		  <%= f.email_field :email, :autofocus => true, :class => 'medium_field' %></div>
+		  <%= f.email_field :email, :autofocus => true, :class => 'medium_field textchange' %></div>
 
 		  <div><%= f.label :password %><br />
-		  <%= f.password_field :password, :class => 'medium_field' %></div>
+		  <%= f.password_field :password, :class => 'medium_field textchange' %></div>
 
 		  <div><%= f.label :password_confirmation %><br />
-		  <%= f.password_field :password_confirmation, :class => 'medium_field' %></div><br>
+		  <%= f.password_field :password_confirmation, :class => 'medium_field textchange' %></div><br>
 
 		  <%= f.submit "Sign Up", :class=> 'medium_buton'%>
 		<% end %>
