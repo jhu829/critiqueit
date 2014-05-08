@@ -10,15 +10,21 @@
 <%end%>
 
 <script>
+	var playButton = document.getElementById("play-pause");
 	var video=document.getElementById("myvideo"); 
     $('.individual_comment').click(function(){
-		console.log("hello");
-		console.log(this.id);
-		// video.pause();
 		video.currentTime = this.id;
 		video.play();
-		// video.currentTime = this.id;
-		// video.play();
-		
+		playButton.src = '/assets/pause.png';
+		var total_jump = Math.floor(video.duration)/10;
+	     var single_jump = 800/total_jump;
+	     var current_jump = Math.floor(video.currentTime/10);
+	     var jump_value = single_jump*current_jump;
+
+	     var stamp = Math.floor(current_jump)*10;
+
+	     $('#ind_comment_container').html('');
+	     $('#pointer').css({"marginLeft": jump_value+'px'});
 	});
+  
 </script>
