@@ -417,7 +417,8 @@ input[type="range"]::-webkit-slider-thumb {
 	font-size: 14px;
 	border-bottom: 1px #D5D3D3 solid;
 	padding: 10px;
-
+	cursor:pointer;
+	
 }
 
 .individual_comment:hover {

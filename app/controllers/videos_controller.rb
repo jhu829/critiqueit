@@ -98,6 +98,7 @@ class VideosController < ApplicationController
 		@comment = Comment.new
 		@comments = Comment.where(:video_id=> @video.id).order("time_stamp ASC")
 		@change = Change.where(:video_id=> @video.id)
+		@changes = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
 		# puts @change.reason
 		if @change
 			@yestono =  Change.where(:video_id=> @video.id, :yestono => true)

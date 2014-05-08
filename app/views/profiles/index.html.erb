@@ -24,20 +24,21 @@
 					<p class='rec_info bl'>Duration: <b class='put_duration bl'></b><br/>
 					<p class='rec_info bl'>Created on: <%= @recvid.created_at.to_formatted_s(:long) %><br/>
 					<p class='rec_info bl'>Comments: <%= @recvid.comments.count %></p>
-
-					<h5 class='heading bl' id='recvid_heading'>MOST RECENT COMMENT</h5>
+					<br/>
+					<br/>
+					<h5 class='heading bl' id='recvid_heading' style="color:black">MOST RECENT COMMENT</h5>
 					<% if user_signed_in? %>
 					<% @reccom = @recvid.comments.order("created_at").last %>
 					<%if @reccom != nil %>
-						<h5 class= 'bl' id='rec_record'>
+						<!-- <h5 class= 'bl' id='rec_record'>
 							<%= @reccom.time_stamp%> by <%= User.find_by_id(@reccom.user_id) %>
-						</h5>
+						</h5> -->
 						<p class='bl' id='rec_text bl'><%= @reccom.comment_text %></p>
 					<% else %>
 						<p class='comtxt bl'>Seems like no one has made any comments on your pitch yet!</p>
 					<% end %>
 				</div>
-				<div id='recvid_feedback'>
+				<div id='recvid_feedbackprofile'>
 					<canvas id="recvid_chart" width="75" height="75"></canvas>
 <!-- 					<%= javascript_tag do %>
 						drawChart("recvid_chart", 
