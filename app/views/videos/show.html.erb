@@ -84,13 +84,13 @@
 	<div class='right_panel'>
 	<%=link_to "BROWSE OTHER VIDEOS" , videos_path,:class=>'button bl', :id=>'back'%>
 		<div class='vote_panel'>
-			<%if @change.nil?%>
+			<%if @changes.nil?%>
 				<h1 class='bl' id='vote_text'>ARE YOU SOLD?</h1><br/>
 				<%=link_to 'Yes', video_sold_path(@video.id), :class=> "button submit_vote sold"%>
 				<%=link_to 'No', video_notsold_path(@video.id), :class=> "button submit_vote not_sold"%>
 		</div>
 			<%else%>
-				<%if @change.vote=="yes"%>
+				<%if @changes.vote=="yes"%>
 		<div class='bl' id="vote_text">
 			YOU ARE SOLD!
 				<%else%>
@@ -98,7 +98,7 @@
 		</div>
 				<%end%>
 		<br/>
-				<%if !@change.ischanged%>		
+				<%if !@changes.ischanged%>		
 			<button type="button" class="changebutton button submit" id="changebtn">CHANGE</button>
 		<div id="confirm_panel" class = "hidden bl">
 			<p class='change_text bl'>Why do you want to change your vote? <br/>
@@ -222,19 +222,6 @@ $("#comment_area").keydown(function(event){
 
 
     <script>
-    $('.individual_comment').click(function(){
-		console.log("hello");
-		console.log(this.id);
-		console.log(document.getElementById('yourvideo'));
-		video.currentTime = 5;
-
-		// video.currentTime = this.id;
-		video.play();
-		video.addEventListener("canplay",function() { 
-			consoel.log("in canplay");
-			video.currentTime = 5;
-		});
-	});
 	$('#hidecomments').click(function(){
 		$('#hidecomments').addClass('hidden');
 		$('#comment_list').addClass('hidden');

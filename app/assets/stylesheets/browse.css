@@ -130,7 +130,7 @@ b {
 
 #recentpanel{
 	padding:5px;
-	height: auto;
+	height: 300px;
 	width: 1200px;
 	background-color: #fff;
 }
@@ -176,7 +176,14 @@ b {
 	padding-top: 200px;
 	padding-left: 10px;
 }
+#recvid_feedbackprofile{
+	width: 200px;
+	float:right;
+	margin-top:20px;
+	/*display: inline-block;*/
+	/*padding-top: -200px;*/
 
+}
 #recvid_heading{
 	margin-top: 10px;
 }
