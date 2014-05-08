@@ -3,8 +3,13 @@
 
 	<div class="toppanel">
 		<div class="searchpanel">
-			<input id="search_bar"  type="text" placeholder='search...'></input>
-			<button class="button" id='search_button'></button>
+			<!-- <input id="search_bar"  type="text" placeholder='search...'></input>
+			<button class="button" id='search_button'></button> -->
+
+			<%= form_tag video_search_path(params[:query]), id: "search_bar", method: :get do %>
+			<%= text_field_tag :query, params[:query], id:"search_bar", placeholder:'search...' %>
+			<%= submit_tag "", class:"button", id:"search_button" %>
+			<% end %>
 		</div>	
 			<button class ="button submit teal" id="upload">UPLOAD VIDEO</button>
 	</div>

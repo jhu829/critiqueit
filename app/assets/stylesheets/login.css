@@ -54,6 +54,7 @@ letter-spacing: 3px;
 	display: inline-block;
 	font-size: 18px;
 	font-weight: 200;
+	color: black
 }
 
 #remember_me{
@@ -74,16 +75,41 @@ line-height: 21px;
 
 .middle_left{
 	display: inline-block;
-	left: 70px;
-	margin-top:200px;
+	margin-top:3%;
 	font-size: 19px;
-	width: 450px;
+	margin-right: 15%;
+	margin-left:2%;
 }
 
 .middle_right{
 	display: inline-block;
-	right: 70px;
-	margin-top: 200px; 
+	margin-top: 3%; 
 	font-size: 19px;
-	width: 450px;
+	margin-left: 15%;
+}
+
+.img_left1{
+	display: inline-block;
+	margin-top:2%;
+	margin-right: 16%;
+	margin-left:4%;
+}
+
+.img_right1{
+	display: inline-block;
+	margin-top: 2%;
+	margin-left: 16%;
+}
+
+.img_left2{
+	display: inline-block;
+	margin-top:4.5%;
+	margin-right: 13%;
+	margin-left:7.1%;
+}
+
+.img_right2{
+	display: inline-block;
+	margin-top: 4.5%;
+	margin-left: 13%;
 }

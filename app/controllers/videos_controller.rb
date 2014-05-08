@@ -32,7 +32,24 @@ class VideosController < ApplicationController
 
 	end
 
-	
+	def search
+		puts "searching"
+		if params[:query].present?
+			results=Video.search(params[:query], page: params[:page])
+			@video=results.map(&:id)
+		else
+			flash.now[:error] = "You didn't search anything!"
+		end
+		if @video.size>1
+			flash.now[:error] = "Too many videos!"
+		else
+			redirect_to video_path(@video)
+		end
+	end
+
+	def autocomplete
+    	render json: Video.search(params[:query], autocomplete: true, limit: 10).map(&:title)
+  	end
 
 	def sold
 		@video = Video.find(params[:video_id])
