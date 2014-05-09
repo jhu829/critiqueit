@@ -133,6 +133,7 @@ a, #play-pause, .individual_comment {
 	margin-top: -8px;
 	width: auto;
 	height: 55px;
+	margin-left:-10px;
 }
 
 #comment_bubbles {
