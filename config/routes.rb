@@ -22,14 +22,12 @@ Critiqueit::Application.routes.draw do
       get :sold
       get :notsold
       get :change
-      member do
-        get 'search'
-        get 'autocomplete'
-      end
       
     resources :comments
   end
 
+  get '/autocomplete' => 'videos#autocomplete'
+  get '/search' => 'videos#search'
   get '/browse' => 'videos#index'
   get '/home' => 'profiles#index'
 
