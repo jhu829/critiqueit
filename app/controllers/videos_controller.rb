@@ -125,19 +125,28 @@ class VideosController < ApplicationController
 	end
 
 	def update_comments
-		id = params[:name]
-		intstart = params[:start]   # so 1* 10 for 10 sec, 2 *10 for 20 sec etc
-		intstart = intstart.to_i * 10
-		intend = intstart.to_i + 9    # add 9 to get the interval (eg 10 - 19)
-		@video = Video.find(id)
-		# Client.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
-		@comments = Comment.where(:video_id=>id, :time_stamp => (intstart..intend))
-		# @comments = Comment.where(:video_id=> @video.id).order("time_stamp ASC")
-		@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
-
+		if params[:all] == "1"
+			puts "in truee"
+			@video = Video.find(params[:name])
+			@comment = Comment.new
+			@comments = Comment.where(:video_id=> @video.id).order("time_stamp ASC")
+			@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
+		else
+			puts "in else"
+			id = params[:name]
+			intstart = params[:start]   # so 1* 10 for 10 sec, 2 *10 for 20 sec etc
+			intstart = intstart.to_i * 10
+			intend = intstart.to_i + 9    # add 9 to get the interval (eg 10 - 19)
+			@video = Video.find(id)
+			# Client.where(created_at: (Time.now.midnight - 1.day)..Time.now.midnight)
+			@comments = Comment.where(:video_id=>id, :time_stamp => (intstart..intend))
+			# @comments = Comment.where(:video_id=> @video.id).order("time_stamp ASC")
+			@change = Change.find_by(:user_id => current_user.id, :video_id=> @video.id)
+		end
 		respond_to do |format|
 			format.js
 		end
+		
 	end
 
 	def get_comments

@@ -4,10 +4,12 @@ $( document ).ready(function(){
     var current_jump = Math.floor(video.currentTime/10);
     $.ajax({
       url: "/update_comments", // Change this to correct path
-      data: {name: video.className, start: current_jump}
+      data: {name: video.className, start: current_jump, all: "1"}
     })
   });
- 
+  
+
+  ////// VIDEO STUFFF ///////
   var rec_vid = document.getElementById('recent_video');
   if (rec_vid != null) {
     rec_vid.addEventListener('loadedmetadata', function(){
@@ -226,10 +228,10 @@ video.addEventListener("timeupdate", function() {
     $('#end_time').html(getVideoTime(stamp+10));
 
     $('#pointer').css({"marginLeft": (jump_value-35)+'px'});
-    
+
     $.ajax({
       url: "/update_comments", // Change this to correct path
-      data: {name: video.className, start: current_jump}
+      data: {name: video.className, start: current_jump, all:false}
     })
 
   }
