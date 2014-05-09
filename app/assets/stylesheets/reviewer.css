@@ -6,20 +6,21 @@ body{
 }
 
 .right_panel{
-	width: 550px;
+	width: 500px;
 	display: inline-block;
 	vertical-align: text-top;	
+	background-color: #fff;
 }
 #videopanel{
 	width:98%;
 }
 /** VOTING PANEL **/
 .vote_panel{
-	width: 550px;
+	width: inherit;
 	display: inline-block;
 	vertical-align: text-top;
 	text-align: center;
-	margin-top: 75px
+	margin-top: 15%;
 }
 
 #vote_text{

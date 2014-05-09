@@ -3,9 +3,9 @@ body {
 }
 
 #back{
-	margin-left: 320px;
 	vertical-align: top;
 	color: #777;
+	float:right;
 }
 
 
@@ -150,7 +150,7 @@ a, #play-pause, .individual_comment {
 }
 
 .comment_img:hover{
-	cursor: hand;
+	cursor: pointer;
 	filter: hue-rotate(240deg);
 	-webkit-filter: hue-rotate(240deg);
 	-moz-filter: hue-rotate(240deg);

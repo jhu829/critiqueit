@@ -41,26 +41,20 @@
 				</div>
 				<div id='recvid_feedbackprofile'>
 					<canvas id="recvid_chart" width="75" height="75"></canvas>
-<!-- 					<%= javascript_tag do %>
+				<%= javascript_tag do %>
 						drawChart("recvid_chart", 
 									<%= @recvid.sold %>, 
 									<%= @recvid.notsold %>, 
-									100, 
-									50);
-					<% end %> -->
-					 <%= javascript_tag do %>
-						drawChart("recvid_chart", 
-									423, 
-									124, 
-									34, 
-									78);
-					<% end %> 
+									<%= @recvid.yestono %>, 
+									<%= @recvid.notoyes %>);
+					<% end %>
+				
 					<br/>
-					<div class='circle_l sold'></div><p class='main_rec_feedback bl'><b class='emph'>23<%= @recvid.sold %></b> SOLD</p><br/>
-					<div class='circle_l not_sold'></div><p class='main_rec_feedback bl'><b class='emph'>12<%= @recvid.notsold %> </b> NOT SOLD</p>
+					<div class='circle_l sold'></div><p class='main_rec_feedback bl'><b class='emph'><%= @recvid.sold %></b> SOLD</p><br/>
+					<div class='circle_l not_sold'></div><p class='main_rec_feedback bl'><b class='emph'><%= @recvid.notsold %> </b> NOT SOLD</p>
 					<br/>
-					<div class='circle_s sold_to_not'></div><p class='change_rec_feedback bl'><b  class='emph'>12 </b>SOLD TO NOT SOLD</p><br/>
-					<div class='circle_s not_to_sold'></div><p class='change_rec_feedback bl'><b class='emph'>19 </b>NOT SOLD TO SOLD</p><br/>
+					<div class='circle_s sold_to_not'></div><p class='change_rec_feedback bl'><b  class='emph'><%= @recvid.yestono %></b> SOLD TO NOT SOLD</p><br/>
+					<div class='circle_s not_to_sold'></div><p class='change_rec_feedback bl'><b class='emph'><%= @recvid.notoyes %></b> NOT SOLD TO SOLD</p><br/>
 
 				</div>
 		</div>
