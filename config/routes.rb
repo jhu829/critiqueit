@@ -22,10 +22,11 @@ Critiqueit::Application.routes.draw do
       get :sold
       get :notsold
       get :change
-      get :search
-      collection do
-        get :autocomplete
+      member do
+        get 'search'
+        get 'autocomplete'
       end
+      
     resources :comments
   end
 
