@@ -410,6 +410,7 @@ input[type="range"]::-webkit-slider-thumb {
 #comment_container {
 	background-color:none; 
 	padding: 20px;
+	margin-top: -7%;
 }
 
 .individual_comment {

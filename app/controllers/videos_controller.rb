@@ -32,16 +32,16 @@ class VideosController < ApplicationController
 
 	end
 
-	def autocomplete
-		input=params[:title].downcase()
-		@videos=Video.where("title.include(input)")
-		if @videos.size=0
-			flash.now[:error] = "That video doesn't exist"
-		else
-			@videos.map{&:title}
-			respond_with(:json=>{:videos=>@videos})
-		end
-	end
+	# def autocomplete
+	# 	input=params[:title].downcase()
+	# 	@videos=Video.where("title.include(input)")
+	# 	if @videos.size=0
+	# 		flash.now[:error] = "That video doesn't exist"
+	# 	else
+	# 		@videos.map{&:title}
+	# 		respond_with(:json=>{:videos=>@videos})
+	# 	end
+	# end
 
 	def search
 		@video=Video.find_by(title: params[:title])

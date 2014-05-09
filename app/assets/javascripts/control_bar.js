@@ -1,4 +1,4 @@
-window.onload = function() {
+$( document ).ready(function(){
   // COMMENT STUFFFF //
 
   // $('#comments_viewall').on('click', function(e){
@@ -51,7 +51,7 @@ window.onload = function() {
   }
 
   function addCommentBubbles() {
-
+    console.log("Addding comment bubbles")
     var duration = video.duration;
     var totalJumps = Math.floor(duration/10)+1;
 
@@ -142,7 +142,6 @@ window.onload = function() {
     console.log("playbutton click!1111");
     togglePlay();
   });
-
 /////not stuff under here ////
 
 fullScreenButton.addEventListener("click", function() {
@@ -258,6 +257,62 @@ volumeBar.addEventListener("change", function() {
     // Update the video volume
     video.volume = volumeBar.value;
   });
+});
+
+window.onload=function(){
+  var video = document.getElementById("myvideo");
+  video.removeAttribute("controls");
+  var playButton = document.getElementById("play-pause");
+  var fullScreenButton = document.getElementById("full-screen");
+  var muteButton = document.getElementById("mute");
+
+  var seekBar = document.getElementById("seek-bar");
+  var volumeBar = document.getElementById("volume-bar");
+
+  var comment_divs =[];
+
+  function togglePlay() {
+    if (video.paused == true) {
+      // Play the video
+      video.play();
+      playButton.src = '/assets/pause.png';
+    } 
+    else {
+      // Pause the video
+      video.pause();
+      playButton.src = '/assets/play.png';
+    }
+  }
+
+   playButton.addEventListener("click", function() {
+    console.log("playbutton click!1111");
+    togglePlay();
+  });
+  muteButton.addEventListener("click", function() {
+    if (video.muted == false) {
+      video.muted = true;
+      volumeBar.value = 0;
+      video.volume = 0;
+      muteButton.src = '/assets/mute.png';
+    } else {
+      video.muted = false;
+      volumeBar.value = 1.0;
+      video.volume = 1.0;
+      muteButton.src = '/assets/audio.png';
+    }
+  });
+  fullScreenButton.addEventListener("click", function() {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.mozRequestFullScreen) {
+      video.mozRequestFullScreen(); // Firefox
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen(); // Chrome and Safari
+    }
+  });
+
+  volumeBar.addEventListener("change", function() {
+    // Update the video volume
+    video.volume = volumeBar.value;
+  });
 };
-
-
