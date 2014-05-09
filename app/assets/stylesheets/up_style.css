@@ -403,6 +403,7 @@ input[type="range"]::-webkit-slider-thumb {
 #pointer{
 	width: 25px;
 	height: 60px;
+	margin-left:-40px;
 	margin-top:-20px;
 	margin-bottom: -10px;
 }

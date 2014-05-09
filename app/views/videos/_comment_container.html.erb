@@ -1,13 +1,24 @@
-<%@comments.each do |comment|%>
-	<div class='individual_comment' id="<%= comment.time_stamp%>">
+<%if @comments.count  > 0%>
+	<%@comments.each do |comment|%>
+		<div class='individual_comment' id="<%= comment.time_stamp%>">
+			<table>
+				<tr>
+					<td class="comment_text" ><%= comment.comment_text%></td>
+				</tr>
+			</table>
+
+		</div>
+	<%end%>
+<% else %>
+	<div class='individual_comment' >
 		<table>
 			<tr>
-				<td class="comment_text" ><%= comment.comment_text%></td>
+				<td class="comment_text" >Oops, no one made a comment here yet!</td>
 			</tr>
 		</table>
 
 	</div>
-<%end%>
+<% end %>
 
 <script>
 	var playButton = document.getElementById("play-pause");
@@ -24,7 +35,8 @@
 	     var stamp = Math.floor(current_jump)*10;
 
 	     $('#ind_comment_container').html('');
-	     $('#pointer').css({"marginLeft": jump_value+'px'});
+   		 $('#pointer').css({"marginLeft": (jump_value-35)+'px'});
+
 	});
   
 </script>

@@ -15,7 +15,7 @@ Critiqueit::Application.routes.draw do
   # You can have the root of your site routed with "root"
   get 'static_pages/home'
   root  'profiles#index'
-
+  get '/update_comments' => 'videos#update_comments'
   get 'videos/update_comments'
   
   resources :videos do

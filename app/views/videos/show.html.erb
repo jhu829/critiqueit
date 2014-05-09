@@ -9,7 +9,7 @@
 
 	<div id='video_area'>
 		<br/>
-		<%= video_tag(["testvid.mp4"], :size => "600x400", :controls => true, :id =>'myvideo') %>
+		<%= video_tag(["testvid.mp4"], :size => "600x400", :controls => true, :id =>'myvideo', :class=> @video.id) %>
 		
 		<div class ="uploader_result" id='result_area'>
 			<div class = "uploader_chart" id='recvid_feedback'>
@@ -61,7 +61,10 @@
 				<tr>
 					<td><h1 id='comments_head'>Comments (<%= @comments.count%>) </h1></td>
 
-					<td><h1 ><%= link_to "View All", videos_update_comments_path, remote: true, :id => "comments_viewall"%></h1></td>
+					<td><h1 >
+						<!--- <%= link_to "View All", videos_update_comments_path, remote: true, :id => "comments_viewall"%> -->
+						<p id = "comments_viewall">VIEW ALL</p>
+					</h1></td>
 
 				</tr>
 			</table>

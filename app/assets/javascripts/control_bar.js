@@ -1,11 +1,13 @@
 $( document ).ready(function(){
   // COMMENT STUFFFF //
-
-  // $('#comments_viewall').on('click', function(e){
-  //     $("#partial_container").html("<%= raw escape_javascript(render :partial => 'test') %>");
-  //     console.log("render!");
-  //   });
-
+  $('#comments_viewall').click(function(){
+    var current_jump = Math.floor(video.currentTime/10);
+    $.ajax({
+      url: "/update_comments", // Change this to correct path
+      data: {name: video.className, start: current_jump}
+    })
+  });
+ 
   var rec_vid = document.getElementById('recent_video');
   if (rec_vid != null) {
     rec_vid.addEventListener('loadedmetadata', function(){
@@ -173,8 +175,8 @@ fullScreenButton.addEventListener("click", function() {
      var stamp = Math.floor(current_jump)*10;
 
      $('#ind_comment_container').html('');
-     $('#pointer').css({"marginLeft": jump_value+'px'});
-
+     $('#pointer').css({"marginLeft": (jump_value-35)+'px'});
+     console.log ("hello seek bar");
      $('#_'+current_jump).animate({'width' : '25px', 
                                      'height': '22px'}, 200);
      $('#start_time').html(getVideoTime(stamp));
@@ -223,13 +225,12 @@ video.addEventListener("timeupdate", function() {
     $('#start_time').html(getVideoTime(stamp));
     $('#end_time').html(getVideoTime(stamp+10));
 
-    $('#pointer').css({"marginLeft": jump_value+'px'});
-    // for (var n=0; n< fake_comments.length; n++) {
-    //   if (fake_comments[n].getTimeStamp() > stamp && fake_comments[n].getTimeStamp() < stamp+10) {
-    //     fake_comments[n].render_stamp();
-    //   } 
-    // }
-    // clickableComments();
+    $('#pointer').css({"marginLeft": (jump_value-35)+'px'});
+    
+    $.ajax({
+      url: "/update_comments", // Change this to correct path
+      data: {name: video.className, start: current_jump}
+    })
 
   }
 });
